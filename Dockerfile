@@ -1,6 +1,4 @@
-FROM node:12.14 as build-stage
-LABEL maintainer="joingaram@gmail.com"
+FROM node:12.14
 COPY package*.json ./
 RUN npm install
-COPY . .
-
+RUN npm install -g @vue/cli
