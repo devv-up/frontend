@@ -2,7 +2,9 @@
   <v-app>
     <Navigation />
     <Header />
-    <v-content><slot /></v-content>
+    <v-content>
+      <v-container><slot /></v-container
+    ></v-content>
     <Footer />
   </v-app>
 </template>
