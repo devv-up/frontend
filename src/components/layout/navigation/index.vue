@@ -2,10 +2,10 @@
   <v-navigation-drawer
     v-model="drawer"
     app
-    clipped
     left
     disable-resize-watcher
     disable-route-watcher
+    temporary
   >
     <v-list>
       <v-list-item>
