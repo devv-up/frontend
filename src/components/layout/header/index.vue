@@ -1,26 +1,22 @@
 <template>
-  <v-app-bar
-    :clipped-left="$vuetify.breakpoint.lgAndUp"
-    app
-    flat
-    color="primary"
-  >
-    <v-toolbar-title class="ml-0 pl-3 text-no-wrap">
-      <span class="font-weight-bold white--text text-no-wrap">Dev Up!</span>
-    </v-toolbar-title>
-    <v-btn
-      icon
+  <v-app-bar clipped-left app flat height="80">
+    <router-link to="/">
+      <v-img
+        class="mx-2"
+        :src="require('@/assets/images/logo.png')"
+        max-width="32"
+      ></v-img>
+    </router-link>
+    <v-icon
       left
-      class="hidden-md-and-up drawer-btn"
-      :ripple="false"
+      class="text-no-overflow drawer-btn ml-1"
       @click.stop="drawer = !drawer"
-    >
-      <v-icon left class="text-no-overflow">mdi-chevron-down</v-icon>
-    </v-btn>
+      >mdi-chevron-right
+    </v-icon>
     <v-text-field
-      class="ml-3"
-      flat
+      class="ml-2"
       solo
+      single-line
       clearable
       hide-details
       prepend-inner-icon="mdi-magnify"
@@ -33,7 +29,7 @@
           <v-img :src="userAvatarImage" :alt="userName"></v-img>
         </v-avatar>
       </v-btn>
-      <v-btn v-else text color="white">가입 혹은 로그인</v-btn>
+      <v-btn v-else outlined color="secondary">가입 혹은 로그인</v-btn>
     </div>
   </v-app-bar>
 </template>
@@ -45,3 +41,12 @@ import Component, { mixins } from "vue-class-component";
 @Component
 export default class Header extends mixins(Profile, Nav) {}
 </script>
+<style scoped>
+.v-app-bar {
+  border-bottom: 1px solid #ebebeb !important;
+  background: #ffffff !important;
+}
+.v-text-field {
+  max-width: 460px;
+}
+</style>
