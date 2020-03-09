@@ -1,4 +1,4 @@
 module.exports = {
-  transpileDependencies: ["vuetify", "vuex-module-decorators"]
-  publicPath: ''
+  transpileDependencies: ["vuetify", "vuex-module-decorators"],
+  publicPath: ""
 };
