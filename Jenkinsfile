@@ -37,13 +37,17 @@ pipeline {
     }
     stage('TestDeploy') {
       steps {
-        sh 'npm run build'
         script {
           if (env.CHANGE_ID) {
             def comment = findComment()
             def tokens = env.WORKSPACE.tokenize('/')
             def folder = tokens.get(tokens.size()-1)
-            pullRequest.editComment(comment.id, "[Jenkins]\n" + "https://test.dev-up.kr/ops/" + folder + "/dist/\n")
+            def base_url = "/" + folder + "/"
+            def json = '{"publicPath":"' + base_url + '"}'
+            writeFile file: "${env.WORKSPACE}/_jenkins.json", text: json
+            sh("npm run build")
+            sh("rm ${env.WORKSPACE}/_jenkins.json")
+            pullRequest.editComment(comment.id, "[Jenkins]\n" + "https://test.dev-up.kr" + base_url + "\n")
           }
         }
       }
