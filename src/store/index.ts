@@ -1,12 +1,12 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { NavigationMenuState } from "navigation";
+import { SearchState } from "search";
 import { UserState } from "user";
 
 Vue.use(Vuex);
 
 export interface RootState {
-  navigationMenu: NavigationMenuState;
+  Search: SearchState;
   user: UserState;
 }
 
