@@ -1,14 +1,15 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "@/views/home/index.vue";
+import Layout from "@/layout/index.vue";
 
 Vue.use(VueRouter);
 
 const routes: RouteConfig[] = [
   {
     path: "/",
-    name: "Home",
-    component: Home
+    component: Layout,
+    name: "Home"    
   }
 ];
 
