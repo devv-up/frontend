@@ -1,7 +1,6 @@
 import Vuetify from "vuetify";
 import Vuex from "vuex";
 import { shallowMount, createLocalVue } from "@vue/test-utils";
-import { Profile, Nav } from "@/components/layout/mixin";
 import Header from "@/components/layout/header/index.vue";
 
 const localVue = createLocalVue();
@@ -24,8 +23,7 @@ describe("components/layout/header/index", () => {
     const wrapper = shallowMount(Header, {
       store,
       localVue,
-      vuetify,
-      mixins: [Profile, Nav]
+      vuetify
     });
     wrapper.find(".drawer-btn").trigger("click");
     await wrapper.vm.$nextTick();
