@@ -8,9 +8,9 @@ declare module "board" {
     id: number;
     name: string;
   }
-  
+
   export interface CategoryTagState {
-    categories: Category[],
-    tags: Tag[]
+    categories: Category[];
+    tags: Tag[];
   }
 }

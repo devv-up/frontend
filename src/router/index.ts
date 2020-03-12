@@ -13,15 +13,15 @@ const routes: RouteConfig[] = [
       {
         path: "",
         component: Main,
-        props: (route) => ({
+        props: route => ({
           searchtext: route.query.searchtext,
           searchdate: route.query.searchdate,
           searchtime: route.query.searchtime,
           searchcategory: route.query.searchcategory,
-          searchtag: route.query.searchtag          
+          searchtag: route.query.searchtag
         })
       }
-    ]  
+    ]
   }
 ];
 

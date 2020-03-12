@@ -1,10 +1,4 @@
-import {
-  Module,
-  VuexModule,
-  getModule,
-  Mutation,
-  Action
-} from "vuex-module-decorators";
+import { Module, VuexModule, getModule } from "vuex-module-decorators";
 import { Category, Tag, CategoryTagState } from "board";
 import store from "@/store";
 
@@ -16,9 +10,9 @@ class Board extends VuexModule implements CategoryTagState {
     { id: 2, name: "프로젝트" },
     { id: 3, name: "밋업" },
     { id: 4, name: "알고리즘" },
-    { id: 5, name: "프로젝트" },
+    { id: 5, name: "프로젝트" }
   ];
-  
+
   public tags: Tag[] = [
     { id: 0, name: "전체" },
     { id: 1, name: "파이썬" },
@@ -29,7 +23,6 @@ class Board extends VuexModule implements CategoryTagState {
     { id: 6, name: "리액트" },
     { id: 7, name: "장고" },
     { id: 8, name: "백엔드" }
-  ]  
- 
+  ];
 }
 export const BoardModule = getModule(Board);

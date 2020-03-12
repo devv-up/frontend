@@ -10,20 +10,21 @@ import store from "@/store";
 import router from "@/router";
 
 @Module({ dynamic: true, store, name: "search" })
-class Search extends VuexModule implements SearchState {  
+class Search extends VuexModule implements SearchState {
   public searchText = "";
   public searchDate = "";
   public searchTime = ""; // times.id
   public searchCategory = 0; // category.id
   public searchTag: object = {}; // tag.id
-  
+
   public times = [
     { id: "morning", time: "06:00 ~ 12:00" },
     { id: "afternoon", time: "12:00 ~ 18:00" },
     { id: "evening", time: "18:00 ~ 24:00" }
   ];
 
-  get timeText() { // times.time
+  get timeText() {
+    // times.time
     const t = this.times.find(t => t.id === this.searchTime);
     return t ? t.time : "시간";
   }
@@ -64,8 +65,7 @@ class Search extends VuexModule implements SearchState {
         searchcategory: String(this.searchCategory),
         searchtag: this.searchTag.toString()
       }
-    })
+    });
   }
- 
 }
 export const SearchModule = getModule(Search);
