@@ -1,5 +1,8 @@
 <template>
-  <p>searchtext: {{ searchtext }}</p>
+  <div>
+    <p>searchtext: {{ searchtext }}</p>
+    <p>searchdate: {{ searchdate }}</p>
+  </div>
 </template>
 <script lang="ts">
 import Vue from "vue";
@@ -7,7 +10,8 @@ import Component from "vue-class-component";
 
 const Props = Vue.extend({
   props: {
-    searchtext: String
+    searchtext: String,
+    searchdate: String
   }
 });
 

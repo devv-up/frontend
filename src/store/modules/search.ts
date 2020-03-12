@@ -12,10 +12,16 @@ import router from "@/router";
 @Module({ dynamic: true, store, name: "search" })
 class Search extends VuexModule implements SearchState {
   public searchText = "";
+  public searchDate = "";
 
   @Mutation
   private SET_SEARCHTEXT(searchText: string) {
     this.searchText = searchText;
+  }
+
+  @Mutation
+  private SET_SEARCHDATE(searchDate: string) {
+    this.searchDate = searchDate;
   }
 
   @Action
@@ -24,7 +30,8 @@ class Search extends VuexModule implements SearchState {
     router.push({
       path: "/",
       query: {
-        searchtext: this.searchText
+        searchtext: this.searchText,
+        searchdate: this.searchDate
       }
     })
   }

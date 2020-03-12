@@ -21,6 +21,13 @@
           <v-row>
             <v-col><TextField /></v-col>
           </v-row>
+          <v-row>
+            <v-col>
+              <DateBtn />
+              <TimeBtn />
+              <v-btn class="ml-4">지역</v-btn>
+            </v-col>
+          </v-row>
         </v-list-item>
       </v-list-item>
     </v-list>
@@ -31,10 +38,14 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import TextField from "./components/TextField.vue";
+import DateBtn from "./components/DateBtn.vue";
+import TimeBtn from "./components/TimeBtn.vue";
 
 @Component({
   components: {
-    TextField
+    TextField,
+    DateBtn,
+    TimeBtn
   }
 })
 export default class Navigation extends Vue {

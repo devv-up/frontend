@@ -1,5 +1,6 @@
 declare module "search" {
   export interface SearchState {
-    searchText: string;
+    searchText: String;
+    searchDate: String;
   }
 }
