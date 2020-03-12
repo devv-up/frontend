@@ -51,6 +51,29 @@
               <v-btn class="ml-4 mt-4">지역</v-btn>
             </v-col>
           </v-row>
+          <v-row>
+            <v-col>
+              <v-divider></v-divider>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col>
+              <p class="font-regular text-center">
+                <span class="grey--text">FILTER BY </span>
+                <span class="primary--text font-weight-bold">CATEGORY</span>
+              </p>
+              <Category />
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col>
+              <p class="font-regular text-center">
+                <span class="grey--text">FILTER BY </span>
+                <span class="primary--text font-weight-bold">TAG</span>
+              </p>
+              <Tag />
+            </v-col>
+          </v-row>
         </v-list-item>
       </v-list-item>
     </v-list>
@@ -62,11 +85,15 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import TextField from "./components/TextField.vue";
 import DateTimeBtn from "./components/DateTimeBtn.vue";
+import Category from "./components/Category.vue";
+import Tag from "./components/Tag.vue";
 
 @Component({
   components: {
     TextField,
-    DateTimeBtn
+    DateTimeBtn,
+    Category,
+    Tag
   }
 })
 export default class Navigation extends Vue {

@@ -14,6 +14,8 @@ class Search extends VuexModule implements SearchState {
   public searchText = "";
   public searchDate = "";
   public searchTime = ""; // times.id
+  public searchCategory = 0; // category.id
+  public searchTag: object = {}; // tag.id
   
   public times = [
     { id: "morning", time: "06:00 ~ 12:00" },
@@ -41,6 +43,16 @@ class Search extends VuexModule implements SearchState {
     this.searchTime = searchTime;
   }
 
+  @Mutation
+  private SET_SEARCHCATEGORYID(searchCategory: number) {
+    this.searchCategory = searchCategory;
+  }
+
+  @Mutation
+  private SET_SEARCHTAG(searchTag: object) {
+    this.searchTag = searchTag;
+  }
+
   @Action
   public async searchSubmit() {
     router.push({
@@ -48,7 +60,9 @@ class Search extends VuexModule implements SearchState {
       query: {
         searchtext: this.searchText,
         searchdate: this.searchDate,
-        searchtime: this.searchTime
+        searchtime: this.searchTime,
+        searchcategory: String(this.searchCategory),
+        searchtag: this.searchTag.toString()
       }
     })
   }

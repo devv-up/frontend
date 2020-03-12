@@ -16,7 +16,9 @@ const routes: RouteConfig[] = [
         props: (route) => ({
           searchtext: route.query.searchtext,
           searchdate: route.query.searchdate,
-          searchtime: route.query.searchtime
+          searchtime: route.query.searchtime,
+          searchcategory: route.query.searchcategory,
+          searchtag: route.query.searchtag          
         })
       }
     ]  
