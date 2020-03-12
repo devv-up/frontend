@@ -10,7 +10,7 @@
     :width="drawerWidth"
     color="secondary"
   >
-    <v-list dark>
+    <v-list dark class="search">
       <v-list-item>
         <v-list-item-icon class="mr-2">
           <v-icon @click.stop="mini = !mini">
@@ -23,9 +23,32 @@
           </v-row>
           <v-row>
             <v-col>
-              <DateBtn />
-              <TimeBtn />
-              <v-btn class="ml-4">지역</v-btn>
+              <DateTimeBtn searchType="DATE">
+                <template v-slot:searchDown="{ handleChange }">
+                  <v-date-picker
+                    dark
+                    no-title
+                    @change="handleChange"
+                  ></v-date-picker>
+                </template>
+              </DateTimeBtn>
+              <DateTimeBtn searchType="TIME">
+                <template v-slot:searchDown="{ handleChange, times }">
+                  <v-list dark>
+                    <v-list-item-group @change="handleChange">
+                      <v-list-item
+                        v-for="t in times"
+                        :key="t.time"
+                        :value="t.id"
+                        active-class="accent white--text"
+                      >
+                        <v-list-item-title>{{ t.time }}</v-list-item-title>
+                      </v-list-item>
+                    </v-list-item-group>
+                  </v-list>
+                </template>
+              </DateTimeBtn>
+              <v-btn class="ml-4 mt-4">지역</v-btn>
             </v-col>
           </v-row>
         </v-list-item>
@@ -38,14 +61,12 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import TextField from "./components/TextField.vue";
-import DateBtn from "./components/DateBtn.vue";
-import TimeBtn from "./components/TimeBtn.vue";
+import DateTimeBtn from "./components/DateTimeBtn.vue";
 
 @Component({
   components: {
     TextField,
-    DateBtn,
-    TimeBtn
+    DateTimeBtn
   }
 })
 export default class Navigation extends Vue {
@@ -73,7 +94,7 @@ export default class Navigation extends Vue {
 <style lang="scss" scoped>
 $width: 94%;
 $darkcolor: #272727;
-.v-list-item:nth-child(2) {
+.search .v-list-item:nth-child(2) {
   max-width: $width;
   padding: 0;
   .row {
