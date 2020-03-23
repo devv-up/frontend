@@ -1,26 +1,33 @@
 <template>
-  <div>
-    <p>searchtext: {{ searchtext }}</p>
-    <p>searchdate: {{ searchdate }}</p>
-    <p>searchtime: {{ searchtime }}</p>
-    <p>searchcategory: {{ searchcategory }}</p>
-    <p>searchtag: {{ searchtag }}</p>
-  </div>
+  <GridList :items="posts">
+    <template v-slot:item="{ item }">
+      <CardView :item="item" />
+    </template>
+  </GridList>
 </template>
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import CardView from "@/components/CardView/index.vue";
+import GridList from "@/components/GridList/index.vue";
+import { BoardModule } from "@/store/modules/board";
 
-const Props = Vue.extend({
+@Component({
   props: {
     searchtext: String,
     searchdate: String,
     searchtime: String,
     searchcategory: String,
     searchtag: String
+  },
+  components: {
+    CardView,
+    GridList
   }
-});
-
-@Component
-export default class Main extends Props {}
+})
+export default class Main extends Vue {
+  get posts() {
+    return BoardModule.posts;
+  }
+}
 </script>
