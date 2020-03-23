@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Layout from "@/layout/index.vue";
-import { Main } from "@/views";
+import { Main, Error404 } from "@/views";
 
 Vue.use(VueRouter);
 
@@ -22,6 +22,14 @@ const routes: RouteConfig[] = [
         })
       }
     ]
+  },
+  {
+    path: "/404",
+    component: Error404
+  },
+  {
+    path: "*",
+    redirect: "/404"
   }
 ];
 

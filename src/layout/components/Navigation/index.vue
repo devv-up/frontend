@@ -13,13 +13,13 @@
     <v-list dark class="search">
       <v-list-item>
         <v-list-item-icon class="mr-2">
-          <v-icon @click.stop="mini = !mini">
-            {{ drawerIcon }}
-          </v-icon>
+          <v-icon @click.stop="mini = !mini">{{ drawerIcon }}</v-icon>
         </v-list-item-icon>
         <v-list-item class="d-flex flex-column">
           <v-row>
-            <v-col><TextField /></v-col>
+            <v-col>
+              <TextField />
+            </v-col>
           </v-row>
           <v-row>
             <v-col>
@@ -59,7 +59,7 @@
           <v-row>
             <v-col>
               <p class="font-regular text-center">
-                <span class="grey--text">FILTER BY </span>
+                <span class="grey--text">FILTER BY</span>
                 <span class="primary--text font-weight-bold">CATEGORY</span>
               </p>
               <Category />
@@ -68,7 +68,7 @@
           <v-row>
             <v-col>
               <p class="font-regular text-center">
-                <span class="grey--text">FILTER BY </span>
+                <span class="grey--text">FILTER BY</span>
                 <span class="primary--text font-weight-bold">TAG</span>
               </p>
               <Tag />
