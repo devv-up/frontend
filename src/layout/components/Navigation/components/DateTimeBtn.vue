@@ -3,9 +3,9 @@
     <template v-slot:activator="{ on }">
       <v-btn class="ml-4 mt-4" v-on="on">
         {{ search }}
-        <v-icon x-small class="ml-1" @click="handleClearClick">{{
-          closeIcon
-        }}</v-icon>
+        <v-icon x-small class="ml-1" @click="handleClearClick">
+          {{ closeIcon }}
+        </v-icon>
       </v-btn>
     </template>
     <slot name="searchDown" :handleChange="handleChange" :times="times"></slot>

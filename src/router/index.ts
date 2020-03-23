@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Layout from "@/layout/index.vue";
-import { Main, Error404 } from "@/views";
 
 Vue.use(VueRouter);
 
@@ -12,7 +11,7 @@ const routes: RouteConfig[] = [
     children: [
       {
         path: "",
-        component: Main,
+        component: () => import("@/views/main/index.vue"),
         props: route => ({
           searchtext: route.query.searchtext,
           searchdate: route.query.searchdate,
@@ -25,7 +24,7 @@ const routes: RouteConfig[] = [
   },
   {
     path: "/404",
-    component: Error404
+    component: () => import("@/views/error404/index.vue")
   },
   {
     path: "*",

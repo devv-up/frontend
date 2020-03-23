@@ -1,9 +1,9 @@
 <template>
-  <v-slide-group mandatory show-arrows center-active @change="handleChange">
+  <v-slide-group mandatory show-arrows center-active v-model="model">
     <v-slide-item
       v-for="(category, index) in categories"
       :key="category.id"
-      v-slot:default="{ active, toggle }"
+      v-slot:default="{ active }"
       :value="category.id"
     >
       <v-btn
@@ -12,7 +12,7 @@
         active-class="primary white--text"
         depressed
         rounded
-        @click="toggle"
+        @click="handleClick(category.id)"
         >{{ category.name }}</v-btn
       >
     </v-slide-item>
@@ -25,11 +25,13 @@ import { BoardModule } from "@/store/modules/board";
 import { SearchModule } from "@/store/modules/search";
 @Component
 export default class Category extends Vue {
+  private model = 0;
   get categories() {
     return BoardModule.categories;
   }
 
-  private handleChange(categoryId: number) {
+  private handleClick(categoryId: number) {
+    this.model = categoryId;
     this.$store.commit("SET_SEARCH_CATEGORY_ID", categoryId);
     SearchModule.submit();
   }
