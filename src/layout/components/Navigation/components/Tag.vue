@@ -13,7 +13,8 @@
       label
       color="#272727"
     >
-      <v-icon x-small left>mdi-pound</v-icon> {{ tag.name }}
+      <v-icon x-small left>mdi-pound</v-icon>
+      {{ tag.name }}
     </v-chip>
   </v-chip-group>
 </template>
@@ -29,8 +30,8 @@ export default class Category extends Vue {
   }
 
   private handleChange(tags: object) {
-    this.$store.commit("SET_SEARCHTAG", tags);
-    SearchModule.searchSubmit();
+    this.$store.commit("SET_SEARCH_TAG", tags);
+    SearchModule.submit();
   }
 }
 </script>

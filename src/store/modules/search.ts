@@ -30,32 +30,32 @@ class Search extends VuexModule implements SearchState {
   }
 
   @Mutation
-  private SET_SEARCHTEXT(searchText: string) {
+  private SET_SEARCH_TEXT(searchText: string) {
     this.searchText = searchText;
   }
 
   @Mutation
-  private SET_SEARCHDATE(searchDate: string) {
+  private SET_SEARCH_DATE(searchDate: string) {
     this.searchDate = searchDate;
   }
 
   @Mutation
-  private SET_SEARCHTIME(searchTime: string) {
+  private SET_SEARCH_TIME(searchTime: string) {
     this.searchTime = searchTime;
   }
 
   @Mutation
-  private SET_SEARCHCATEGORYID(searchCategory: number) {
+  private SET_SEARCH_CATEGORY_ID(searchCategory: number) {
     this.searchCategory = searchCategory;
   }
 
   @Mutation
-  private SET_SEARCHTAG(searchTag: object) {
+  private SET_SEARCH_TAG(searchTag: object) {
     this.searchTag = searchTag;
   }
 
   @Action
-  public async searchSubmit() {
+  public async submit() {
     router.push({
       path: "/",
       query: {

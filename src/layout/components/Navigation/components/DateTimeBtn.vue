@@ -3,9 +3,9 @@
     <template v-slot:activator="{ on }">
       <v-btn class="ml-4 mt-4" v-on="on">
         {{ search }}
-        <v-icon x-small class="ml-1" @click="handleClearClick">
-          {{ closeIcon }}
-        </v-icon>
+        <v-icon x-small class="ml-1" @click="handleClearClick">{{
+          closeIcon
+        }}</v-icon>
       </v-btn>
     </template>
     <slot name="searchDown" :handleChange="handleChange" :times="times"></slot>
@@ -34,10 +34,10 @@ export default class DateTimeBtn extends Props {
     let mutation = "";
     switch (this.searchType) {
       case "DATE":
-        mutation = "SET_SEARCHDATE";
+        mutation = "SET_SEARCH_DATE";
         break;
       case "TIME":
-        mutation = "SET_SEARCHTIME";
+        mutation = "SET_SEARCH_TIME";
         break;
       default:
         mutation = "";
@@ -78,7 +78,7 @@ export default class DateTimeBtn extends Props {
 
   private searchSubmit(info: string) {
     this.$store.commit(this.MUTATION, info);
-    SearchModule.searchSubmit();
+    SearchModule.submit();
   }
 
   private handleClearClick(event: Event) {

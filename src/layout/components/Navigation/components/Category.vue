@@ -1,10 +1,10 @@
 <template>
   <v-slide-group mandatory show-arrows center-active @change="handleChange">
     <v-slide-item
-      v-for="(cat, index) in categories"
-      :key="cat.id"
+      v-for="(category, index) in categories"
+      :key="category.id"
       v-slot:default="{ active, toggle }"
-      :value="cat.id"
+      :value="category.id"
     >
       <v-btn
         class="mx-2"
@@ -13,9 +13,8 @@
         depressed
         rounded
         @click="toggle"
+        >{{ category.name }}</v-btn
       >
-        {{ cat.name }}
-      </v-btn>
     </v-slide-item>
   </v-slide-group>
 </template>
@@ -31,8 +30,8 @@ export default class Category extends Vue {
   }
 
   private handleChange(categoryId: number) {
-    this.$store.commit("SET_SEARCHCATEGORYID", categoryId);
-    SearchModule.searchSubmit();
+    this.$store.commit("SET_SEARCH_CATEGORY_ID", categoryId);
+    SearchModule.submit();
   }
 }
 </script>

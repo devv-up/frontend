@@ -33,17 +33,17 @@ export default class TextField extends Vue {
   }
 
   set inputText(text: string) {
-    this.$store.commit("SET_SEARCHTEXT", text);
+    this.$store.commit("SET_SEARCH_TEXT", text);
   }
 
   private handleKeyDown(event: KeyboardEvent) {
     if (event.key == "Enter") {
-      SearchModule.searchSubmit();
+      SearchModule.submit();
     }
   }
 
   private handleClick() {
-    SearchModule.searchSubmit();
+    SearchModule.submit();
   }
 }
 </script>
