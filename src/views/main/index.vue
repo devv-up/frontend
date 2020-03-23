@@ -1,9 +1,18 @@
 <template>
-  <GridList :items="posts">
-    <template v-slot:item="{ item }">
-      <CardView :item="item" />
-    </template>
-  </GridList>
+  <div>
+    <v-row>
+      <v-col class="subtitle-1">
+        <span class="font-weight-bold">100</span>개 이상의 검색결과
+      </v-col>
+    </v-row>
+    <v-row>
+      <GridList :items="posts">
+        <template v-slot:item="{ item }">
+          <CardView :item="item" />
+        </template>
+      </GridList>
+    </v-row>
+  </div>
 </template>
 <script lang="ts">
 import Vue from "vue";
@@ -28,6 +37,20 @@ import { BoardModule } from "@/store/modules/board";
 export default class Main extends Vue {
   get posts() {
     return BoardModule.posts;
+  }
+
+  infinityScroll() {
+    // eslint-disable-next-line prefer-const
+    let bottomOfWindow =
+      document.documentElement.scrollTop + window.innerHeight >=
+      document.documentElement.offsetHeight;
+    if (bottomOfWindow) {
+      // append new posts
+    }
+  }
+
+  created() {
+    window.addEventListener("scroll", this.infinityScroll);
   }
 }
 </script>
