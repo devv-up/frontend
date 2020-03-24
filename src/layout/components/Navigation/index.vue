@@ -60,7 +60,9 @@
             <v-col>
               <p class="font-regular text-center">
                 <span class="grey--text">FILTER BY</span>
-                <span class="primary--text font-weight-bold">CATEGORY</span>
+                <span class="primary--text font-weight-bold ml-1"
+                  >CATEGORY</span
+                >
               </p>
               <Category />
             </v-col>
@@ -69,7 +71,7 @@
             <v-col>
               <p class="font-regular text-center">
                 <span class="grey--text">FILTER BY</span>
-                <span class="primary--text font-weight-bold">TAG</span>
+                <span class="primary--text font-weight-bold ml-1">TAG</span>
               </p>
               <Tag />
             </v-col>
