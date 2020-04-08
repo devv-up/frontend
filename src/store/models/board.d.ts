@@ -21,6 +21,7 @@ declare module "board" {
     categories: Category[];
     tags: Tag[];
     images: Array<string>;
+    isLike: boolean;
   }
 
   export interface PostsState {

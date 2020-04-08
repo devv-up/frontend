@@ -19,7 +19,8 @@ class Board extends VuexModule implements CategoryTagState, PostsState {
       images: [
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-      ]
+      ],
+      isLike: false
     },
     {
       id: 2,
@@ -35,7 +36,8 @@ class Board extends VuexModule implements CategoryTagState, PostsState {
       images: [
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-      ]
+      ],
+      isLike: false
     },
     {
       id: 3,
@@ -51,7 +53,8 @@ class Board extends VuexModule implements CategoryTagState, PostsState {
       images: [
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-      ]
+      ],
+      isLike: true
     },
     {
       id: 4,
@@ -67,7 +70,8 @@ class Board extends VuexModule implements CategoryTagState, PostsState {
       images: [
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-      ]
+      ],
+      isLike: false
     },
     {
       id: 5,
@@ -83,7 +87,8 @@ class Board extends VuexModule implements CategoryTagState, PostsState {
       images: [
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-      ]
+      ],
+      isLike: false
     },
     {
       id: 6,
@@ -99,7 +104,8 @@ class Board extends VuexModule implements CategoryTagState, PostsState {
       images: [
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-      ]
+      ],
+      isLike: true
     },
     {
       id: 7,
@@ -115,7 +121,8 @@ class Board extends VuexModule implements CategoryTagState, PostsState {
       images: [
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-      ]
+      ],
+      isLike: true
     },
     {
       id: 8,
@@ -131,7 +138,8 @@ class Board extends VuexModule implements CategoryTagState, PostsState {
       images: [
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-      ]
+      ],
+      isLike: false
     },
     {
       id: 9,
@@ -147,7 +155,8 @@ class Board extends VuexModule implements CategoryTagState, PostsState {
       images: [
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
         "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-      ]
+      ],
+      isLike: false
     }
   ];
 

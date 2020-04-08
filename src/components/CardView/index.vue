@@ -16,8 +16,10 @@
       </v-img>
       <v-row>
         <v-col>
-          <v-icon class="mx-2">mdi-heart</v-icon>
-          <v-icon>mdi-share-variant</v-icon>
+          <v-btn icon class="mx-2" :color="likeColor">
+            <v-icon>mdi-heart</v-icon>
+          </v-btn>
+          <v-btn icon><v-icon>mdi-share-variant</v-icon></v-btn>
         </v-col>
         <v-col class="text-right">
           <span class="mr-2">{{ item.date }}</span>
@@ -30,13 +32,22 @@
 <script lang="tsx">
 import Vue from "vue";
 import Component from "vue-class-component";
-@Component({
+
+const Props = Vue.extend({
   props: {
-    item: Object
+    item: {
+      type: Object,
+      required: true
+    }
   }
-})
-export default class CardView extends Vue {
-  isActive = false;
+});
+@Component
+export default class CardView extends Props {
+  private isActive = false;
+
+  get likeColor() {
+    return this.item.isLike ? "pink" : "";
+  }
 }
 </script>
 <style lang="scss" scoped>
