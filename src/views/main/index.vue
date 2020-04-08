@@ -1,9 +1,6 @@
 <template>
   <div>
     <v-row>
-      <v-col class="subtitle-1"><b>100</b>개 이상의 검색결과 </v-col>
-    </v-row>
-    <v-row>
       <GridList :items="posts">
         <template v-slot:item="{ item }">
           <CardView :item="item" />
