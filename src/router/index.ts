@@ -22,6 +22,15 @@ const routes: RouteConfig[] = [
   {
     path: "*",
     redirect: "/404"
+  },
+  {
+    path: "/addMain",
+    component: Layout,
+    children:[{
+      path: "/",
+      component: () => import("@/views/addMain/addMain.vue")
+    }]
+    
   }
 ];
 
