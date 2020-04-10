@@ -23,6 +23,10 @@ const routes: RouteConfig[] = [
     ]
   },
   {
+    path: "/signin",
+    component: () => import("@/views/signIn/index.vue")
+  },
+  {
     path: "/404",
     component: () => import("@/views/error404/index.vue")
   },
