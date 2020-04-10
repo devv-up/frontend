@@ -23,10 +23,14 @@
                 <v-combobox :items="items"></v-combobox>
 
                 <p class="title">{{ selectTypeDetail }}</p>
-                <v-text-field>
-                  <v-icon slot="append" color="red">mdi-plus</v-icon>
-                  <v-icon slot="prepend" color="green">mdi-minus</v-icon>
-                </v-text-field>
+                <v-select
+                  v-model="value"
+                  :items="selectitems"
+                  label="언어선택"
+                  multiple
+                >
+                </v-select>
+                <p class="subtitle-2">언어 선택시 원하는 언어가 없는경우 모임 상세내용에서 직접 기입해주세요.</p>
 
                 <p class="title">{{ selectImage }}</p>
                 <v-file-input></v-file-input>
@@ -53,8 +57,6 @@ import Component from "vue-class-component";
 
 @Component
 export default class AddMain extends Vue{
-  
-
   // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   id:boolean=true
   // eslint-disable-next-line @typescript-eslint/no-inferrable-types
@@ -73,12 +75,16 @@ export default class AddMain extends Vue{
   groupDetail:string="모임내용"
   // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   selectType:string="모임종류"
+  items = ['Algorythm', 'Study Group']
   // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   selectTypeDetail:string="자세한 모임종류"
+  selectitems = ['All','Java', 'Python', 'C', 'C++', 'C#', 'Android', 'Swift', 'Vue', 'React', 'Angular','etc']
+  value=[]
   // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   selectImage:string="이미지 선택"
 
-  items = ['Algorythm', 'Study Group']
+  
+  
   
 }
 
@@ -119,5 +125,9 @@ export default class AddMain extends Vue{
   margin-top:7%;
   margin-left:15%;
   margin-right:15%;
+}
+
+.subtitle-2{
+  text-align: center;
 }
 </style>
