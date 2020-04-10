@@ -11,7 +11,7 @@
                 <v-text-field label="모임명"></v-text-field>
 
                 <p class="title">{{ groupDate }}</p>
-                <v-date-picker :show-current="showCurrent" class="vdate"></v-date-picker>
+                <v-date-picker v-model="picker" class="vdate" :min="today"></v-date-picker>
                 
                 <p class="title">{{ groupPlace }}</p>
                 <v-text-field label="모임장소" class="vplace"></v-text-field>
@@ -53,6 +53,8 @@ import Component from "vue-class-component";
 
 @Component
 export default class AddMain extends Vue{
+  
+
   // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   id:boolean=true
   // eslint-disable-next-line @typescript-eslint/no-inferrable-types
@@ -61,6 +63,8 @@ export default class AddMain extends Vue{
   groupName:string="모임명"
   // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   groupDate:string="모임날짜"
+  picker:string=new Date().toISOString().substr(0, 10)
+  today:string=new Date().toISOString().substr(0, 10)
   // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   showCurrent:boolean=true
   // eslint-disable-next-line @typescript-eslint/no-inferrable-types
@@ -77,6 +81,7 @@ export default class AddMain extends Vue{
   items = ['Algorythm', 'Study Group']
   
 }
+
 </script>
 
 <style>
