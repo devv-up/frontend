@@ -26,7 +26,7 @@ const routes: RouteConfig[] = [
   {
     path: "/addMain",
     component: Layout,
-    children:[{
+    children: [{
       path: "/",
       component: () => import("@/views/addMain/addMain.vue")
     }]
