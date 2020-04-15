@@ -26,11 +26,12 @@ const routes: RouteConfig[] = [
   {
     path: "/addMain",
     component: Layout,
-    children:[{
-      path: "/",
-      component: () => import("@/views/addMain/addMain.vue")
-    }]
-    
+    children: [
+      {
+        path: "/",
+        component: () => import("@/views/addMain/addMain.vue")
+      }
+    ]
   }
 ];
 
