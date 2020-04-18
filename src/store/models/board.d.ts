@@ -24,11 +24,8 @@ declare module "board" {
     isLike: boolean;
   }
 
-  export interface PostsState {
+  export interface BoardState {
     posts: Post[];
-  }
-
-  export interface CategoryTagState {
     categories: Category[];
     tags: Tag[];
   }
