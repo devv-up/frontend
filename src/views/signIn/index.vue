@@ -26,6 +26,9 @@
             <v-btn color="secondary" large depressed>
               로그인 혹은 가입하기
             </v-btn>
+            <v-btn text small color="grey darken-2" class="mt-2 ju">
+              비밀번호를 잊으셨나요?
+            </v-btn>
             <v-divider light class="mt-5 mb-6"></v-divider>
             <SocialButton icon="mdi-google" color="#4285F4">
               구글 계정으로 로그인
