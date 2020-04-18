@@ -1,6 +1,18 @@
 <template>
-  <v-chip-group multiple column active-class="accent--text" @change="handleChange">
-    <v-chip v-for="tag in tags" :key="tag.id" :value="tag.id" small label color="#272727">
+  <v-chip-group
+    multiple
+    column
+    active-class="accent--text"
+    @change="handleChange"
+  >
+    <v-chip
+      v-for="tag in tags"
+      :key="tag.id"
+      :value="tag.id"
+      small
+      label
+      color="#272727"
+    >
       <v-icon x-small left>mdi-pound</v-icon>
       {{ tag.name }}
     </v-chip>

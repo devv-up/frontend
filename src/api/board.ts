@@ -9,16 +9,16 @@ export const getPosts = (params: Record<string, string | number>) =>
   service.request<Post[]>({
     url: "/posts.json",
     method: "GET",
-    params,
+    params
   });
 
 export const getCategories = () =>
   service.request<Category[]>({
     url: "/categories.json",
-    method: "GET",
+    method: "GET"
   });
 export const getTags = () =>
   service.request<Tag[]>({
     url: "/tags.json",
-    method: "GET",
+    method: "GET"
   });

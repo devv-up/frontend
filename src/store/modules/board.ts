@@ -3,7 +3,7 @@ import {
   VuexModule,
   getModule,
   Action,
-  Mutation,
+  Mutation
 } from "vuex-module-decorators";
 import { Category, Tag, BoardState, Post } from "board";
 import { getPosts, getCategories, getTags } from "@/api/board";

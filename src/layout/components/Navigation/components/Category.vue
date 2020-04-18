@@ -13,7 +13,8 @@
         depressed
         rounded
         @click="handleClick(category.id)"
-      >{{ category.name }}</v-btn>
+        >{{ category.name }}</v-btn
+      >
     </v-slide-item>
   </v-slide-group>
 </template>
