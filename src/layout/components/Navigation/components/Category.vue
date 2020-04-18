@@ -13,8 +13,7 @@
         depressed
         rounded
         @click="handleClick(category.id)"
-        >{{ category.name }}</v-btn
-      >
+      >{{ category.name }}</v-btn>
     </v-slide-item>
   </v-slide-group>
 </template>
@@ -34,6 +33,10 @@ export default class Category extends Vue {
     this.model = categoryId;
     this.$store.commit("SET_SEARCH_CATEGORY_ID", categoryId);
     SearchModule.submit();
+  }
+
+  created() {
+    BoardModule.getCategories();
   }
 }
 </script>
