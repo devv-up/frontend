@@ -34,18 +34,8 @@ export default class Main extends Vue {
     return BoardModule.posts;
   }
 
-  infinityScroll() {
-    // eslint-disable-next-line prefer-const
-    let bottomOfWindow =
-      document.documentElement.scrollTop + window.innerHeight >=
-      document.documentElement.offsetHeight;
-    if (bottomOfWindow) {
-      // append new posts
-    }
-  }
-
   created() {
-    window.addEventListener("scroll", this.infinityScroll);
+    BoardModule.getPosts();
   }
 }
 </script>
