@@ -1,0 +1,72 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "aaa",
+      "content": "ccccc",
+      "location": "location",
+      "capacity": 1,
+      "date": "4.10",
+      "timeOfDay": 1,
+      "author": "dddd",
+      "categories": [],
+      "tags": [],
+      "images": [
+        "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+        "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+      ],
+      "isLike": false
+    },
+    {
+      "id": 2,
+      "title": "aaa",
+      "content": "ccccc",
+      "location": "location",
+      "capacity": 1,
+      "date": "4.10",
+      "timeOfDay": 1,
+      "author": "dddd",
+      "categories": [],
+      "tags": [],
+      "images": [
+        "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+        "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+      ],
+      "isLike": false
+    },
+    {
+      "id": 3,
+      "title": "aaa",
+      "content": "ccccc",
+      "location": "location",
+      "capacity": 1,
+      "date": "4.10",
+      "timeOfDay": 1,
+      "author": "dddd",
+      "categories": [],
+      "tags": [],
+      "images": [
+        "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+        "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+      ],
+      "isLike": true
+    },
+    {
+      "id": 4,
+      "title": "aaa",
+      "content": "ccccc",
+      "location": "location",
+      "capacity": 1,
+      "date": "4.10",
+      "timeOfDay": 1,
+      "author": "dddd",
+      "categories": [],
+      "tags": [],
+      "images": [
+        "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+        "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+      ],
+      "isLike": false
+    }
+  ]
+}
