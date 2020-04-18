@@ -23,6 +23,16 @@ const routes: RouteConfig[] = [
     ]
   },
   {
+    path: "/mainDetail",
+    component: Layout,
+    children: [
+      {
+        path: "",
+        component: () => import("@/views/mainDetail/mainDetail.vue"),
+      }
+    ]
+  },
+  {
     path: "/404",
     component: () => import("@/views/error404/index.vue")
   },
