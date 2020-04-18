@@ -2,15 +2,14 @@ import Vue from "vue";
 import Vuex from "vuex";
 import { SearchState } from "search";
 import { UserState } from "user";
-import { CategoryTagState, PostsState } from "board";
+import { BoardState } from "board";
 
 Vue.use(Vuex);
 
 export interface RootState {
   Search: SearchState;
   user: UserState;
-  categorytag: CategoryTagState;
-  posts: PostsState;
+  board: BoardState;
 }
 
 export default new Vuex.Store<RootState>({});
