@@ -5,6 +5,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+
 import mainDetailComponent from "@/views/components/mainDetailComponent.vue";
 
 @Component({
@@ -21,4 +22,10 @@ export default class MainDetail extends Vue {}
 <style scoped>
 
 </style>
+
+
+
+
+<style scoped>
+
 
