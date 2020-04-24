@@ -1,5 +1,6 @@
 <template>
   <div class="divapp">
+
     <v-container
       grid-list-xs
       grid-list-sm
@@ -7,6 +8,7 @@
       grid-list-lg
       grid-list-xl
     >
+
       <mainDetailContent></mainDetailContent>
     </v-container>
   </div>
@@ -26,4 +28,3 @@ export default class MainDetailComponent extends Vue {}
 </script>
 
 <style></style>
-
