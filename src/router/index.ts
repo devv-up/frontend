@@ -28,7 +28,7 @@ const routes: RouteConfig[] = [
     children: [
       {
         path: "",
-        component: () => import("@/views/mainDetail/mainDetail.vue"),
+        component: () => import("@/views/mainDetail/mainDetail.vue")
       }
     ]
   },

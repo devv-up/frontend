@@ -1,7 +1,7 @@
 <template>
   <div class="divapp">
-    <v-container fluid grid-list-md>
-        <mainDetailContent></mainDetailContent>
+    <v-container grid-list-md>
+      <mainDetailContent></mainDetailContent>
     </v-container>
   </div>
 </template>
@@ -19,6 +19,4 @@ import mainDetailContent from "@/views/components/mainDetailContent.vue";
 export default class MainDetailComponent extends Vue {}
 </script>
 
-<style>
-
-</style>
+<style></style>
