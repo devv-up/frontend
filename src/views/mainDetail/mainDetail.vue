@@ -1,5 +1,5 @@
 <template>
-    <mainDetailComponent></mainDetailComponent>
+  <mainDetailComponent></mainDetailComponent>
 </template>
 
 <script lang="ts">
@@ -12,12 +12,7 @@ import mainDetailComponent from "@/views/components/mainDetailComponent.vue";
     mainDetailComponent
   }
 })
-export default class MainDetail extends Vue {
-    
-}
+export default class MainDetail extends Vue {}
 </script>
 
-<style scoped>
-
-
-</style>
+<style scoped></style>
