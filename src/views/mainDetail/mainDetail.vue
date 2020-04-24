@@ -19,13 +19,3 @@ export default class MainDetail extends Vue {}
 <style scoped></style>
 
 
-<style scoped>
-
-</style>
-
-
-
-
-<style scoped>
-
-

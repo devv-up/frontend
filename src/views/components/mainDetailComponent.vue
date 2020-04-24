@@ -26,3 +26,4 @@ export default class MainDetailComponent extends Vue {}
 </script>
 
 <style></style>
+
