@@ -1,14 +1,14 @@
 <template>
   <div>
     <v-container grid-list-md>
-      <v-layout row wrap justify-center="true">
+      <v-row row wrap justify="center" align="center">
         <FormContentComponent></FormContentComponent>
-      </v-layout>
+      </v-row>
     </v-container>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
 import FormContentComponent from "@/views/components/FormContentComponent.vue";

@@ -1,10 +1,10 @@
 <template>
   <v-form v-model="isValid">
-    <v-flex d-flex xs12 sm12 md12 lg12 xl12>
+    <v-col cols="auto" xs12 sm12 md12 lg12 xl12>
       <v-text-field label="모임명" v-model="groupName" required></v-text-field>
-    </v-flex>
+    </v-col>
 
-    <v-flex d-flex xs12 sm12 md12 lg12 xl12>
+    <v-col xs12 sm12 md12 lg12 xl12>
       <v-menu
         v-model="menu1"
         :close-on-content-click="false"
@@ -27,41 +27,41 @@
           :min="today"
         ></v-date-picker>
       </v-menu>
-    </v-flex>
+    </v-col>
 
-    <v-flex d-flex xs12 sm12 md12 lg12 xl12>
+    <v-col xs12 sm12 md12 lg12 xl12>
       <v-combobox
         :items="times"
         label="시간대 선택"
         v-model="selectTime"
       ></v-combobox>
-    </v-flex>
+    </v-col>
 
-    <v-flex d-flex xs12 sm12 md12 lg12 xl12>
+    <v-col xs12 sm12 md12 lg12 xl12>
       <v-text-field
         label="모임장소"
         class="mb-8"
         v-model="groupPlace"
       ></v-text-field>
-    </v-flex>
+    </v-col>
 
-    <v-flex d-flex xs12 sm12 md12 lg12 xl12>
+    <v-col xs12 sm12 md12 lg12 xl12>
       <v-textarea
         placeholder="모임에 대해서 자세한 내용을 적어주세요."
         v-model="groupDetail"
         outlined
       ></v-textarea>
-    </v-flex>
+    </v-col>
 
-    <v-flex d-flex xs12 sm12 md12 lg12 xl12>
+    <v-col xs12 sm12 md12 lg12 xl12>
       <v-combobox
         :items="items"
         label="카테고리 선택"
         v-model="selectCategory"
       ></v-combobox>
-    </v-flex>
+    </v-col>
 
-    <v-flex d-flex xs12 sm12 md12 lg12 xl12>
+    <v-col xs12 sm12 md12 lg12 xl12>
       <v-select
         v-model="selectTag"
         :items="selectitems"
@@ -69,26 +69,26 @@
         multiple
       >
       </v-select>
-    </v-flex>
+    </v-col>
 
     <p class="text-center mb-8">
       언어 선택시 원하는 언어가 없는경우 모임 상세내용에서 직접 기입해주세요.
     </p>
 
-    <v-flex d-flex xs12 sm12 md12 lg12 xl12>
+    <v-col xs12 sm12 md12 lg12 xl12>
       <v-file-input
         label="이미지 선택"
         multiple
         accept="image/*"
       ></v-file-input>
-    </v-flex>
+    </v-col>
 
-    <v-flex d-flex xs12 sm12 md12 lg12 xl12 justify-center="true">
-      <v-btn class="vbtn ma-6" :submit="submit" :disabled="!isValid"
+    <v-col xs12 sm12 md12 lg12 xl12 class="text-center">
+      <v-btn class="ma-6" :submit="submit" :disabled="!isValid"
         >submit</v-btn
       >
-      <v-btn class="vbtn ma-6">clear</v-btn>
-    </v-flex>
+      <v-btn class="ma-6">clear</v-btn>
+    </v-col>
   </v-form>
 </template>
 
