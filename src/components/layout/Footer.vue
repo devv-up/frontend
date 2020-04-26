@@ -1,5 +1,5 @@
 <template>
-  <v-footer inset>
+  <v-footer>
     <v-row justify="center">
       <v-btn v-for="link in links" :key="link.name" text rounded>{{ link.name }}</v-btn>
       <v-col class="text-center" cols="12">@2020 Devup Inc.</v-col>
