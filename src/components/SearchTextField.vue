@@ -26,5 +26,4 @@ import Component from "vue-class-component";
 })
 export default class SearchTextField extends Vue {}
 </script>
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

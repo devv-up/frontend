@@ -11,7 +11,7 @@
         @change="handleFilter"
       />
       <v-content>
-        <v-container></v-container>
+        <v-container>아이템 리스트..</v-container>
       </v-content>
     </div>
     <Footer />
@@ -23,18 +23,16 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import Header from "@/components/layout/Header.vue";
 import SideBar from "@/components/layout/SideBar.vue";
-import Navigation from "@/components/layout/Navigation.vue";
 import Footer from "@/components/layout/Footer.vue";
 
 @Component({
   components: {
     Header,
     SideBar,
-    Navigation,
     Footer
   }
 })
-export default class Layout extends Vue {
+export default class Home extends Vue {
   categories = [
     { id: 0, title: "algorithm" },
     { id: 1, title: "project" },

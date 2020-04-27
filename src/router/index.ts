@@ -1,27 +1,34 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
+import Layout from "@/components/layout/Layout.vue";
 
 Vue.use(VueRouter);
 
 const routes: RouteConfig[] = [
   {
     path: "/",
-    component: () => import("@/pages/Home.vue"),
+    component: () => import("@/pages/Home.vue")
   },
-  // {
-  //   path: "/404",
-  //   component: () => import("@/views/error404/index.vue"),
-  // },
-  // {
-  //   path: "*",
-  //   redirect: "/404",
-  // },
+  {
+    path: "/404",
+    component: Layout,
+    children: [
+      {
+        path: "",
+        component: () => import("@/pages/Error.vue")
+      }
+    ]
+  },
+  {
+    path: "*",
+    redirect: "/404"
+  }
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes,
+  routes
 });
 
 export default router;
