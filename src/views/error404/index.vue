@@ -1,5 +1,6 @@
+// eslint-disable-next-line vue/valid-template-root
 <template>
-  <DefaultLayout>
+  <!-- <DefaultLayout>
     <div>
       <v-row>
         <v-col>
@@ -27,15 +28,15 @@
         </v-col>
       </v-row>
     </div>
-  </DefaultLayout>
+  </DefaultLayout> -->
 </template>
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import DefaultLayout from "@/layout/DefaultLayout/index.vue";
+// import DefaultLayout from "@/layout/DefaultLayout/index.vue";
 @Component({
   components: {
-    DefaultLayout
+   // DefaultLayout
   }
 })
 export default class Error404 extends Vue {}
