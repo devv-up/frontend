@@ -1,30 +1,23 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import Layout from "@/layout/index.vue";
+import Layout from "@/components/layout/Layout.vue";
 
 Vue.use(VueRouter);
 
 const routes: RouteConfig[] = [
   {
     path: "/",
+    component: () => import("@/pages/Home.vue")
+  },
+  {
+    path: "/404",
     component: Layout,
     children: [
       {
         path: "",
-        component: () => import("@/views/main/index.vue"),
-        props: route => ({
-          searchtext: route.query.searchtext,
-          searchdate: route.query.searchdate,
-          searchtime: route.query.searchtime,
-          searchcategory: route.query.searchcategory,
-          searchtag: route.query.searchtag
-        })
+        component: () => import("@/pages/Error.vue")
       }
     ]
-  },
-  {
-    path: "/404",
-    component: () => import("@/views/error404/index.vue")
   },
   {
     path: "*",
