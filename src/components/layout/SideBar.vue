@@ -78,9 +78,6 @@ export default class SideBar extends Props {
   handleFilter(value: object) {
     this.$emit("change", { ...value });
   }
-  mounted() {
-    console.log(this.$vuetify.breakpoint);
-  }
 }
 </script>
 <style lang="scss" scoped>

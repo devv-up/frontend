@@ -52,7 +52,6 @@ export default class Home extends Vue {
   };
   handleFilter(value: object) {
     this.$router.push({ path: "/", query: { ...this.$route.query, ...value } });
-    console.log(value);
   }
 }
 </script>
