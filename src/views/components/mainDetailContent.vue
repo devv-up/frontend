@@ -2,6 +2,7 @@
   <div>
     <v-row row wrap justify="center" align="center">
 
+
       <v-col xs="6" sm="6" md="6" lg="6" xl="6">
         <v-img
           src="https://thumb.wishbeen.com/TqXukb4gcQYcYcfL4F9ynd9lTAo=/880x/smart/filters:no_upscale()/img-wishbeen.akamaized.net/post/1453359808444_shutterstock_129286766.jpg"
@@ -9,12 +10,14 @@
       </v-col>
     </v-row>
 
+
     <v-row row wrap justify="center" align="start">
       <v-col xs="9" sm="9" md="9" lg="9" xl="9">
         <v-row>
           <v-card-text outlined tile>
             {{ groupLightContent }}
           </v-card-text>
+
         </v-row>
 
         <v-row row wrap justify="center" align="center">
@@ -27,14 +30,9 @@
             </v-card-text>
           </v-col>
 
+
         </v-row>
-        <v-row justify="center" align="center">
-          <v-card-title>
-            <v-avatar class="mr-3">
-              <img src="@/assets/images/seoul.jpg" alt="John" />
-            </v-avatar>
-            <span class="headline" name="hostId">{{ grouphostname }}</span>
-          </v-card-title>
+
 
 
         <v-row row wrap justify="center" align="center">
@@ -70,6 +68,7 @@
             >
           </v-card-title>
         </v-row>
+
 
       </v-col>
     </v-row>
