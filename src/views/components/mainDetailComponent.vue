@@ -1,6 +1,12 @@
 <template>
   <div class="divapp">
-    <v-container grid-list-md>
+    <v-container
+      grid-list-xs
+      grid-list-sm
+      grid-list-md
+      grid-list-lg
+      grid-list-xl
+    >
       <mainDetailContent></mainDetailContent>
     </v-container>
   </div>
