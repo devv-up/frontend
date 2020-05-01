@@ -68,7 +68,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import WriteReply from "@/views/components/writeReply.vue";
+import WriteReply from "@/components/mainDetail/WriteReplyContent.vue";
 
 @Component({
   components: {
