@@ -20,6 +20,27 @@ const routes: RouteConfig[] = [
     ]
   },
   {
+    path: "/mainDetail",
+    component: Layout,
+    children: [
+      {
+        path: "",
+        component: () => import("@/pages/MainDetail.vue")
+      }
+    ]
+  },
+  {
+  
+    path: "/new",
+    component: Layout,
+    children: [
+      {
+        path: "",
+        component: () => import("@/pages/newFile.vue")
+      }
+    ]
+  },
+  {
     path: "*",
     redirect: "/404"
   }

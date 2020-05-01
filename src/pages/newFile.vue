@@ -1,8 +1,6 @@
 <template>
   <div>
-    <v-row row wrap justify="center" align="center">
-
-
+      <v-row row wrap justify="center" align="center">
       <v-col xs="6" sm="6" md="6" lg="6" xl="6">
         <v-img
           src="https://thumb.wishbeen.com/TqXukb4gcQYcYcfL4F9ynd9lTAo=/880x/smart/filters:no_upscale()/img-wishbeen.akamaized.net/post/1453359808444_shutterstock_129286766.jpg"
@@ -10,14 +8,12 @@
       </v-col>
     </v-row>
 
-
     <v-row row wrap justify="center" align="start">
       <v-col xs="9" sm="9" md="9" lg="9" xl="9">
         <v-row>
           <v-card-text outlined tile>
             {{ groupLightContent }}
           </v-card-text>
-
         </v-row>
 
         <v-row row wrap justify="center" align="center">
@@ -29,11 +25,7 @@
               {{ groupContent }}
             </v-card-text>
           </v-col>
-
-
         </v-row>
-
-
 
         <v-row row wrap justify="center" align="center">
           <v-col xs="12" sm="12" md="12" lg="12" xl="12">
@@ -68,8 +60,6 @@
             >
           </v-card-title>
         </v-row>
-
-
       </v-col>
     </v-row>
   </div>
@@ -78,7 +68,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import WriteReply from "@/views/components/writeReply.vue";
+import WriteReply from "@/components/mainDetail/WriteReplyContent.vue";
 
 @Component({
   components: {
