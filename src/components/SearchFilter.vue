@@ -2,7 +2,9 @@
   <div class="filter">
     <div class="filter__title">
       <h2 class="filter__title__text">Filters</h2>
-      <button class="filter__title__action">Clear filters</button>
+      <button class="filter__title__action" @click="handleClear">
+        Clear filters
+      </button>
     </div>
     <v-divider></v-divider>
     <div class="filter__list">
@@ -13,16 +15,12 @@
       <v-divider></v-divider>
       <div>
         <h4>Tags</h4>
-        <Tags
-          :tags="tags"
-          v-model="filterData.tags"
-          @change="value => update('tags', value)"
-        />
+        <Tags :tags="tags" />
       </div>
       <v-divider></v-divider>
       <div>
         <h4>Time</h4>
-        <Times :times="times" />
+        <Times :timeOfDay="timeOfDay" />
       </div>
       <v-divider></v-divider>
       <div>
@@ -30,8 +28,9 @@
         <v-date-picker
           class="filter__list__date"
           no-title
+          range
           width="250"
-          v-model="filterData.date"
+          v-model="selectedDate"
           @change="value => update('date', value)"
         ></v-date-picker>
       </div>
@@ -54,23 +53,25 @@ const Props = Vue.extend({
   props: {
     categories: Array,
     tags: Array,
-    times: Array,
-    filterData: {
-      type: Object,
-      default: function() {
-        return {
-          date: new Date().toISOString().substr(0, 10),
-          tags: []
-        };
-      }
-    }
+    timeOfDay: Array
   }
 });
 
 @Component
 export default class SearchFilter extends Props {
-  update(key: string, value: string) {
-    this.$emit("change", { ...this.filterData, [key]: value });
+  selectedDate = [];
+  update(key: string, value: Array<string>) {
+    this.$router.push({
+      path: "/",
+      query: {
+        ...this.$route.query,
+        ["startDate"]: value[0],
+        ["endDate"]: value[1]
+      }
+    });
+  }
+  handleClear() {
+    this.$router.push({ path: "/" });
   }
 }
 </script>
