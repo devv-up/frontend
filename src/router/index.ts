@@ -20,7 +20,8 @@ const routes: RouteConfig[] = [
     ]
   },
   {
-    path: "/mainDetail",
+    path: "/detail/:id",
+    name: "detail",
     component: Layout,
     children: [
       {

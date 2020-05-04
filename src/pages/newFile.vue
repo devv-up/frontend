@@ -3,7 +3,7 @@
       <v-row row wrap justify="center" align="center">
       <v-col xs="6" sm="6" md="6" lg="6" xl="6">
         <v-img
-          src="https://thumb.wishbeen.com/TqXukb4gcQYcYcfL4F9ynd9lTAo=/880x/smart/filters:no_upscale()/img-wishbeen.akamaized.net/post/1453359808444_shutterstock_129286766.jpg"
+          src="@/assets/images/bill.jpg"
         ></v-img>
       </v-col>
     </v-row>

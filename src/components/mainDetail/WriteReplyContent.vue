@@ -1,17 +1,15 @@
 <template>
   <div>
-    <v-card-title class="font-weight-CONDENSED headline ma-2"
-      >댓글개수</v-card-title
-    >
-    <span v-for="(userProfile, x) in userProfiles" :key="x">
+    <v-card-title class="font-weight-CONDENSED headline ma-2">댓글개수</v-card-title>
+    <span v-for="(comment, x) in comment" :key="x">
       <v-card-title>
-        {{ userProfile.id }}
+        {{ comment }}
         <v-spacer></v-spacer>
         <v-btn class="ma-1" color="white">수정</v-btn>
         <v-btn class="ma-1 white--text" color="#8d13d0">삭제</v-btn>
       </v-card-title>
-      <v-card-text name="userProfile">
-        {{ userProfile.comment }}
+      <v-card-text name="comment">
+        {{ comment }}
       </v-card-text>
     </span>
 
@@ -26,35 +24,29 @@
         auto-grow
         value=""
         class="mt-8"
-        v-model="writecomment"
+        
       ></v-textarea>
-      <v-btn class="white--text" color="#8d13d0">댓글등록</v-btn>
+      <v-btn class="white--text" color="#8d13d0" :click="CommentFnc()">댓글등록</v-btn>
     </v-card-text>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import main from "@/store/modules/main";
+import { Comments } from "@/store/models/main";
 
 @Component
 export default class WriteReply extends Vue {
-  writecomment = "";
+  comment: Comments[] = [];
 
-  userProfiles = [
-    {
-      id: "good",
-      comment: "Hello"
-    },
-    {
-      id: "call",
-      comment: "calling"
-    },
-    {
-      id: "hot",
-      comment: "cool"
-    }
-  ];
+  //등록버튼 눌렀을때 api 코멘트 등록 가져오기(에러발생)
+  CommentFnc(){
+    main.createComments().then((res) => {
+      return res
+    })    
+  }
 }
 </script>
 
