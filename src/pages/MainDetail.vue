@@ -1,15 +1,17 @@
 <template>
-  <MainDetailComponent></MainDetailComponent>
+  <v-container>
+    <MainDetailContent></MainDetailContent>
+  </v-container>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import MainDetailComponent from "@/components/mainDetail/MainDetailComponent.vue";
+import MainDetailContent from "@/components/mainDetail/MainDetailContent.vue";
 
 @Component({
   components: {
-    MainDetailComponent
+    MainDetailContent
   }
 })
 export default class MainDetail extends Vue {}
