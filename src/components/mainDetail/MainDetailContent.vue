@@ -1,71 +1,45 @@
 <template>
-  <div>
-    <v-row row wrap justify="center" align="center">
-      {{ detail.title }}
-    </v-row>
-
-    <v-row row wrap justify="center" align="center">
-      <v-col xs="12" sm="12" md="12" lg="12" xl="12">
-        <v-img src="@/assets/images/bill.jpg"></v-img>
+  <section class="d-flex flex-column">
+    <h2>{{ detail.title }}</h2>
+    <v-img src="@/assets/images/bill.jpg"></v-img>
+    <v-row>
+      <v-col cols="12" sm="9">
+        <v-card-text outlined tile>
+          <p>{{ detail.location }}</p>
+          <p>{{ detail.date }}</p>
+        </v-card-text>
+        <v-card-title class="font-weight-CONDENSED headline ma-2">
+          모임내용
+        </v-card-title>
+        <v-card-text>
+          {{ detail.content }}
+        </v-card-text>
       </v-col>
-    </v-row>
-
-    <v-row row wrap justify="center" align="start">
-      <v-col xs="9" sm="9" md="9" lg="9" xl="9">
+      <v-col cols="12" sm="3">
+        <span class="justify-start" max-width="210">
         <v-row>
-          <v-card-text outlined tile>
-            <p>{{ detail.location }}</p>
-            <p>{{ detail.date }}</p>
+          <v-card-text class="font-weight-CONDENSED headline ml-1">
+            <span class="ml-1">주최자</span>
           </v-card-text>
-        </v-row>
-
-        <v-row row wrap justify="center" align="center">
-          <v-col xs="12" sm="12" md="12" lg="12" xl="12">
-            <v-card-title class="font-weight-CONDENSED headline ma-2">
-              모임내용
-            </v-card-title>
-            <v-card-text>
-              {{ detail.content }}
-            </v-card-text>
-          </v-col>
-        </v-row>
-
-        <v-row row wrap justify="center" align="center">
-          <v-col xs="12" sm="12" md="12" lg="12" xl="12">
-            <WriteReply></WriteReply>
-          </v-col>
-        </v-row>
-      </v-col>
-
-      <v-col xs="3" sm="3" md="3" lg="3" xl="3">
-        <v-row row wrap justify="center" align="center">
-          <v-card-title class="font-weight-CONDENSED headline">
-            주최자
-          </v-card-title>
-        </v-row>
-
-        <v-row row wrap justify="center" align="center">
-          <v-col align="center" class="pa-0" cols="12">
-            <v-avatar size="164" tile>
+          <v-col cols="5">
+            <v-avatar size="100" tile class="ml-4">
               <v-img
                 src="@/assets/images/seoul2.jpg"
               ></v-img>
             </v-avatar>
           </v-col>
           <span class="title mt-3">{{ detail.author }}</span>
+        
+          <v-card-text class="ml-2">
+            <v-btn class="mt-2" color="white">Follow</v-btn>
+            <v-btn class="ml-2 mt-2 white--text" color="#8d13d0">Scrab</v-btn>
+          </v-card-text>
         </v-row>
-
-        <v-row justify="center" align="center">
-          <v-card-title>
-            <v-btn class="ml-3 mt-2" color="white">Follow</v-btn>
-            <v-btn class="ml-4 mt-2 white--text" color="#8d13d0"
-              >Scrab</v-btn
-            >
-          </v-card-title>
-        </v-row>
+        </span>
       </v-col>
     </v-row>
-  </div>
+    <WriteReply />
+  </section>
 </template>
 
 <script lang="ts">

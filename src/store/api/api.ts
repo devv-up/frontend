@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const apiCall = axios.create({
-    baseURL: 'https://3.34.46.127'
+    baseURL: 'https://ops-test.com/'
 });
 
 //리스트 불러오기
