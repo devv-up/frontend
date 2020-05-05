@@ -1,18 +1,18 @@
 <template>
   <section class="d-flex flex-column">
-    <h2>{{ detail.title }}</h2>
+    <h2>모임제목</h2>
     <v-img src="@/assets/images/bill.jpg"></v-img>
     <v-row>
       <v-col cols="12" sm="9">
         <v-card-text outlined tile>
-          <p>{{ detail.location }}</p>
-          <p>{{ detail.date }}</p>
+          <p>모임장소</p>
+          <p>모임날짜</p>
         </v-card-text>
         <v-card-title class="font-weight-CONDENSED headline ma-2">
           모임내용
         </v-card-title>
         <v-card-text>
-          {{ detail.content }}
+           모임내용 
         </v-card-text>
       </v-col>
       <v-col cols="12" sm="3">
@@ -21,12 +21,13 @@
             <v-card-text class="font-weight-CONDENSED headline ml-1">
               <span class="ml-1">주최자</span>
             </v-card-text>
-            <v-col cols="5">
+            <v-col cols="12">
               <v-avatar size="100" tile class="ml-4">
                 <v-img src="@/assets/images/seoul2.jpg"></v-img>
               </v-avatar>
+              <p class="ml-6 mt-3">모임작성자</p>
             </v-col>
-            <span class="title mt-3">{{ detail.author }}</span>
+            
 
             <v-card-text class="ml-2">
               <v-btn class="mt-2" color="white">Follow</v-btn>
@@ -63,14 +64,7 @@ import { Comments, Detail } from "@/store/models/main";
   }
 })
 export default class MainDetailContent extends Vue {
-  detail: Detail[] = [];
-
-  //api 이용해서 리스트 불러오기
-  created() {
-    main.loadDetail().then(() => {
-      this.detail = main.detail;
-    });
-  }
+  
 }
 </script>
 
