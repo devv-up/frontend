@@ -12,7 +12,7 @@ import * as api from "@/store/api/api";
 class Main extends VuexModule {
     comments: Comments[] = [];
     detail: Detail[] = [];
-
+    
     @Mutation
     setDetail(detail: Detail[]){
         this.detail = detail

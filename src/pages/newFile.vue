@@ -79,7 +79,7 @@ export default class MainDetailContent extends Vue {
   groupname = "groupname";
   groupplace = "groupplace";
   groupLightContent =
-    "모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임모임";
+    "모임";
   grouphostname = "Bill Gates";
   groupContent = "모임설명";
 }

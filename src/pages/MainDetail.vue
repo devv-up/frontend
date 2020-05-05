@@ -1,7 +1,5 @@
 <template>
-  <v-container>
     <MainDetailContent></MainDetailContent>
-  </v-container>
 </template>
 
 <script lang="ts">
@@ -10,6 +8,7 @@ import Component from "vue-class-component";
 
 
 import mainDetailComponent from "@/views/components/mainDetailComponent.vue";
+
 
 
 

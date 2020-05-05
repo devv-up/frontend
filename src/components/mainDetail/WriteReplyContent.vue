@@ -26,7 +26,7 @@
         class="mt-8"
         
       ></v-textarea>
-      <v-btn class="white--text" color="#8d13d0" :click="CommentFnc()">댓글등록</v-btn>
+      <v-btn class="white--text" color="#8d13d0" >댓글등록</v-btn>
     </v-card-text>
   </div>
 </template>
@@ -42,11 +42,11 @@ export default class WriteReply extends Vue {
   comment: Comments[] = [];
 
   //등록버튼 눌렀을때 api 코멘트 등록 가져오기(에러발생)
-  CommentFnc(){
-    main.createComments().then((res) => {
-      return res
-    })    
-  }
+  // CommentFnc(){
+  //   main.createComments().then((res) => {
+  //     return res
+  //   })    
+  // }
 }
 </script>
 
