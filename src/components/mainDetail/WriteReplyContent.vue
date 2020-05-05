@@ -42,12 +42,7 @@ import { Comments } from "@/store/models/main";
 export default class WriteReply extends Vue {
   comment: Comments[] = [];
 
-  //등록버튼 눌렀을때 api 코멘트 등록 가져오기(에러발생)
-  // CommentFnc(){
-  //   main.createComments().then((res) => {
-  //     return res
-  //   })
-  // }
+  
 }
 </script>
 

@@ -16,24 +16,6 @@ import * as api from "@/store/api/api";
   namespaced: true
 })
 class Main extends VuexModule {
-  comments: Comments[] = [];
-  detail: Detail[] = [];
-
-  @Mutation
-  setDetail(detail: Detail[]) {
-    this.detail = detail;
-  }
-
-  @Action({ rawError: true })
-  async createComments() {
-    const comments = await api.addComment();
-    return comments;
-  }
-
-  @Action({ commit: "setDetail" })
-  async loadDetail() {
-    const detail = await api.getMain();
-    return detail;
-  }
+  
 }
 export default getModule(Main);

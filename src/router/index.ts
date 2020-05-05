@@ -31,16 +31,6 @@ const routes: RouteConfig[] = [
     ]
   },
   {
-    path: "/new",
-    component: Layout,
-    children: [
-      {
-        path: "",
-        component: () => import("@/pages/newFile.vue")
-      }
-    ]
-  },
-  {
     path: "*",
     redirect: "/404"
   }
