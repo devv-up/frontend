@@ -1,10 +1,8 @@
 <template>
   <div>
-      <v-row row wrap justify="center" align="center">
+    <v-row row wrap justify="center" align="center">
       <v-col xs="6" sm="6" md="6" lg="6" xl="6">
-        <v-img
-          src="@/assets/images/bill.jpg"
-        ></v-img>
+        <v-img src="@/assets/images/bill.jpg"></v-img>
       </v-col>
     </v-row>
 
@@ -78,8 +76,7 @@ import WriteReply from "@/components/mainDetail/WriteReplyContent.vue";
 export default class MainDetailContent extends Vue {
   groupname = "groupname";
   groupplace = "groupplace";
-  groupLightContent =
-    "모임";
+  groupLightContent = "모임";
   grouphostname = "Bill Gates";
   groupContent = "모임설명";
 }

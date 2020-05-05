@@ -10,6 +10,7 @@
         ></v-img>
 
       </v-col>
+
     </v-row>
 
 
@@ -82,6 +83,7 @@
 
 
 
+
       </v-col>
     </v-row>
     <WriteReply />
@@ -95,14 +97,13 @@ import WriteReply from "@/components/mainDetail/WriteReplyContent.vue";
 import main from "@/store/modules/main";
 import { Comments, Detail } from "@/store/models/main";
 
-
 @Component({
   components: {
     WriteReply
   },
   props: {
     groupImage: {
-      type:String,
+      type: String,
       default: "@/assets/images/seoul3.jpg"
     },
     hostImage: {
@@ -111,14 +112,13 @@ import { Comments, Detail } from "@/store/models/main";
     }
   }
 })
-
 export default class MainDetailContent extends Vue {
   detail: Detail[] = [];
 
   //api 이용해서 리스트 불러오기
-  created(){
+  created() {
     main.loadDetail().then(() => {
-      this.detail = main.detail
+      this.detail = main.detail;
     });
   }
 }

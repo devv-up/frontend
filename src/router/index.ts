@@ -31,7 +31,6 @@ const routes: RouteConfig[] = [
     ]
   },
   {
-  
     path: "/new",
     component: Layout,
     children: [

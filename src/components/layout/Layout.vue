@@ -1,11 +1,11 @@
 <template>
   <v-app>
     <AppBar :isScroll="false" />
-      <v-content>
-        <v-container>
-          <router-view></router-view>
-        </v-container>
-      </v-content>
+    <v-content>
+      <v-container>
+        <router-view></router-view>
+      </v-container>
+    </v-content>
     <Footer />
   </v-app>
 </template>
@@ -26,6 +26,4 @@ import Footer from "@/components/layout/Footer.vue";
 })
 export default class BasicLayout extends Vue {}
 </script>
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

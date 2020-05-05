@@ -1,70 +1,68 @@
 export interface Title {
-    id: Number;
-    title: String;
+  id: number;
+  title: string;
 }
 
 export interface Content {
-    id: Number;
-    content: String;
+  id: number;
+  content: string;
 }
 
 export interface Author {
-    id: Number;
-    password: String;
-    email: String;
-    name: String;
-    verification_key: String;
+  id: number;
+  password: string;
+  email: string;
+  name: string;
+  verification_key: string;
 }
 
 export interface StartDate {
-    id: Number;
-    date: String;
+  id: number;
+  date: string;
 }
 
 export interface EndDate {
-    id: Number;
-    date: String;
+  id: number;
+  date: string;
 }
 
 export interface TimeOfDay {
-    id: Number;
-    time: String;
+  id: number;
+  time: string;
 }
 
 export interface Location {
-    id: Number;
-    name: String;
+  id: number;
+  name: string;
 }
 
 export interface Category {
-    id: Number;
-    title: String;
+  id: number;
+  title: string;
 }
 
 export interface Tag {
-    id: Number;
-    title: String;
+  id: number;
+  title: string;
 }
 
 export interface Comments {
-    id: Number;
-    content: String;
-    createdDate: String;
+  id: number;
+  content: string;
+  createdDate: string;
 }
 
 export interface Detail {
-    id: Number;
-    title: String;
-    content: String;
-    location: String;
-    capacity: Number;
-    date: String;
-    timeOfDay: Number;
-    createdDate: String;
-    author: Author[];
-    category: Category[];
-    tags: Tag[];
-    comments: Comments[];
+  id: number;
+  title: string;
+  content: string;
+  location: string;
+  capacity: number;
+  date: string;
+  timeOfDay: number;
+  createdDate: string;
+  author: Author[];
+  category: Category[];
+  tags: Tag[];
+  comments: Comments[];
 }
-  
-  
