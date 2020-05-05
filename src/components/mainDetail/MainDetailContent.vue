@@ -85,6 +85,7 @@
 
 
 
+
       </v-col>
     </v-row>
     <WriteReply />
@@ -95,8 +96,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import WriteReply from "@/components/mainDetail/WriteReplyContent.vue";
-import main from "@/store/modules/main";
-import { Comments, Detail } from "@/store/models/main";
+
 
 @Component({
   components: {
