@@ -1,12 +1,11 @@
 <template>
-    <MainDetailContent></MainDetailContent>
+  <MainDetailContent></MainDetailContent>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
 import MainDetailContent from "@/components/mainDetail/MainDetailContent.vue";
-
 
 @Component({
   components: {
@@ -16,5 +15,4 @@ import MainDetailContent from "@/components/mainDetail/MainDetailContent.vue";
 export default class MainDetail extends Vue {}
 </script>
 
-<style>
-</style>
+<style></style>

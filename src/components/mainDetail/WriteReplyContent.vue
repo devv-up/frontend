@@ -1,6 +1,8 @@
 <template>
   <div>
-    <v-card-title class="font-weight-CONDENSED headline ma-2">댓글개수</v-card-title>
+    <v-card-title class="font-weight-CONDENSED headline ma-2"
+      >댓글개수</v-card-title
+    >
     <span v-for="(comment, x) in comment" :key="x">
       <v-card-title>
         {{ comment }}
@@ -24,9 +26,8 @@
         auto-grow
         value=""
         class="mt-8"
-        
       ></v-textarea>
-      <v-btn class="white--text" color="#8d13d0" >댓글등록</v-btn>
+      <v-btn class="white--text" color="#8d13d0">댓글등록</v-btn>
     </v-card-text>
   </div>
 </template>
@@ -45,7 +46,7 @@ export default class WriteReply extends Vue {
   // CommentFnc(){
   //   main.createComments().then((res) => {
   //     return res
-  //   })    
+  //   })
   // }
 }
 </script>

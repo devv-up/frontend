@@ -17,24 +17,22 @@
       </v-col>
       <v-col cols="12" sm="3">
         <span class="justify-start" max-width="210">
-        <v-row>
-          <v-card-text class="font-weight-CONDENSED headline ml-1">
-            <span class="ml-1">주최자</span>
-          </v-card-text>
-          <v-col cols="5">
-            <v-avatar size="100" tile class="ml-4">
-              <v-img
-                src="@/assets/images/seoul2.jpg"
-              ></v-img>
-            </v-avatar>
-          </v-col>
-          <span class="title mt-3">{{ detail.author }}</span>
-        
-          <v-card-text class="ml-2">
-            <v-btn class="mt-2" color="white">Follow</v-btn>
-            <v-btn class="ml-2 mt-2 white--text" color="#8d13d0">Scrab</v-btn>
-          </v-card-text>
-        </v-row>
+          <v-row>
+            <v-card-text class="font-weight-CONDENSED headline ml-1">
+              <span class="ml-1">주최자</span>
+            </v-card-text>
+            <v-col cols="5">
+              <v-avatar size="100" tile class="ml-4">
+                <v-img src="@/assets/images/seoul2.jpg"></v-img>
+              </v-avatar>
+            </v-col>
+            <span class="title mt-3">{{ detail.author }}</span>
+
+            <v-card-text class="ml-2">
+              <v-btn class="mt-2" color="white">Follow</v-btn>
+              <v-btn class="ml-2 mt-2 white--text" color="#8d13d0">Scrab</v-btn>
+            </v-card-text>
+          </v-row>
         </span>
       </v-col>
     </v-row>
@@ -49,14 +47,13 @@ import WriteReply from "@/components/mainDetail/WriteReplyContent.vue";
 import main from "@/store/modules/main";
 import { Comments, Detail } from "@/store/models/main";
 
-
 @Component({
   components: {
     WriteReply
   },
   props: {
     groupImage: {
-      type:String,
+      type: String,
       default: "@/assets/images/seoul3.jpg"
     },
     hostImage: {
@@ -65,14 +62,13 @@ import { Comments, Detail } from "@/store/models/main";
     }
   }
 })
-
 export default class MainDetailContent extends Vue {
   detail: Detail[] = [];
 
   //api 이용해서 리스트 불러오기
-  created(){
+  created() {
     main.loadDetail().then(() => {
-      this.detail = main.detail
+      this.detail = main.detail;
     });
   }
 }

@@ -3,7 +3,14 @@ import Vuex from "vuex";
 import { SearchState } from "search";
 import { UserState } from "user";
 import { CategoryTagState } from "board";
-import { StartDate, EndDate, TimeOfDay, Location, Category, Tag } from "@/store/models/main";
+import {
+  StartDate,
+  EndDate,
+  TimeOfDay,
+  Location,
+  Category,
+  Tag
+} from "@/store/models/main";
 
 Vue.use(Vuex);
 
