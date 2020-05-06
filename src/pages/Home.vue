@@ -35,7 +35,7 @@ import Footer from "@/components/layout/Footer.vue";
 import PostCardView from "@/components/PostCardView.vue";
 import PostGridList from "@/components/PostGridList.vue";
 import { fetchCategories, fetchTags, fetchPosts } from "@/api/post";
-import { Post, Category, Tag  } from "board";
+import { Post, Category, Tag } from "board";
 import { Route, RawLocation } from "vue-router";
 
 const Props = Vue.extend({

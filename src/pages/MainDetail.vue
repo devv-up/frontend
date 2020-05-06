@@ -15,5 +15,3 @@ import MainDetailContent from "@/components/mainDetail/MainDetailContent.vue";
 export default class MainDetail extends Vue {}
 </script>
 <style scoped></style>
-
-

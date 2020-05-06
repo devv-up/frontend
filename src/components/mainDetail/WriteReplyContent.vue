@@ -5,13 +5,13 @@
     </p>
     <span v-for="(comment, x) in comment" :key="x">
       <v-row>
-        <span class="ml-3">{{comment.id}}</span>
+        <span class="ml-3">{{ comment.id }}</span>
         <v-spacer></v-spacer>
         <v-btn class="ma-1" color="white">수정</v-btn>
         <v-btn class="ma-1 white--text" color="#8d13d0">삭제</v-btn>
       </v-row>
       <p name="comment">
-        {{comment.content}}
+        {{ comment.content }}
       </p>
     </span>
 
@@ -38,16 +38,16 @@ import Component from "vue-class-component";
 
 @Component
 export default class WriteReply extends Vue {
-comment = [
-  {
-    id:"good",
-    content:"good!!"
-  },
-  {
-    id:"call",
-    content:"call!!"
-  }
-]
+  comment = [
+    {
+      id: "good",
+      content: "good!!"
+    },
+    {
+      id: "call",
+      content: "call!!"
+    }
+  ];
 }
 </script>
 

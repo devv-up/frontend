@@ -12,7 +12,7 @@
           모임내용
         </v-card-title>
         <v-card-text>
-           모임내용 
+          모임내용
         </v-card-text>
       </v-col>
       <v-col cols="12" sm="3">
@@ -21,14 +21,14 @@
             <v-card-text class="font-weight-CONDENSED headline ml-1">
               <span class="ml-1">주최자</span>
             </v-card-text>
-            
+
             <v-col cols="12">
               <v-avatar size="100" tile class="ml-4">
                 <v-img src="@/assets/images/seoul2.jpg"></v-img>
               </v-avatar>
               <p class="ml-6 mt-3">모임작성자</p>
             </v-col>
-  
+
             <v-card-text class="ml-2">
               <v-btn class="mt-2" color="white">Follow</v-btn>
               <v-btn class="ml-2 mt-2 white--text" color="#8d13d0">Scrab</v-btn>
@@ -61,9 +61,7 @@ import WriteReply from "@/components/mainDetail/WriteReplyContent.vue";
     }
   }
 })
-export default class MainDetailContent extends Vue {
-  
-}
+export default class MainDetailContent extends Vue {}
 </script>
 
 <style></style>
