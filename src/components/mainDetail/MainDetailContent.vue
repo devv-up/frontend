@@ -21,21 +21,20 @@
             <v-card-text class="font-weight-CONDENSED headline ml-1">
               <span class="ml-1">주최자</span>
             </v-card-text>
+            
             <v-col cols="12">
               <v-avatar size="100" tile class="ml-4">
                 <v-img src="@/assets/images/seoul2.jpg"></v-img>
               </v-avatar>
               <p class="ml-6 mt-3">모임작성자</p>
             </v-col>
-            
-
+  
             <v-card-text class="ml-2">
               <v-btn class="mt-2" color="white">Follow</v-btn>
               <v-btn class="ml-2 mt-2 white--text" color="#8d13d0">Scrab</v-btn>
             </v-card-text>
           </v-row>
         </span>
-
       </v-col>
     </v-row>
     <WriteReply />
@@ -46,8 +45,6 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import WriteReply from "@/components/mainDetail/WriteReplyContent.vue";
-import main from "@/store/modules/main";
-import { Comments, Detail } from "@/store/models/main";
 
 @Component({
   components: {

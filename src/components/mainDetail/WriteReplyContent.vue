@@ -5,7 +5,7 @@
     </p>
     <span v-for="(comment, x) in comment" :key="x">
       <v-row>
-        {{comment.id}}
+        <span class="ml-3">{{comment.id}}</span>
         <v-spacer></v-spacer>
         <v-btn class="ma-1" color="white">수정</v-btn>
         <v-btn class="ma-1 white--text" color="#8d13d0">삭제</v-btn>
