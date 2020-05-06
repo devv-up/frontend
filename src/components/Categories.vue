@@ -8,7 +8,10 @@
       <p class="category__item__text">
         <v-icon x-small left>mdi-chevron-right</v-icon>
         <router-link
-          :to="{ path: '/', query: { ...$route.query, category: category.id } }"
+          :to="{
+            path: '/',
+            query: { ...$route.query, category: category.title }
+          }"
           active-class="category__item__text--active"
           exact
         >

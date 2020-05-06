@@ -3,10 +3,8 @@
     <v-resize showType="sm" :isShow="false">
       <SearchFilter
         :categories="categories"
-        :times="times"
+        :timeOfDay="timeOfDay"
         :tags="tags"
-        v-model="filterData"
-        @change="handleFilter"
       />
     </v-resize>
     <v-resize showType="sm" :isShow="true">
@@ -35,10 +33,8 @@
             <SearchFilter
               class="mobile-filter__list__sheet__filter"
               :categories="categories"
-              :times="times"
+              :timeOfDay="timeOfDay"
               :tags="tags"
-              v-model="filterData"
-              @change="handleFilter"
             />
           </v-sheet>
         </v-bottom-sheet>
@@ -59,25 +55,13 @@ const Props = Vue.extend({
   props: {
     categories: Array,
     tags: Array,
-    times: Array,
-    filterData: {
-      type: Object,
-      default: function() {
-        return {
-          date: new Date().toISOString().substr(0, 10),
-          tags: []
-        };
-      }
-    }
+    timeOfDay: Array
   }
 });
 
 @Component
 export default class SideBar extends Props {
   sheet = false;
-  handleFilter(value: object) {
-    this.$emit("change", { ...value });
-  }
 }
 </script>
 <style lang="scss" scoped>

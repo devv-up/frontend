@@ -1,10 +1,10 @@
 <template>
   <ul class="time">
-    <li class="time__item" v-for="time in times" :key="time.id">
+    <li class="time__item" v-for="time in timeOfDay" :key="time.id">
       <p class="time__item__text">
         <v-icon x-small left>mdi-chevron-right</v-icon>
         <router-link
-          :to="{ path: '/', query: { ...$route.query, time: time.id } }"
+          :to="{ path: '/', query: { ...$route.query, timeOfDay: time.id } }"
           active-class="time__item__text--active"
           exact
         >
@@ -20,7 +20,7 @@ import Component from "vue-class-component";
 
 @Component({
   props: {
-    times: {
+    timeOfDay: {
       type: Array
     }
   }

@@ -35,6 +35,7 @@
             </v-card-text>
           </v-row>
         </span>
+
       </v-col>
     </v-row>
     <WriteReply />
