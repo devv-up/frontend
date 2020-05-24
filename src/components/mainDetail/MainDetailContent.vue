@@ -1,6 +1,6 @@
 <template>
   <section class="d-flex flex-column">
-    <h2>모임제목</h2>
+    <h2>{{ this.postid }}</h2>
     <v-img src="@/assets/images/bill.jpg"></v-img>
     <v-row>
       <v-col cols="12" sm="9">
@@ -37,7 +37,7 @@
         </span>
       </v-col>
     </v-row>
-    <WriteReply />
+    <WriteReply :propsdata="this.postid.comments" />
   </section>
 </template>
 
@@ -45,6 +45,9 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import WriteReply from "@/components/mainDetail/WriteReplyContent.vue";
+import { PostId, Category, Tag, Comments } from "detail";
+import { DetailModule } from "@/store/modules/detail";
+import { getPostId } from "../../api/detail";
 
 @Component({
   components: {
@@ -61,7 +64,16 @@ import WriteReply from "@/components/mainDetail/WriteReplyContent.vue";
     }
   }
 })
-export default class MainDetailContent extends Vue {}
+export default class MainDetailContent extends Vue {
+  postid: PostId[] = [];
+  Postid: any;
+
+  public created() {
+    DetailModule.PostIdAct().then(res => {
+      this.postid = res.data;
+    });
+  }
+}
 </script>
 
 <style></style>
