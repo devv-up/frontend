@@ -32,7 +32,8 @@ const routes: RouteConfig[] = [
         path: "",
         component: MainDetail
       }
-    ]
+    ],
+    props: true
   },
   {
     path: "*",
