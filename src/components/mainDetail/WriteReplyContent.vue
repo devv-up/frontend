@@ -24,51 +24,40 @@
         filled
         label="댓글입력"
         auto-grow
-        value=""
         class="mt-8"
+        v-model="vmodel"
       ></v-textarea>
-      <v-btn
-        class="white--text"
-        color="#8d13d0"
-        v-model="commentvalue"
-        @click="addcomment"
+      <v-btn class="white--text" color="#8d13d0" @click="addcomment"
         >댓글등록</v-btn
       >
     </span>
+    {{ this.$store.state.content }}
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { setAddComment } from "@/api/addComment";
-import { AddComments, AddComment } from "addComment";
+import { apiAddComment } from "@/api/addComment";
+import { InterAddComment, AddComment } from "addComment";
 import { AddCommentModule } from "../../store/modules/addComment";
+import { VuexModule, Module } from "vuex-module-decorators";
 
 @Component
 export default class WriteReply extends Vue {
-  props: any = {
+  public props: any = {
     propsdata: { type: Array, default: [""] }
   };
+  public vmodel: any = "";
 
   //v-model 값 & postid값 받아오기
-  public commentvalue: any = "";
   public postid: any = this.props.propsdata.id;
 
   //받은값들 객체형태로 선언
-  public sendData: AddComment[] = [
-    {
-      content: this.commentvalue,
-      post: this.postid,
-      parentComment: 0,
-      author: 0
-    }
-  ];
 
   //버튼 클릭시 이 함수 실행
   addcomment() {
-    //액션 AddCommentss 호출하고 파라미터로 위에서 선언한 객체형태 값 넣기 
-    AddCommentModule.AddCommentss(this.sendData);
+    this.$store.getters("loadMuta");
   }
 }
 </script>
