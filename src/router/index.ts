@@ -4,7 +4,7 @@ import VueRouter, { RouteConfig } from "vue-router";
 import LayoutComponent from "@/components/layout/LayoutComponent.vue";
 import HomeView from "@/pages/HomeView.vue";
 import ErrorView from "@/pages/ErrorView.vue";
-import MainDetail from "@/pages/MainDetail.vue";
+import PostView from "@/pages/PostView.vue";
 
 Vue.use(VueRouter);
 
@@ -30,7 +30,7 @@ const routes: RouteConfig[] = [
     children: [
       {
         path: "",
-        component: MainDetail
+        component: PostView
       }
     ],
     props: true

@@ -8,12 +8,8 @@
           <p>모임장소</p>
           <p>모임날짜</p>
         </v-card-text>
-        <v-card-title class="font-weight-CONDENSED headline ma-2">
-          모임내용
-        </v-card-title>
-        <v-card-text>
-          모임내용
-        </v-card-text>
+        <v-card-title class="font-weight-CONDENSED headline ma-2">모임내용</v-card-title>
+        <v-card-text>모임내용</v-card-text>
       </v-col>
       <v-col cols="12" sm="3">
         <span class="justify-start" max-width="210">
@@ -44,7 +40,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import WriteReply from "@/components/mainDetail/WriteReplyContent.vue";
+import WriteReply from "@/components/post/comment/WriteReplyContent.vue";
 import { PostId, Category, Tag, Comments } from "detail";
 import { DetailModule } from "@/store/modules/detail";
 import { getPostId } from "../../api/detail";

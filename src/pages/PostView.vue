@@ -5,7 +5,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import MainDetailContent from "@/components/mainDetail/MainDetailContent.vue";
+import MainDetailContent from "@/components/post/MainDetailContent.vue";
 import { Dictionary } from "vue-router/types/router";
 
 @Component({
