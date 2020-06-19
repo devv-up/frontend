@@ -15,7 +15,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import SigninBar from "@/components/SignInBar.vue";
+import SigninBar from "@/components/layout/app-bar/SignInBar.vue";
 
 const Props = Vue.extend({
   components: {

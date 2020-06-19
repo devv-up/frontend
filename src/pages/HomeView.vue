@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Header />
+    <TopContent />
     <v-content>
       <v-container class="home">
         <SideBar
@@ -22,31 +22,32 @@
         </section>
       </v-container>
     </v-content>
-    <Footer />
+    <FooterComponent />
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import Header from "@/components/layout/Header.vue";
-import SideBar from "@/components/layout/SideBar.vue";
-import Footer from "@/components/layout/Footer.vue";
-import PostCardView from "@/components/PostCardView.vue";
-import PostGridList from "@/components/PostGridList.vue";
-import { fetchCategories, fetchTags, fetchPosts } from "@/api/post";
+import TopContent from "@/components/main/TopContent.vue";
+import FooterComponent from "@/components/layout/FooterComponent.vue";
+import PostCardView from "@/components/main/PostCardView.vue";
+import PostGridList from "@/components/main/PostGridList.vue";
+import SideBar from "@/components/main/sidebar/SideBar.vue";
+import { fetchCategories, fetchTags, fetchPosts } from "@/utils/api/post";
 import { Post, Category, Tag } from "board";
 import { Route, RawLocation } from "vue-router";
 
 const Props = Vue.extend({
   components: {
-    Header,
+    TopContent,
     SideBar,
-    Footer,
+    FooterComponent,
     PostCardView,
     PostGridList
   }
 });
+
 @Component
 export default class Home extends Props {
   posts: Post[] = [];
@@ -87,6 +88,7 @@ export default class Home extends Props {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .mt-15 {
   margin-top: 60px;

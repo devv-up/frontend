@@ -46,7 +46,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import SearchFilter from "@/components/SearchFilter.vue";
+import SearchFilter from "@/components/main/sidebar/SearchFilter.vue";
 
 const Props = Vue.extend({
   components: {
@@ -64,6 +64,7 @@ export default class SideBar extends Props {
   sheet = false;
 }
 </script>
+
 <style lang="scss" scoped>
 .mobile-filter {
   &__action {
