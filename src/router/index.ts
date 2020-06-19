@@ -1,32 +1,36 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
-import Layout from "@/components/layout/Layout.vue";
+
+import LayoutComponent from "@/components/layout/LayoutComponent.vue";
+import HomeView from "@/pages/HomeView.vue";
+import ErrorView from "@/pages/ErrorView.vue";
+import MainDetail from "@/pages/MainDetail.vue";
 
 Vue.use(VueRouter);
 
 const routes: RouteConfig[] = [
   {
     path: "/",
-    component: () => import("@/pages/Home.vue")
+    component: HomeView
   },
   {
     path: "/404",
-    component: Layout,
+    component: LayoutComponent,
     children: [
       {
         path: "",
-        component: () => import("@/pages/Error.vue")
+        component: ErrorView
       }
     ]
   },
   {
     path: "/detail/:id",
     name: "detail",
-    component: Layout,
+    component: LayoutComponent,
     children: [
       {
         path: "",
-        component: () => import("@/pages/MainDetail.vue")
+        component: MainDetail
       }
     ]
   },

@@ -9,8 +9,8 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import SearchTextField from "@/components/SearchTextField.vue";
-import AppBar from "@/components/layout/AppBar.vue";
+import SearchTextField from "@/components/layout/app-bar/SearchTextField.vue";
+import AppBar from "@/components/layout/app-bar/AppBar.vue";
 
 @Component({
   components: {

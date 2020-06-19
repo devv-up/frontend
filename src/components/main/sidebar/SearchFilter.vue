@@ -40,9 +40,9 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import Categories from "@/components/Categories.vue";
-import Tags from "@/components/Tags.vue";
-import Times from "@/components/Times.vue";
+import Categories from "@/components/main/sidebar/Categories.vue";
+import Tags from "@/components/main/sidebar/Tags.vue";
+import Times from "@/components/main/sidebar/Times.vue";
 
 const Props = Vue.extend({
   components: {
