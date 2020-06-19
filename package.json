@@ -7,7 +7,7 @@
     "build": "npx vue-cli-service build",
     "test:unit": "npx vue-cli-service test:unit",
     "lint": "npx vue-cli-service lint",
-    "lint:jenkins": "npx vue-cli-service lint --no-fix --max-errors --max-warnings"
+    "lint:jenkins": "npx vue-cli-service lint --no-fix --max-errors 0 --max-warnings 0"
   },
   "dependencies": {
     "axios": "^0.19.2",
