@@ -16,7 +16,6 @@
       <v-textarea name="input-7-1" filled label="댓글입력" auto-grow class="mt-8" v-model="vmodel"></v-textarea>
       <v-btn class="white--text" color="#8d13d0" @click="addcomment">댓글등록</v-btn>
     </span>
-    {{ this.$store.state.content }}
   </div>
 </template>
 
@@ -37,12 +36,18 @@ export default class WriteReply extends Vue {
 
   //v-model 값 & postid값 받아오기
   public postid: any = this.props.propsdata.id;
+  public bool = false;
 
-  //받은값들 객체형태로 선언
+  public obj = {
+    vmodel: this.vmodel,
+    postid: this.postid
+  };
 
   //버튼 클릭시 이 함수 실행
   addcomment() {
-    this.$store.getters("loadMuta");
+    AddCommentModule.apiload(this.obj).then(res => {
+      this.props.propsdata.comments = res;
+    });
   }
 }
 </script>
