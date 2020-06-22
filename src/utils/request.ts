@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const service = axios.create({
+const instance = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
   timeout: 5000
 });
 
-service.interceptors.request.use(
+instance.interceptors.request.use(
   config => {
     // Add access-token header before request is sent
     return config;
@@ -15,7 +15,7 @@ service.interceptors.request.use(
   }
 );
 
-service.interceptors.response.use(
+instance.interceptors.response.use(
   response => {
     return response;
   },
@@ -24,4 +24,4 @@ service.interceptors.response.use(
   }
 );
 
-export default service;
+export const http = instance;
