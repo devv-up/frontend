@@ -43,7 +43,7 @@ import Component from "vue-class-component";
 import WriteReply from "@/components/post/comment/WriteReplyContent.vue";
 import { PostId, Category, Tag, Comments } from "detail";
 import { DetailModule } from "@/store/modules/detail";
-import { getPostId } from "../../api/detail";
+import { getPostId } from "@/utils/api/post";
 
 @Component({
   components: {
