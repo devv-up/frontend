@@ -23,15 +23,15 @@ class InterAddComment extends VuexModule implements AddComment {
 
   //Mutation
   @Mutation
-  private setVmodel(param2: any) {
-    this.obj.content = param2.vmodel;
-    this.obj.post = param2.post;
+  private setVmodel(mutaparam: any) {
+    this.obj.content = mutaparam.content;
+    this.obj.post = mutaparam.post;
   }
 
   //컴포넌트에서 실행한 Action 실행. commit을 통해 mutation과 연결
   @Action({ commit: "setVmodel" })
-  public async apiload(param1: any) {
-    await apiAddComment(param1)
+  public async apiload(actionparam: any) {
+    await apiAddComment(actionparam)
   }
 
   //getters

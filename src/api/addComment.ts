@@ -1,12 +1,13 @@
 import service from "@/utils/request";
-import { AddComment } from "addComment";
+import { InterAddComment } from "addComment";
 
 /**
  * Get the list of postsssss
  *
  */
-export const apiAddComment = (param: any) =>
-  service.post(
-    "/posts/comments",
-    param = { param1: "", param2: 0 }
-  )
+export const apiAddComment = (params: {}) =>
+  service.request<InterAddComment>({
+    url: "/posts/comments",
+    method: "POST",
+    data: params,
+  })
