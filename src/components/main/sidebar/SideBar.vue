@@ -1,11 +1,7 @@
 <template>
   <div>
     <v-resize showType="sm" :isShow="false">
-      <SearchFilter
-        :categories="categories"
-        :timeOfDay="timeOfDay"
-        :tags="tags"
-      />
+      <SearchFilter />
     </v-resize>
     <v-resize showType="sm" :isShow="true">
       <div class="mobile-filter">
@@ -30,12 +26,7 @@
             >
               close
             </v-btn>
-            <SearchFilter
-              class="mobile-filter__list__sheet__filter"
-              :categories="categories"
-              :timeOfDay="timeOfDay"
-              :tags="tags"
-            />
+            <SearchFilter class="mobile-filter__list__sheet__filter" />
           </v-sheet>
         </v-bottom-sheet>
       </div>
@@ -46,22 +37,16 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+
 import SearchFilter from "@/components/main/sidebar/SearchFilter.vue";
 
-const Props = Vue.extend({
+@Component({
   components: {
     SearchFilter
-  },
-  props: {
-    categories: Array,
-    tags: Array,
-    timeOfDay: Array
   }
-});
-
-@Component
-export default class SideBar extends Props {
-  sheet = false;
+})
+export default class SideBar extends Vue {
+  private sheet = false;
 }
 </script>
 
