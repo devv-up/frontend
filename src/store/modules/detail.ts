@@ -5,12 +5,12 @@ import {
   Mutation,
   Action
 } from "vuex-module-decorators";
-import { PostState, PostId } from "detail";
+import { PostId } from "detail";
 import store from "@/store";
-import { getPostId } from "@/api/detail";
+import { getPostId } from "@/utils/api/post";
 
 @Module({ dynamic: true, store, name: "detail", namespaced: true })
-class Detail extends VuexModule implements PostState {
+class Detail extends VuexModule {
   //State
   public postid: PostId[] = [];
 

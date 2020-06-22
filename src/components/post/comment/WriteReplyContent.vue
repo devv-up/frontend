@@ -22,7 +22,6 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { apiAddComment } from "@/api/addComment";
 import { InterAddComment, AddComment } from "addComment";
 import { AddCommentModule } from "@/store/modules/addComment";
 import { VuexModule, Module } from "vuex-module-decorators";

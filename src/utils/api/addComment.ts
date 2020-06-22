@@ -1,4 +1,4 @@
-import service from "@/utils/request";
+import { http } from "@/utils/request";
 import { InterAddComment } from "addComment";
 
 /**
@@ -6,8 +6,8 @@ import { InterAddComment } from "addComment";
  *
  */
 export const apiAddComment = (params: {}) =>
-  service.request<InterAddComment>({
+  http.request<InterAddComment>({
     url: "/posts/comments",
     method: "POST",
-    data: params,
-  })
+    data: params
+  });

@@ -7,7 +7,7 @@ import {
 } from "vuex-module-decorators";
 import { AddComment } from "addComment";
 import store from "@/store";
-import { apiAddComment } from "@/api/addComment";
+import { apiAddComment } from "@/utils/api/addComment";
 
 @Module({ dynamic: true, store, name: "AddcommentStore", namespaced: true })
 class InterAddComment extends VuexModule implements AddComment {
@@ -19,7 +19,7 @@ class InterAddComment extends VuexModule implements AddComment {
   public obj = {
     content: this.content,
     post: this.post
-  }
+  };
 
   //Mutation
   @Mutation
@@ -31,7 +31,7 @@ class InterAddComment extends VuexModule implements AddComment {
   //컴포넌트에서 실행한 Action 실행. commit을 통해 mutation과 연결
   @Action({ commit: "setVmodel" })
   public async apiload(actionparam: any) {
-    await apiAddComment(actionparam)
+    await apiAddComment(actionparam);
   }
 
   //getters
@@ -39,8 +39,8 @@ class InterAddComment extends VuexModule implements AddComment {
     const obj = {
       content: this.obj.content,
       post: this.obj.post
-    }
-    return obj
+    };
+    return obj;
   }
 }
 //현재 Addcomment 클래스를 AddCommentModule로 빼기

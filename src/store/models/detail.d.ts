@@ -32,8 +32,4 @@ declare module "detail" {
     author: string;
     is_active: boolean;
   }
-
-  export interface PostState {
-    postid: PostId[];
-  }
 }
