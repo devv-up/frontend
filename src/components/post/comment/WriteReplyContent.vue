@@ -39,15 +39,13 @@ export default class WriteReply extends Vue {
   public bool = false;
 
   public obj = {
-    vmodel: this.vmodel,
-    postid: this.postid
+    content: this.vmodel,
+    post: this.postid
   };
 
   //버튼 클릭시 이 함수 실행
   addcomment() {
-    AddCommentModule.apiload(this.obj).then(res => {
-      this.props.propsdata.comments = res;
-    });
+    AddCommentModule.apiload(this.obj);
   }
 }
 </script>
