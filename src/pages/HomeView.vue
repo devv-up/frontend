@@ -44,11 +44,11 @@ import SideBar from "@/components/main/sidebar/SideBar.vue";
   }
 })
 export default class HomeView extends Vue {
-  @Getter posts!: Post[];
+  @Getter private posts!: Post[];
 
-  @Action fetchPosts!: Function;
-  @Action fetchCategories!: Function;
-  @Action fetchTags!: Function;
+  @Action private fetchPosts!: Function;
+  @Action private fetchCategories!: Function;
+  @Action private fetchTags!: Function;
 
   async created() {
     await this.fetchPosts();

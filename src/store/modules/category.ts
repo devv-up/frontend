@@ -1,7 +1,6 @@
 import { Module, VuexModule, Mutation, Action } from "vuex-module-decorators";
 import { fetchCategories } from "@/utils/api/post";
 import { Category } from "board";
-import { Dictionary } from "vue-router/types/router";
 
 @Module
 export default class CategoryModule extends VuexModule {
