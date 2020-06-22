@@ -1,4 +1,4 @@
-import service from "@/utils/request";
+import { http } from "@/utils/request";
 import { Post, Category, Tag } from "board";
 
 /**
@@ -12,8 +12,8 @@ import { Post, Category, Tag } from "board";
  * @param {string} Category
  * @param {string} tags tags=python,diango
  */
-export const fetchPosts = (params: Record<string, string | number>) =>
-  service.request<Post[]>({
+export const fetchPosts = (params?: Record<string, string | number>) =>
+  http.request<Post[]>({
     url: "posts",
     method: "GET",
     params
@@ -23,7 +23,7 @@ export const fetchPosts = (params: Record<string, string | number>) =>
  * GET the list of categories
  */
 export const fetchCategories = () =>
-  service.request<Category[]>({
+  http.request<Category[]>({
     url: "posts/categories",
     method: "GET"
   });
@@ -32,7 +32,7 @@ export const fetchCategories = () =>
  * GET the list of tags
  */
 export const fetchTags = () =>
-  service.request<Tag[]>({
+  http.request<Tag[]>({
     url: "posts/tags",
     method: "GET"
   });

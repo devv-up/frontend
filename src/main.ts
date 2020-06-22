@@ -5,7 +5,6 @@ import store from "@/store";
 import vuetify from "@/plugins/vuetify";
 import ResizeComponent from "@/components/common/ResizeComponent.vue";
 import ModalComponent from "@/components/common/ModalComponent.vue";
-import "@/utils/class-component-hooks";
 
 Vue.config.productionTip = false;
 Vue.component("v-resize", ResizeComponent);

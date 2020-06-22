@@ -1,7 +1,7 @@
 <template>
   <div class="header" v-on:scroll.passive="onScroll">
     <AppBar :isScroll="true" />
-    <h1 class="header__title">Stop looking for an items — find it.</h1>
+    <h1 class="header__title">Looking for a project?</h1>
     <SearchTextField class="header__search" v-model="searchText" />
   </div>
 </template>

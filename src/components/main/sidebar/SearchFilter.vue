@@ -6,23 +6,23 @@
         Clear filters
       </button>
     </div>
-    <v-divider></v-divider>
+    <v-divider />
     <div class="filter__list">
       <div>
         <h4>Category</h4>
         <Categories :categories="categories" />
       </div>
-      <v-divider></v-divider>
+      <v-divider />
       <div>
         <h4>Tags</h4>
         <Tags :tags="tags" />
       </div>
-      <v-divider></v-divider>
+      <v-divider />
       <div>
         <h4>Time</h4>
         <Times :timeOfDay="timeOfDay" />
       </div>
-      <v-divider></v-divider>
+      <v-divider />
       <div>
         <h4>Date</h4>
         <v-date-picker
@@ -31,50 +31,63 @@
           range
           width="250"
           v-model="selectedDate"
-          @change="value => update('date', value)"
-        ></v-date-picker>
+          @change="changeDate"
+        />
       </div>
     </div>
   </div>
 </template>
+
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Getter } from "vuex-class";
+
+import { Category, Tag } from "board";
+
 import Categories from "@/components/main/sidebar/Categories.vue";
 import Tags from "@/components/main/sidebar/Tags.vue";
 import Times from "@/components/main/sidebar/Times.vue";
+import { Dictionary } from "vue-router/types/router";
 
-const Props = Vue.extend({
+@Component({
   components: {
     Categories,
     Tags,
     Times
-  },
-  props: {
-    categories: Array,
-    tags: Array,
-    timeOfDay: Array
   }
-});
+})
+export default class SearchFilter extends Vue {
+  private selectedDate: (string | (string | null)[])[] = [];
 
-@Component
-export default class SearchFilter extends Props {
-  selectedDate = [];
-  update(key: string, value: Array<string>) {
+  @Getter categories!: Category[];
+  @Getter tags!: Tag[];
+  @Getter timeOfDay!: Dictionary<string | number>[];
+
+  created() {
+    this.selectedDate = [
+      this.$route.query.startDate,
+      this.$route.query.endDate
+    ];
+  }
+
+  changeDate() {
     this.$router.push({
       path: "/",
       query: {
         ...this.$route.query,
-        ["startDate"]: value[0],
-        ["endDate"]: value[1]
+        ["startDate"]: this.selectedDate[0],
+        ["endDate"]: this.selectedDate[1]
       }
     });
   }
+
   handleClear() {
     this.$router.push({ path: "/" });
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .filter {
   display: flex;
