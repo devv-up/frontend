@@ -1,14 +1,14 @@
 <template>
   <div>
     <p class="font-weight-CONDENSED headline ma-2">댓글개수</p>
-    <span v-for="(propsdata, x) in props.propsdatas" :key="x">
+    <span v-for="(posts, x) in props.postss" :key="x">
       <v-row>
-        <span class="ml-3">{{ propsdata.id }}</span>
+        <span class="ml-3">{{ this.posts }}</span>
         <v-spacer></v-spacer>
         <v-btn class="ma-1" color="white">수정</v-btn>
         <v-btn class="ma-1 white--text" color="#8d13d0">삭제</v-btn>
       </v-row>
-      <p name="comment">{{ propsdata.post }}</p>
+      <p name="comment">{{ this.posts.post }}</p>
     </span>
 
     <p class="font-weight-CONDENSED ma-2">댓글쓰기</p>
@@ -26,15 +26,21 @@ import { InterAddComment, AddComment } from "addComment";
 import { AddCommentModule } from "@/store/modules/addComment";
 import { VuexModule, Module } from "vuex-module-decorators";
 
+const Props = Vue.extend({
+  props: {
+    propsdata: {
+      type: Object,
+      required: true
+    }
+  }
+});
 @Component
-export default class WriteReply extends Vue {
-  public props: any = {
-    propsdata: { type: Array, default: [""] }
-  };
+export default class WriteReply extends Props {
   public vmodel: any = "";
 
   //v-model 값 & postid값 받아오기
-  public postid: any = this.props.propsdata.id;
+  private posts = this.propsdata;
+  public postid = this.propsdata.id;
   public bool = false;
 
   public obj = {
