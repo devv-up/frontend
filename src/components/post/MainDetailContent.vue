@@ -1,6 +1,6 @@
 <template>
   <section class="d-flex flex-column">
-    <h2>{{ this.postid }}</h2>
+    <h2>{{ this.postidData }}</h2>
     <v-img src="@/assets/images/bill.jpg"></v-img>
     <v-row>
       <v-col cols="12" sm="9">
@@ -33,17 +33,18 @@
         </span>
       </v-col>
     </v-row>
-    <WriteReply :propsdata="this.postid.comments" />
+    <WriteReply :propsdata="postidData" />
   </section>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Getter, Action } from "vuex-class";
+
+import { PostId } from "detail";
+
 import WriteReply from "@/components/post/comment/WriteReplyContent.vue";
-import { PostId, Category, Tag, Comments } from "detail";
-import { DetailModule } from "@/store/modules/detail";
-import { getPostId } from "@/utils/api/post";
 
 @Component({
   components: {
@@ -61,13 +62,12 @@ import { getPostId } from "@/utils/api/post";
   }
 })
 export default class MainDetailContent extends Vue {
-  postid: PostId[] = [];
-  Postid: any;
+  @Getter private postidData!: PostId[];
 
-  public created() {
-    DetailModule.PostIdAct().then(res => {
-      this.postid = res.data;
-    });
+  @Action private PostIdAct!: Function;
+
+  async created() {
+    await this.PostIdAct();
   }
 }
 </script>

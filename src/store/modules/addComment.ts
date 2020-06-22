@@ -5,12 +5,11 @@ import {
   Mutation,
   Action
 } from "vuex-module-decorators";
-import { AddComment } from "addComment";
 import store from "@/store";
 import { apiAddComment } from "@/utils/api/addComment";
 
 @Module({ dynamic: true, store, name: "AddcommentStore", namespaced: true })
-class InterAddComment extends VuexModule implements AddComment {
+class InterAddComment extends VuexModule {
   //State
   //action타고 mutation에서 vue에서 받아온 데이터를 현재 state에 넣었고
   public content = "";

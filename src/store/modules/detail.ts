@@ -1,18 +1,16 @@
 import {
   Module,
   VuexModule,
-  getModule,
   Mutation,
   Action
 } from "vuex-module-decorators";
 import { PostId } from "detail";
-import store from "@/store";
 import { getPostId } from "@/utils/api/post";
 
-@Module({ dynamic: true, store, name: "detail", namespaced: true })
-class Detail extends VuexModule {
+@Module
+export default class DetailModule extends VuexModule {
   //State
-  public postid: PostId[] = [];
+  private postid: PostId[] = [];
 
   //Mutation
   @Mutation
@@ -22,8 +20,11 @@ class Detail extends VuexModule {
 
   //Action
   @Action({ commit: "PostIdMuta" })
-  async PostIdAct() {
-    return getPostId({});
+  async PostIdAct(): Promise<PostId[]> {
+    return await (await getPostId({})).data;
+  }
+
+  get postidData(): PostId[] {
+    return this.postid
   }
 }
-export const DetailModule = getModule(Detail);
