@@ -3,7 +3,7 @@
     <TopContent />
     <v-content>
       <v-container class="home">
-        <SideBar class="home__sidebar" />
+        <SidebarWrapper class="home__sidebar" />
         <section class="home__content">
           <v-divider class="mt-15 mb-6" />
           <v-row>
@@ -32,12 +32,13 @@ import TopContent from "@/components/main/TopContent.vue";
 import FooterComponent from "@/components/layout/FooterComponent.vue";
 import PostCardView from "@/components/main/PostCardView.vue";
 import PostGridList from "@/components/main/PostGridList.vue";
-import SideBar from "@/components/main/sidebar/SideBar.vue";
+import SidebarWrapper from "@/components/main/sidebar/SidebarWrapper.vue";
+import { Watch } from "vue-property-decorator";
 
 @Component({
   components: {
     TopContent,
-    SideBar,
+    SidebarWrapper,
     FooterComponent,
     PostCardView,
     PostGridList
@@ -51,9 +52,14 @@ export default class HomeView extends Vue {
   @Action private fetchTags!: Function;
 
   async created() {
-    await this.fetchPosts();
+    await this.fetchPosts(this.$route.query);
     await this.fetchCategories();
     await this.fetchTags();
+  }
+
+  @Watch("$route")
+  path(to: Record<string, string | (string | null)[]>) {
+    this.fetchPosts({ ...(to.query as object) });
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-resize showType="sm" :isShow="false">
-      <SearchFilter />
+      <SidebarComponent />
     </v-resize>
     <v-resize showType="sm" :isShow="true">
       <div class="mobile-filter">
@@ -26,7 +26,7 @@
             >
               close
             </v-btn>
-            <SearchFilter class="mobile-filter__list__sheet__filter" />
+            <SidebarComponent class="mobile-filter__list__sheet__filter" />
           </v-sheet>
         </v-bottom-sheet>
       </div>
@@ -38,14 +38,14 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 
-import SearchFilter from "@/components/main/sidebar/SearchFilter.vue";
+import SidebarComponent from "@/components/main/sidebar/SidebarComponent.vue";
 
 @Component({
   components: {
-    SearchFilter
+    SidebarComponent
   }
 })
-export default class SideBar extends Vue {
+export default class SidebarWrapper extends Vue {
   private sheet = false;
 }
 </script>

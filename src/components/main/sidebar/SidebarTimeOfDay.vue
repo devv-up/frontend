@@ -14,21 +14,20 @@
     </li>
   </ul>
 </template>
+
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Getter } from "vuex-class";
 
-@Component({
-  props: {
-    timeOfDay: {
-      type: Array
-    }
-  }
-})
-export default class Times extends Vue {
-  isActive = false;
+@Component
+export default class SidebarTimeOfDay extends Vue {
+  @Getter
+  private timeOfDay!: Record<string, string | number>[];
+  private isActive = false;
 }
 </script>
+
 <style lang="scss" scoped>
 .time {
   padding-left: 10px;

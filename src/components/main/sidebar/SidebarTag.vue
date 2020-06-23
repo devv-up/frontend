@@ -18,32 +18,38 @@
     </v-chip>
   </v-chip-group>
 </template>
+
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Getter, Mutation } from "vuex-class";
 
-@Component({
-  props: {
-    tags: {
-      type: Array,
-      required: true
-    }
-  }
-})
+import { Tag } from "board";
+
+@Component
 export default class Tags extends Vue {
-  selectedTags: string[] = [];
+  @Getter private tags!: Tag[];
+  @Getter private selectedTags!: string[];
+
+  @Mutation
+  private filterTagsWith!: Function;
+
   mounted() {
     const params = this.$route.query.tags;
-    if (params) this.selectedTags = params.toString().split(",");
+    if (params) this.filterTagsWith(params.toString().split(","));
   }
-  handleChange(tags: Array<string>) {
+
+  handleChange(tagFilters: Array<string>) {
+    this.filterTagsWith(tagFilters);
+    const tags = tagFilters.length === 0 ? undefined : tagFilters.toString();
     this.$router.push({
       path: "/",
-      query: { ...this.$route.query, ["tags"]: tags.toString() }
+      query: { ...this.$route.query, tags: tags }
     });
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .tag {
   &__item {
