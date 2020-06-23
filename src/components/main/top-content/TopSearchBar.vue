@@ -21,6 +21,6 @@ import { Prop } from "vue-property-decorator";
 
 @Component
 export default class SearchTextField extends Vue {
-  @Prop({ type: String, required: true }) value!: string;
+  @Prop({ required: true }) value!: string;
 }
 </script>

@@ -37,11 +37,13 @@ import SignUp from "@/components/user/SignUp.vue";
   }
 })
 export default class SignInBar extends Vue {
-  @Prop({ type: Boolean, default: false })
+  @Prop({ default: false })
   private isLogged!: boolean;
-  @Prop({ type: String, default: "" })
+
+  @Prop({ default: "" })
   private userName!: string;
-  @Prop({ type: String, default: "@/assets/images/avatar-url-default.png" })
+
+  @Prop({ default: "@/assets/images/avatar-url-default.png" })
   private userAvatarImage!: string;
 
   private isSignIn = true;
