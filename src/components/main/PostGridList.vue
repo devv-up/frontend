@@ -9,10 +9,11 @@
 <script lang="tsx">
 import Vue from "vue";
 import Component from "vue-class-component";
-@Component({
-  props: {
-    items: Array
-  }
-})
-export default class PostGridList extends Vue {}
+import { Prop } from "vue-property-decorator";
+
+@Component
+export default class PostGridList extends Vue {
+  @Prop()
+  private items!: Array<object>;
+}
 </script>
