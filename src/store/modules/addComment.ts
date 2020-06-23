@@ -1,46 +1,38 @@
 import {
   Module,
   VuexModule,
-  getModule,
   Mutation,
   Action
 } from "vuex-module-decorators";
-import store from "@/store";
 import { apiAddComment } from "@/utils/api/addComment";
+import { AddComment } from "addComment"
+import { Dictionary } from 'vue-router/types/router';
 
-@Module({ dynamic: true, store, name: "AddcommentStore", namespaced: true })
-class InterAddComment extends VuexModule {
+@Module
+export default class AddCommentModule extends VuexModule {
   //State
   //action타고 mutation에서 vue에서 받아온 데이터를 현재 state에 넣었고
-  public content = "";
-  public post = 0;
+  private commentData: AddComment[] = [];
 
-  public obj = {
-    content: this.content,
-    post: this.post
-  };
+  private content = "";
+  private post = 0;
+
+
 
   //Mutation
   @Mutation
-  private setVmodel(mutaparam: any) {
-    this.obj.content = mutaparam.content;
-    this.obj.post = mutaparam.post;
+  private setVmodel(mutaobj: AddComment[]) {
+    this.commentData = mutaobj;
   }
 
   //컴포넌트에서 실행한 Action 실행. commit을 통해 mutation과 연결
   @Action({ commit: "setVmodel" })
-  public async apiload(actionparam: any) {
-    await apiAddComment(actionparam);
+  async apiload(actionparam: Record<string, string | number>): Promise<AddComment[]> {
+    return (await apiAddComment(actionparam)).data;
   }
 
   //getters
-  private get loadMuta() {
-    const obj = {
-      content: this.obj.content,
-      post: this.obj.post
-    };
-    return obj;
+  get obj(): AddComment[] {
+    return this.commentData;
   }
 }
-//현재 Addcomment 클래스를 AddCommentModule로 빼기
-export const AddCommentModule = getModule(InterAddComment);
