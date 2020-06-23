@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <TopContent />
+    <TopComponent />
     <v-content>
       <v-container class="home">
         <SidebarWrapper class="home__sidebar" />
@@ -28,7 +28,7 @@ import { Getter, Action } from "vuex-class";
 
 import { Post } from "board";
 
-import TopContent from "@/components/main/TopContent.vue";
+import TopComponent from "@/components/main/top-content/TopComponent.vue";
 import FooterComponent from "@/components/layout/FooterComponent.vue";
 import PostCardView from "@/components/main/PostCardView.vue";
 import PostGridList from "@/components/main/PostGridList.vue";
@@ -37,7 +37,7 @@ import { Watch } from "vue-property-decorator";
 
 @Component({
   components: {
-    TopContent,
+    TopComponent,
     SidebarWrapper,
     FooterComponent,
     PostCardView,

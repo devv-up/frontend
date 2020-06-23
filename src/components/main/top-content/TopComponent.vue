@@ -1,25 +1,26 @@
 <template>
   <div class="header" v-on:scroll.passive="onScroll">
-    <AppBar :isScroll="true" />
+    <AppBar :isScrolled="true" />
     <h1 class="header__title">Looking for a project?</h1>
-    <SearchTextField class="header__search" v-model="searchText" />
+    <TopSearchBar class="header__search" v-model="searchText" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import SearchTextField from "@/components/layout/app-bar/SearchTextField.vue";
+
+import TopSearchBar from "@/components/main/top-content/TopSearchBar.vue";
 import AppBar from "@/components/layout/app-bar/AppBar.vue";
 
 @Component({
   components: {
-    SearchTextField,
+    TopSearchBar,
     AppBar
   }
 })
 export default class Header extends Vue {
-  searchText = "";
+  private searchText = "";
 }
 </script>
 
