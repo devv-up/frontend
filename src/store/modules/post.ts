@@ -12,7 +12,7 @@ export default class PostModule extends VuexModule {
     this.postData = postData;
   }
 
-  @Action({ commit: "refreshPosts" })
+  @Action
   async fetchPosts(params?: Dictionary<string | number>): Promise<Post[]> {
     return (await fetchPosts(params)).data;
   }

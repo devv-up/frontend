@@ -8,7 +8,7 @@ declare module "detail" {
     date: string;
     timeOfDay: number;
     createdDate: string;
-    author: string;
+    author: Author;
     category: Category;
     tags: Tag;
     comments: Comments;
@@ -31,5 +31,21 @@ declare module "detail" {
     parentComment: number;
     author: string;
     is_active: boolean;
+  }
+
+  export interface Author {
+    id: number;
+    password: string;
+    last_login: string;
+    is_superuser: number;
+    email: string;
+    name: string;
+    is_active: boolean;
+    is_staff: boolean;
+    create_date: string;
+    verification: boolean;
+    verification_key: string;
+    groups: number;
+    user_permissions: number;
   }
 }
