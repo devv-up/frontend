@@ -8,41 +8,42 @@
     flat
   >
     <router-link class="app-bar__logo" to="/">DEVUP</router-link>
-    <v-spacer></v-spacer>
-    <SigninBar />
+    <v-spacer />
+    <AppBarSignIn />
   </v-app-bar>
 </template>
+
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import SigninBar from "@/components/layout/app-bar/SignInBar.vue";
+import { Prop } from "vue-property-decorator";
 
-const Props = Vue.extend({
+import AppBarSignIn from "@/components/layout/app-bar/AppBarSignIn.vue";
+
+@Component({
   components: {
-    SigninBar
-  },
-  props: {
-    isScroll: Boolean
+    AppBarSignIn
   }
-});
+})
+export default class AppBar extends Vue {
+  @Prop()
+  private isScrolled!: boolean;
 
-@Component
-export default class AppBar extends Props {
-  isState = true;
-  appBarClassName = {
+  private isState = true;
+  private appBarClassName = {
     opacity: "opacity",
     primary: "primary"
   };
 
   mounted() {
-    if (this.isScroll) {
+    if (this.isScrolled) {
       window.addEventListener("scroll", this.handleScroll);
       this.isState = false;
     }
   }
 
   destroy() {
-    if (this.isScroll) {
+    if (this.isScrolled) {
       window.removeEventListener("scroll", this.handleScroll);
     }
   }
@@ -53,6 +54,7 @@ export default class AppBar extends Props {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .app-bar {
   &__logo {

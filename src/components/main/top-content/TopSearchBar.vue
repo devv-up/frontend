@@ -11,19 +11,16 @@
     prepend-inner-icon="mdi-magnify"
     label="language, topic, location..."
     height="60"
-  ></v-text-field>
+  />
 </template>
+
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Prop } from "vue-property-decorator";
 
-@Component({
-  props: {
-    value: {
-      type: String
-    }
-  }
-})
-export default class SearchTextField extends Vue {}
+@Component
+export default class SearchTextField extends Vue {
+  @Prop({ required: true }) value!: string;
+}
 </script>
-<style lang="scss" scoped></style>

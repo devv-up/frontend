@@ -22,19 +22,21 @@
     </li>
   </ul>
 </template>
+
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Getter, Action } from "vuex-class";
 
-@Component({
-  props: {
-    categories: {
-      type: Array
-    }
-  }
-})
-export default class Categories extends Vue {}
+import { Category } from "board";
+
+@Component
+export default class SidebarCategory extends Vue {
+  @Getter private categories!: Category[];
+  @Action private fetchPosts!: Function;
+}
 </script>
+
 <style lang="scss" scoped>
 .category {
   padding-left: 10px;

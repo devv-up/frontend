@@ -21,9 +21,12 @@
     </v-modal>
   </div>
 </template>
+
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Prop } from "vue-property-decorator";
+
 import SignIn from "@/components/user/SignIn.vue";
 import SignUp from "@/components/user/SignUp.vue";
 
@@ -31,24 +34,20 @@ import SignUp from "@/components/user/SignUp.vue";
   components: {
     SignIn,
     SignUp
-  },
-  props: {
-    isLogged: {
-      type: Boolean,
-      default: false
-    },
-    userName: {
-      type: String,
-      default: ""
-    },
-    userAvatarImage: {
-      type: String,
-      default: "@/assets/images/avatar-url-default.png"
-    }
   }
 })
 export default class SignInBar extends Vue {
-  isSignIn = true;
+  @Prop({ default: false })
+  private isLogged!: boolean;
+
+  @Prop({ default: "" })
+  private userName!: string;
+
+  @Prop({ default: "@/assets/images/avatar-url-default.png" })
+  private userAvatarImage!: string;
+
+  private isSignIn = true;
+
   modalOpen(isSignIn: boolean) {
     this.isSignIn = isSignIn;
     this.$store.commit("SET_DIALOG", true);

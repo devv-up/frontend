@@ -10,17 +10,17 @@
     <div class="filter__list">
       <div>
         <h4>Category</h4>
-        <Categories :categories="categories" />
+        <SidebarCategory />
       </div>
       <v-divider />
       <div>
         <h4>Tags</h4>
-        <Tags :tags="tags" />
+        <SidebarTag />
       </div>
       <v-divider />
       <div>
         <h4>Time</h4>
-        <Times :timeOfDay="timeOfDay" />
+        <SidebarTimeOfDay />
       </div>
       <v-divider />
       <div>
@@ -41,28 +41,24 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { Getter } from "vuex-class";
+import { Mutation } from "vuex-class";
 
-import { Category, Tag } from "board";
-
-import Categories from "@/components/main/sidebar/Categories.vue";
-import Tags from "@/components/main/sidebar/Tags.vue";
-import Times from "@/components/main/sidebar/Times.vue";
-import { Dictionary } from "vue-router/types/router";
+import SidebarCategory from "@/components/main/sidebar/SidebarCategory.vue";
+import SidebarTag from "@/components/main/sidebar/SidebarTag.vue";
+import SidebarTimeOfDay from "@/components/main/sidebar/SidebarTimeOfDay.vue";
 
 @Component({
   components: {
-    Categories,
-    Tags,
-    Times
+    SidebarCategory,
+    SidebarTag,
+    SidebarTimeOfDay
   }
 })
-export default class SearchFilter extends Vue {
+export default class SidebarComponent extends Vue {
   private selectedDate: (string | (string | null)[])[] = [];
 
-  @Getter categories!: Category[];
-  @Getter tags!: Tag[];
-  @Getter timeOfDay!: Dictionary<string | number>[];
+  @Mutation
+  private filterTagsWith!: Function;
 
   created() {
     this.selectedDate = [
@@ -83,6 +79,10 @@ export default class SearchFilter extends Vue {
   }
 
   handleClear() {
+    if (this.$route.path == "/" && Object.keys(this.$route.query).length === 0)
+      return;
+    this.selectedDate = [];
+    this.filterTagsWith(null);
     this.$router.push({ path: "/" });
   }
 }
