@@ -1,13 +1,13 @@
 import { http } from "@/utils/request";
-import { InterAddComment } from "addComment";
+import { AddComment } from "addComment";
 
 /**
  * Get the list of postsssss
  *
  */
-export const apiAddComment = (params: {}) =>
-  http.request<InterAddComment>({
+export const apiAddComment = (params: Record<string, string | number>) =>
+  http.request<AddComment[]>({
     url: "/posts/comments",
     method: "POST",
-    data: params
+    params
   });

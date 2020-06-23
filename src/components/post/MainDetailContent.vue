@@ -33,7 +33,7 @@
         </span>
       </v-col>
     </v-row>
-    <WriteReply :propsdata="postidData" />
+    <WriteReply :propsdatas="this.postidData.comments" :propsdataid="this.postidData.id" />
   </section>
 </template>
 
