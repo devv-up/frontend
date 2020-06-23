@@ -6,7 +6,6 @@ import {
 } from "vuex-module-decorators";
 import { apiAddComment } from "@/utils/api/addComment";
 import { AddComment } from "addComment"
-import { Dictionary } from 'vue-router/types/router';
 
 @Module
 export default class AddCommentModule extends VuexModule {
@@ -27,11 +26,15 @@ export default class AddCommentModule extends VuexModule {
 
   //컴포넌트에서 실행한 Action 실행. commit을 통해 mutation과 연결
   @Action({ commit: "setVmodel" })
-  async apiload(actionparam: Record<string, string | number>): Promise<AddComment[]> {
-    return (await apiAddComment(actionparam)).data;
+  async apiload(actionobj: Record<string, string | number>) {
+    console.log("action파라미터 " + actionobj)
+    const actionobjdata = (await apiAddComment(actionobj))
+    console.log("actionobjdata결과 " + actionobjdata)
+    return actionobjdata
   }
 
   //getters
+
   get obj(): AddComment[] {
     return this.commentData;
   }

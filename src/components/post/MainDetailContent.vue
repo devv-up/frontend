@@ -5,24 +5,24 @@
     <v-row>
       <v-col cols="12" sm="9">
         <v-card-text outlined tile>
-          <p>모임장소</p>
-          <p>모임날짜</p>
+          <p>{{this.postidData.location}}</p>
+          <p>{{this.postidData.date}}</p>
         </v-card-text>
         <v-card-title class="font-weight-CONDENSED headline ma-2">모임내용</v-card-title>
-        <v-card-text>모임내용</v-card-text>
+        <v-card-text>{{this.postidData.content}}</v-card-text>
       </v-col>
       <v-col cols="12" sm="3">
         <span class="justify-start" max-width="210">
           <v-row>
             <v-card-text class="font-weight-CONDENSED headline ml-1">
-              <span class="ml-1">주최자</span>
+              <span class="ml-1">{{this.postidData.author.name}}</span>
             </v-card-text>
 
             <v-col cols="12">
               <v-avatar size="100" tile class="ml-4">
                 <v-img src="@/assets/images/seoul2.jpg"></v-img>
               </v-avatar>
-              <p class="ml-6 mt-3">모임작성자</p>
+              <p class="ml-6 mt-3">{{this.postidData.author.name}}</p>
             </v-col>
 
             <v-card-text class="ml-2">
@@ -33,7 +33,7 @@
         </span>
       </v-col>
     </v-row>
-    <WriteReply :propsdatas="this.postidData.comments" :propsdataid="this.postidData.id" />
+    <WriteReply />
   </section>
 </template>
 
@@ -41,6 +41,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { Getter, Action } from "vuex-class";
+import { Prop } from "vue-property-decorator";
 
 import { PostId } from "detail";
 
@@ -49,19 +50,12 @@ import WriteReply from "@/components/post/comment/WriteReplyContent.vue";
 @Component({
   components: {
     WriteReply
-  },
-  props: {
-    groupImage: {
-      type: String,
-      default: "@/assets/images/seoul3.jpg"
-    },
-    hostImage: {
-      type: String,
-      default: "@/assets/images/seoul2.jpg"
-    }
   }
 })
 export default class MainDetailContent extends Vue {
+  @Prop({ default: "@/assets/images/seoul3.jpg" }) private groupImage!: string;
+  @Prop({ default: "@/assets/images/seoul2.jpg" }) private hostImage!: string;
+
   @Getter private postidData!: PostId[];
 
   @Action private PostIdAct!: Function;
