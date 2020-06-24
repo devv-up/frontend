@@ -16,12 +16,13 @@ declare module "detail" {
 
   export interface Category {
     id: number;
-    name: string;
+    isActive: boolean;
+    title: string;
   }
 
   export interface Tag {
     id: number;
-    name: string;
+    title: string;
   }
 
   export interface Comments {
@@ -29,23 +30,23 @@ declare module "detail" {
     content: string;
     createdDate: string;
     parentComment: number;
-    author: string;
-    is_active: boolean;
+    author: Author;
+    isActive: boolean;
   }
 
   export interface Author {
     id: number;
     password: string;
-    last_login: string;
-    is_superuser: number;
+    lastLogin: string;
+    isSuperuser: boolean;
     email: string;
     name: string;
-    is_active: boolean;
-    is_staff: boolean;
-    create_date: string;
+    isActive: boolean;
+    isStaff: boolean;
+    createDate: string;
     verification: boolean;
-    verification_key: string;
+    verificationKey: string;
     groups: number;
-    user_permissions: number;
+    userPermissions: number;
   }
 }

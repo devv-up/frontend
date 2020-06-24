@@ -10,6 +10,6 @@ export const apiAddComment = (params: Record<string, string | number>) => {
     url: "/posts/comments",
     method: "POST",
     data: params
-  })
-  console.log("api파라미터 " + params.content + params.post)
+  });
+  console.log("api파라미터 " + params.content + params.post);
 };
