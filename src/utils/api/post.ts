@@ -1,7 +1,6 @@
 import { http } from "@/utils/request";
 import { Post, Category, Tag } from "@/store/models/post";
 
-
 /**
  * Get the list of posts
  * @param {number} page

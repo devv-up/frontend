@@ -1,5 +1,5 @@
 import { http } from "@/utils/request";
-import { AddComment } from "addComment";
+import { AddComment } from "@/store/models/addComment";
 
 /**
  * Get the list of postsssss
@@ -11,5 +11,4 @@ export const apiAddComment = (params: Record<string, string | number>) => {
     method: "POST",
     data: params
   });
-  console.log("api파라미터 " + params.content + params.post);
 };
