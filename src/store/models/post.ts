@@ -1,24 +1,24 @@
 export class Post {
-  id: number = 0;
-  title: string = "";
-  content: string = "";
-  location: string = "";
-  capacity: number = 0;
-  date: string = "";
-  timeOfDay: number = 0;
-  author: string = "";
+  id = 0;
+  title = "";
+  content = "";
+  location = "";
+  capacity = 0;
+  date = "";
+  timeOfDay = 0;
+  author = "";
   categories: Category[] = [];
   tags: Tag[] = [];
   images: Array<string> = [];
-  isLike: boolean = false;
+  isLike = false;
 }
 
 export class Category {
-  id: number = 0;
-  name: string = "";
+  id = 0;
+  name = "";
 }
 
 export class Tag {
-  id: number = 0;
-  name: string = "";
+  id = 0;
+  name = "";
 }

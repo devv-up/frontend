@@ -3,7 +3,7 @@ export class SignedInUser {
 }
 
 export class User {
-  id: number = 0;
-  email: string = "";
-  name: string = "";
+  id = 0;
+  email = "";
+  name = "";
 }
