@@ -39,7 +39,7 @@ export const fetchTags = () =>
   });
 
 export const getPostId = (params: {}) =>
-  http.request<PostId[]>({
+  http.request<PostId>({
     url: "posts/1",
     method: "GET",
     params
