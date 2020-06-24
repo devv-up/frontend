@@ -1,7 +1,9 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { SearchState } from "search";
-import { UserState } from "user";
+
+import { User, SignedInUser } from "@/store/models/user";
+import { Post, Category, Tag } from "@/store/models/post";
+
 import PostModule from "./modules/post";
 import CategoryModule from "./modules/category";
 import TagModule from "./modules/tag";
@@ -9,8 +11,11 @@ import TagModule from "./modules/tag";
 Vue.use(Vuex);
 
 export interface RootState {
-  Search: SearchState;
-  user: UserState;
+  Post: Post;
+  Category: Category;
+  Tag: Tag;
+  User: User;
+  SignedInUser: SignedInUser;
 }
 
 export default new Vuex.Store<RootState>({

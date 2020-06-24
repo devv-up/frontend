@@ -30,7 +30,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import { Prop } from "vue-property-decorator";
-import { Post } from "board";
+import { Post } from "@/store/models/post";
 
 @Component
 export default class PostCardView extends Vue {

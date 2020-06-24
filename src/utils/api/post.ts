@@ -1,5 +1,5 @@
 import { http } from "@/utils/request";
-import { Post, Category, Tag } from "board";
+import { Post, Category, Tag } from "@/store/models/post";
 
 /**
  * Get the list of posts
