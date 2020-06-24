@@ -1,5 +1,6 @@
 import { http } from "@/utils/request";
 import { Post, Category, Tag } from "@/store/models/post";
+import { PostId } from "@/store/models/detail"
 
 /**
  * Get the list of posts
