@@ -26,7 +26,7 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { Getter, Action } from "vuex-class";
 
-import { Post } from "board";
+import { Post } from "@/store/models/post";
 
 import TopComponent from "@/components/main/top-content/TopComponent.vue";
 import FooterComponent from "@/components/layout/FooterComponent.vue";

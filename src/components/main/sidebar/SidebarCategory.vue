@@ -28,7 +28,7 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { Getter, Action } from "vuex-class";
 
-import { Category } from "board";
+import { Category } from "@/store/models/post";
 
 @Component
 export default class SidebarCategory extends Vue {

@@ -1,6 +1,6 @@
 import { Module, VuexModule, Mutation, Action } from "vuex-module-decorators";
 import { fetchPosts } from "@/utils/api/post";
-import { Post } from "board";
+import { Post } from "@/store/models/post";
 
 @Module
 export default class PostModule extends VuexModule {

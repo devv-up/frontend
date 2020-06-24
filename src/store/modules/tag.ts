@@ -1,6 +1,6 @@
 import { Module, VuexModule, Mutation, Action } from "vuex-module-decorators";
 import { fetchTags } from "@/utils/api/post";
-import { Tag } from "board";
+import { Tag } from "@/store/models/post";
 
 @Module
 export default class TagModule extends VuexModule {
