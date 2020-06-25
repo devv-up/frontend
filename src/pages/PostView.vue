@@ -6,7 +6,6 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import PostDetail from "@/components/post/PostDetail.vue";
-import { Dictionary } from "vue-router/types/router";
 
 @Component({
   components: {

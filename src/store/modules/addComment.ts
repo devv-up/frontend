@@ -5,7 +5,6 @@ import { AddComment } from "@/store/models/addComment";
 @Module
 export default class AddCommentModule extends VuexModule {
   //State
-  //action타고 mutation에서 vue에서 받아온 데이터를 현재 state에 넣었고
   private commentData: AddComment[] = [];
 
   //Mutation

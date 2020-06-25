@@ -1,11 +1,11 @@
 <template>
   <section>
     <p class="font-weight-CONDENSED headline ma-2">댓글개수</p>
-    <span v-for="(item, i) in DetailData.comments" :key="i">
+    <span v-for="item in detailData.comments" :key="item.id">
       <v-row v-if="item.id">
         <h3>
-          {{ i + 1 }}.
-          <span class="ml-3">작성자: {{ DetailData.author.name }}</span>
+          {{ item.id }}.
+          <span class="ml-3">작성자: {{ detailData.author.name }}</span>
         </h3>
         <v-spacer />
         <v-btn class="ma-1" color="white">수정</v-btn>
@@ -19,7 +19,6 @@
       <v-textarea name="input-7-1" filled label="댓글입력" auto-grow class="mt-8" v-model="comment"></v-textarea>
       <v-btn class="white--text" color="#8d13d0" @click="addcomment">댓글등록</v-btn>
     </span>
-    {{comment}}
   </section>
 </template>
 
@@ -36,15 +35,15 @@ export default class WriteReply extends Vue {
   //v-model 값 받아오기
   private comment = "";
 
-  @Getter private DetailData!: PostId;
+  @Getter private detailData!: PostId;
 
   @Action private commentAction!: Function;
   @Action private commentDeleteAction!: Function;
-  @Action private DetailAction!: Function;
+  @Action private detailAction!: Function;
 
   //페이지 불러오자마자 바로 조회된 정보 가져오기
   async created() {
-    await this.DetailAction();
+    await this.detailAction();
   }
 
   //버튼 클릭시 댓글등록 함수 실행
@@ -52,10 +51,10 @@ export default class WriteReply extends Vue {
     if (this.comment !== "") {
       this.commentAction({
         content: this.comment,
-        post: this.DetailData.id
+        post: this.detailData.id
       }).then(() => {
         alert("댓글이 등록되었습니다.");
-        this.DetailAction();
+        this.detailAction();
         this.comment = "";
       });
     } else if (this.comment === "") {
@@ -67,7 +66,7 @@ export default class WriteReply extends Vue {
   deletecomment(commentid: number) {
     this.commentDeleteAction(commentid).then(() => {
       alert("댓글이 삭제되었습니다.");
-      this.DetailAction();
+      this.detailAction();
     });
   }
 }

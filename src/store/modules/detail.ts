@@ -64,18 +64,18 @@ export default class DetailModule extends VuexModule {
 
   //Mutation
   @Mutation
-  DetailMuta(postid: PostId) {
+  detailMuta(postid: PostId) {
     this.detailState = postid;
     return this.detailState;
   }
 
   //Action
-  @Action({ commit: "DetailMuta" })
-  async DetailAction(): Promise<PostId> {
+  @Action({ commit: "detailMuta" })
+  async detailAction(): Promise<PostId> {
     return await (await getPostId({})).data;
   }
 
-  get DetailData(): PostId {
+  get detailData(): PostId {
     return this.detailState;
   }
 }
