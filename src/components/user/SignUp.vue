@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <h1 class="text--primary mb-3">{{ title }}</h1>
     <div class="d-flex flex-column">
       <v-btn class="my-2" outlined color="#4285F4" large>
         <v-icon>mdi-google</v-icon>
@@ -28,13 +29,19 @@
     </div>
   </v-container>
 </template>
+
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Prop } from "vue-property-decorator";
 
 @Component
-export default class SignUp extends Vue {}
+export default class SignUp extends Vue {
+  @Prop()
+  private title!: string;
+}
 </script>
+
 <style lang="scss" scoped>
 .container {
   padding: 0;
