@@ -8,7 +8,9 @@
           <p>{{ detailData.location }}</p>
           <p>{{ detailData.date }}</p>
         </v-card-text>
-        <v-card-title class="font-weight-CONDENSED headline ma-2">모임내용</v-card-title>
+        <v-card-title class="font-weight-CONDENSED headline ma-2"
+          >모임내용</v-card-title
+        >
         <v-card-text>{{ detailData.content }}</v-card-text>
       </v-col>
       <v-col cols="12" sm="3">
