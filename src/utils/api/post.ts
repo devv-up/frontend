@@ -1,5 +1,6 @@
 import { http } from "@/utils/request";
 import { Post, Category, Tag } from "@/store/models/post";
+import { PostId } from "@/store/models/detail";
 
 /**
  * Get the list of posts
@@ -35,4 +36,11 @@ export const fetchTags = () =>
   http.request<Tag[]>({
     url: "posts/tags",
     method: "GET"
+  });
+
+export const getPostId = (params: {}) =>
+  http.request<PostId>({
+    url: "posts/1",
+    method: "GET",
+    params
   });
