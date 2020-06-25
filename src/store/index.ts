@@ -7,6 +7,9 @@ import { Post, Category, Tag } from "@/store/models/post";
 import PostModule from "./modules/post";
 import CategoryModule from "./modules/category";
 import TagModule from "./modules/tag";
+import DetailModule from "./modules/detail";
+import AddCommentModule from "./modules/addComment";
+import DeleteCommentModule from "./modules/deleteComment";
 
 Vue.use(Vuex);
 
@@ -22,6 +25,9 @@ export default new Vuex.Store<RootState>({
   modules: {
     PostModule,
     CategoryModule,
-    TagModule
+    TagModule,
+    DetailModule,
+    AddCommentModule,
+    DeleteCommentModule
   }
 });
