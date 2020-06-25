@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <TopComponent />
+    <TopContent />
     <v-content>
       <v-container class="home">
-        <SidebarWrapper class="home__sidebar" />
+        <SideBar class="home__sidebar" />
         <section class="home__content">
           <v-divider class="mt-15 mb-6" />
           <v-row>
@@ -36,7 +36,7 @@ import { Watch } from "vue-property-decorator";
 
 import { Post } from "@/store/models/post";
 
-import TopComponent from "@/components/main/top-content/TopComponent.vue";
+import TopContent from "@/components/main/TopContent.vue";
 import FooterComponent from "@/components/layout/FooterComponent.vue";
 import PostCardView from "@/components/main/PostCardView.vue";
 import PostGridList from "@/components/main/PostGridList.vue";
@@ -44,7 +44,7 @@ import SidebarWrapper from "@/components/main/sidebar/SidebarWrapper.vue";
 
 @Component({
   components: {
-    TopComponent,
+    TopContent,
     SidebarWrapper,
     FooterComponent,
     PostCardView,

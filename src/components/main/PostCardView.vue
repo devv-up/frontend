@@ -29,13 +29,17 @@
 <script lang="tsx">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { Prop } from "vue-property-decorator";
-import { Post } from "@/store/models/post";
 
+const Props = Vue.extend({
+  props: {
+    item: {
+      type: Object,
+      required: true
+    }
+  }
+});
 @Component
-export default class PostCardView extends Vue {
-  @Prop({ type: Object, required: true })
-  private item!: Post;
+export default class PostCardView extends Props {
   private isActive = false;
 
   get likeColor() {
@@ -43,20 +47,28 @@ export default class PostCardView extends Vue {
   }
 
   get itemImage() {
-    return this.item.images
-      ? this.item.images[0]
+    return this.item.image
+      ? this.item.image[0]
       : "https://cdn.vuetifyjs.com/images/cards/docks.jpg";
   }
 
   get itemTime() {
-    if (this.item.timeOfDay === 0) return "오전";
-    else if (this.item.timeOfDay === 1) return "오후";
-    else if (this.item.timeOfDay === 2) return "저녁";
-    else throw new Error("유효하지 않은 값입니다.");
+    let time;
+    switch (this.item.timeOfDay) {
+      case 0:
+        time = "오전";
+        break;
+      case 1:
+        time = "오후";
+        break;
+      case 2:
+        time = "저녁";
+        break;
+    }
+    return time;
   }
 }
 </script>
-
 <style lang="scss" scoped>
 .post {
   display: flex;

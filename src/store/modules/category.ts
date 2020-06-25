@@ -7,13 +7,13 @@ export default class CategoryModule extends VuexModule {
   private categoryData: Category[] = [];
 
   @Mutation
-  refreshCategories(categoryData: Category[]): void {
+  refreshCategories(categoryData: Category[]) {
     this.categoryData = categoryData;
   }
 
   @Action({ commit: "refreshCategories" })
   async fetchCategories(): Promise<Category[]> {
-    return (await fetchCategories()).data;
+    return await (await fetchCategories()).data;
   }
 
   get categories(): Category[] {

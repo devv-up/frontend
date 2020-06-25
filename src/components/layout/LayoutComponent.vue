@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <AppBar :isScrolled="false" />
+    <AppBar :isScroll="false" />
     <v-content>
       <v-container>
-        <router-view />
+        <router-view></router-view>
       </v-container>
     </v-content>
     <FooterComponent />
@@ -13,7 +13,6 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-
 import AppBar from "@/components/layout/app-bar/AppBar.vue";
 import FooterComponent from "@/components/layout/FooterComponent.vue";
 

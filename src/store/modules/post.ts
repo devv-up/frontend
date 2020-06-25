@@ -5,7 +5,6 @@ import { Post } from "@/store/models/post";
 @Module
 export default class PostModule extends VuexModule {
   private postData: Post[] = [];
-
   private currentPage = 1;
   private prevData: Post[] = [];
   private fetchedData: Post[] = [];

@@ -38,6 +38,16 @@ const routes: RouteConfig[] = [
   {
     path: "*",
     redirect: "/404"
+  },
+  {
+    path: "/addMain",
+    component: LayoutComponent,
+    children: [
+      {
+        path: "/",
+        component: PostView
+      }
+    ]
   }
 ];
 

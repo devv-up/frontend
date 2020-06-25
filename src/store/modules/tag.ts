@@ -5,7 +5,6 @@ import { Tag } from "@/store/models/tag";
 @Module
 export default class TagModule extends VuexModule {
   private tagData: Tag[] = [];
-  private tagFilters: string[] = [];
 
   @Mutation
   refreshTags(tagData: Tag[]) {
@@ -14,19 +13,10 @@ export default class TagModule extends VuexModule {
 
   @Action({ commit: "refreshTags" })
   async fetchTags(): Promise<Tag[]> {
-    return (await fetchTags()).data;
+    return await (await fetchTags()).data;
   }
 
   get tags(): Tag[] {
     return this.tagData;
-  }
-
-  @Mutation
-  filterTagsWith(tagFilters: string[]): void {
-    this.tagFilters = tagFilters;
-  }
-
-  get selectedTags(): string[] {
-    return this.tagFilters;
   }
 }
