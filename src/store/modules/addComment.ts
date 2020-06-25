@@ -10,12 +10,12 @@ export default class AddCommentModule extends VuexModule {
 
   //Mutation
   @Mutation
-  private setVmodel(commentmuta: AddComment[]) {
+  private commentMuta(commentmuta: AddComment[]) {
     this.commentData = commentmuta;
   }
 
   //컴포넌트에서 실행한 Action 실행. commit을 통해 mutation과 연결
-  @Action({ commit: "setVmodel" })
+  @Action({ commit: "commentMuta" })
   async commentAction(commentaction: Record<string, string | number>) {
     return await apiAddComment(commentaction);
   }
