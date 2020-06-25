@@ -78,6 +78,4 @@ export default class DetailModule extends VuexModule {
   get DetailData(): PostId {
     return this.detailState;
   }
-
-
 }

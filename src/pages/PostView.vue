@@ -1,16 +1,16 @@
 <template>
-  <MainDetailContent></MainDetailContent>
+  <PostDetail></PostDetail>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import MainDetailContent from "@/components/post/MainDetailContent.vue";
+import PostDetail from "@/components/post/PostDetail.vue";
 import { Dictionary } from "vue-router/types/router";
 
 @Component({
   components: {
-    MainDetailContent
+    PostDetail
   }
 })
 export default class MainDetail extends Vue {}

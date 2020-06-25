@@ -5,24 +5,26 @@
     <v-row>
       <v-col cols="12" sm="9">
         <v-card-text outlined tile>
-          <p>{{DetailData.location}}</p>
-          <p>{{DetailData.date}}</p>
+          <p>{{ DetailData.location }}</p>
+          <p>{{ DetailData.date }}</p>
         </v-card-text>
-        <v-card-title class="font-weight-CONDENSED headline ma-2">모임내용</v-card-title>
-        <v-card-text>{{DetailData.content}}</v-card-text>
+        <v-card-title class="font-weight-CONDENSED headline ma-2"
+          >모임내용</v-card-title
+        >
+        <v-card-text>{{ DetailData.content }}</v-card-text>
       </v-col>
       <v-col cols="12" sm="3">
         <span class="justify-start" max-width="210">
           <v-row>
             <v-card-text class="font-weight-CONDENSED headline ml-1">
-              <span class="ml-1">{{DetailData.author.name}}</span>
+              <span class="ml-1">{{ DetailData.author.name }}</span>
             </v-card-text>
 
             <v-col cols="12">
               <v-avatar size="100" tile class="ml-4">
                 <v-img src="@/assets/images/seoul2.jpg"></v-img>
               </v-avatar>
-              <p class="ml-6 mt-3">{{DetailData.author.name}}</p>
+              <p class="ml-6 mt-3">{{ DetailData.author.name }}</p>
             </v-col>
 
             <v-card-text class="ml-2">
@@ -33,7 +35,7 @@
         </span>
       </v-col>
     </v-row>
-    <WriteReply />
+    <PostComment />
   </section>
 </template>
 
@@ -45,11 +47,11 @@ import { Prop } from "vue-property-decorator";
 
 import { PostId } from "@/store/models/detail";
 
-import WriteReply from "@/components/post/comment/WriteReplyContent.vue";
+import PostComment from "@/components/post/comment/PostComment.vue";
 
 @Component({
   components: {
-    WriteReply
+    PostComment
   }
 })
 export default class MainDetailContent extends Vue {
