@@ -26,14 +26,13 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { Getter, Action } from "vuex-class";
+import { Getter } from "vuex-class";
 
 import { Category } from "@/store/models/category";
 
 @Component
 export default class SidebarCategory extends Vue {
   @Getter private categories!: Category[];
-  @Action private fetchPosts!: Function;
 }
 </script>
 

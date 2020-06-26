@@ -13,7 +13,14 @@
               </template>
             </PostGridList>
           </v-row>
-          <p v-if="!posts.length">검색 결과가 없습니다.</p>
+          <infinite-loading
+            :spinner="'waveDots'"
+            :identifier="routeQuery"
+            @infinite="infiniteHandler"
+          >
+            <div slot="no-more">No more posts</div>
+            <div slot="no-results">No results</div>
+          </infinite-loading>
         </section>
       </v-container>
     </v-content>
@@ -24,8 +31,8 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Getter, Mutation, Action } from "vuex-class";
 import { Watch } from "vue-property-decorator";
-import { Getter, Action } from "vuex-class";
 
 import { Post } from "@/store/models/post";
 
@@ -45,21 +52,43 @@ import SidebarWrapper from "@/components/main/sidebar/SidebarWrapper.vue";
   }
 })
 export default class HomeView extends Vue {
+  private routeQuery = {};
+
   @Getter private posts!: Post[];
+  @Getter fetchedPosts!: Function;
+
+  @Mutation resetPage!: Function;
+  @Mutation updatePostsWith!: Function;
 
   @Action private fetchPosts!: Function;
   @Action private fetchCategories!: Function;
   @Action private fetchTags!: Function;
 
   async created() {
-    await this.fetchPosts(this.$route.query);
     await this.fetchCategories();
     await this.fetchTags();
   }
 
   @Watch("$route")
   path(to: Record<string, string | (string | null)[]>) {
-    this.fetchPosts({ ...(to.query as object) });
+    this.resetPage();
+    this.routeQuery = to.query;
+  }
+
+  // eslint-disable-next-line
+  async infiniteHandler($state: any) {
+    let routeQuery: object;
+    if (Object.keys(this.routeQuery).length) routeQuery = this.routeQuery;
+    else routeQuery = this.$route.query;
+
+    await this.fetchPosts({ ...routeQuery });
+
+    if (this.fetchedPosts.length) {
+      this.updatePostsWith(this.fetchedPosts);
+      $state.loaded();
+    } else {
+      $state.complete();
+    }
   }
 }
 </script>
