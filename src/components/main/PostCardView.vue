@@ -5,7 +5,9 @@
         <v-btn icon class="mx-2" :color="likeColor">
           <v-icon>mdi-heart</v-icon>
         </v-btn>
-        <v-btn icon><v-icon>mdi-share-variant</v-icon></v-btn>
+        <v-btn icon>
+          <v-icon>mdi-share-variant</v-icon>
+        </v-btn>
       </div>
     </v-img>
     <div class="post__content">
@@ -14,13 +16,19 @@
       </p>
       <h4 class="post__content__title">{{ item.title }}</h4>
       <p class="post__content__info">
-        <span><v-icon>mdi-city</v-icon>{{ item.location }}</span>
-        <span><v-icon>mdi-clock-outline</v-icon>{{ itemTime }}</span>
+        <span>
+          <v-icon>mdi-city</v-icon>
+          {{ item.location }}
+        </span>
+        <span>
+          <v-icon>mdi-clock-outline</v-icon>
+          {{ itemTime }}
+        </span>
       </p>
       <p class="post__content__tags">
-        <span v-for="tag in item.tags" :key="tag.id">
-          {{ `#${tag.title}` }}
-        </span>
+        <span v-for="tag in item.tags" :key="tag.id">{{
+          `#${tag.title}`
+        }}</span>
       </p>
     </div>
   </article>

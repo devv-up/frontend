@@ -14,9 +14,8 @@
           }"
           active-class="category__item__text--active"
           exact
+          >{{ category.title }}</router-link
         >
-          {{ category.title }}
-        </router-link>
       </p>
       <div class="category__item__count">100</div>
     </li>

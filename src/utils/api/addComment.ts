@@ -1,12 +1,12 @@
 import { http } from "@/utils/request";
-import { AddComment } from "@/store/models/addComment";
+import { Comment } from "@/store/models/comment";
 
 /**
  * Get the list of postsssss
  *
  */
 export const apiAddComment = (params: Record<string, string | number>) => {
-  http.request<AddComment>({
+  http.request<Comment[]>({
     url: "/posts/comments",
     method: "POST",
     data: params
