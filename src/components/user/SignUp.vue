@@ -1,6 +1,5 @@
 <template>
   <v-container>
-    <h1 class="text--primary mb-3">{{ title }}</h1>
     <div class="d-flex flex-column">
       <v-btn class="my-2" outlined color="#4285F4" large>
         <v-icon>mdi-google</v-icon>
@@ -10,21 +9,11 @@
         <v-icon>mdi-github</v-icon>
         깃허브 계정으로 회원가입
       </v-btn>
-      <v-divider></v-divider>
+      <v-divider />
       <p>이메일로 가입하기</p>
-      <v-text-field
-        hide-details
-        outlined
-        label="이메일 주소"
-        required
-      ></v-text-field>
-      <v-text-field hide-details outlined label="별명" required></v-text-field>
-      <v-text-field
-        hide-details
-        outlined
-        label="비밀번호"
-        required
-      ></v-text-field>
+      <v-text-field hide-details outlined label="이메일 주소" required />
+      <v-text-field hide-details outlined label="이름" required />
+      <v-text-field hide-details outlined label="비밀번호" required />
       <v-btn color="primary" class="mt-2" large>가입하기</v-btn>
     </div>
   </v-container>
@@ -33,13 +22,9 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { Prop } from "vue-property-decorator";
 
 @Component
-export default class SignUp extends Vue {
-  @Prop()
-  private title!: string;
-}
+export default class SignUp extends Vue {}
 </script>
 
 <style lang="scss" scoped>

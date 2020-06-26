@@ -13,6 +13,7 @@ import DetailModule from "./modules/detail";
 import AddCommentModule from "./modules/addComment";
 import DeleteCommentModule from "./modules/deleteComment";
 import UserModule from "./modules/user";
+import ModalModule from "./modules/modal";
 
 Vue.use(Vuex);
 
@@ -32,6 +33,7 @@ export default new Vuex.Store<RootState>({
     DetailModule,
     AddCommentModule,
     DeleteCommentModule,
-    UserModule
+    UserModule,
+    ModalModule
   }
 });

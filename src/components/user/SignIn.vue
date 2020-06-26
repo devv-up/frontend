@@ -1,6 +1,5 @@
 <template>
   <v-container>
-    <h1 class="text--primary mb-3">{{ title }}</h1>
     <div class="d-flex flex-column">
       <v-btn class="my-2" outlined color="#DB4437" large>
         <v-icon>mdi-google</v-icon>
@@ -37,21 +36,16 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { Prop } from "vue-property-decorator";
 import { Getter, Action } from "vuex-class";
 
 import Swal from "sweetalert2";
 
 @Component
 export default class SignIn extends Vue {
-  @Prop()
-  private title!: string;
-
   private email = "";
   private password = "";
 
   @Getter currentUser!: Function;
-
   @Action signinWith!: Function;
 
   async signin() {
