@@ -39,7 +39,7 @@ export default class PostCardView extends Vue {
   private isActive = false;
 
   get likeColor() {
-    return this.item.isLike ? "pink" : "";
+    return this.item.isLiked ? "pink" : "";
   }
 
   get itemImage() {

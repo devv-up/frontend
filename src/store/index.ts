@@ -2,7 +2,9 @@ import Vue from "vue";
 import Vuex from "vuex";
 
 import { User, SignedInUser } from "@/store/models/user";
-import { Post, Category, Tag } from "@/store/models/post";
+import { Post } from "@/store/models/post";
+import { Category } from "@/store/models/category";
+import { Tag } from "@/store/models/tag";
 
 import PostModule from "./modules/post";
 import CategoryModule from "./modules/category";

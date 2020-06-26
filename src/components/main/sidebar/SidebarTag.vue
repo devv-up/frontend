@@ -24,7 +24,7 @@ import Vue from "vue";
 import Component from "vue-class-component";
 import { Getter, Mutation } from "vuex-class";
 
-import { Tag } from "@/store/models/post";
+import { Tag } from "@/store/models/tag";
 
 @Component
 export default class Tags extends Vue {

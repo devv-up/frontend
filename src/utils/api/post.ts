@@ -1,5 +1,7 @@
 import { http } from "@/utils/request";
-import { Post, Category, Tag } from "@/store/models/post";
+import { Post } from "@/store/models/post";
+import { Category } from "@/store/models/category";
+import { Tag } from "@/store/models/tag";
 import { PostId } from "@/store/models/detail";
 
 /**
