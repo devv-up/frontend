@@ -1,22 +1,28 @@
 <template>
   <div class="sign-in-bar">
-    <v-btn v-if="isLogged" icon large>
-      <v-avatar size="32px" item>
-        <v-img :src="userAvatarImage" :alt="userName"></v-img>
-      </v-avatar>
-    </v-btn>
-    <div v-else>
-      <v-btn text color="white" @click.stop="modalOpen(true)">
-        Sign in
+    <div v-if="userIsSignedIn">
+      <v-btn icon large @click.stop="open('Mypage')">
+        <v-avatar size="32px">
+          <v-img :src="userAvatarImage" :alt="userName" />
+        </v-avatar>
       </v-btn>
-      <v-btn outlined color="white" @click.stop="modalOpen(false)">
-        Sign up
+      <span class="user-name mr-1"> {{ userName }} </span>
+      <v-chip outlined color="white" @click.stop="signout">Sign Out</v-chip>
+    </div>
+    <div v-else>
+      <v-btn text color="white" @click.stop="open('Sign In')">
+        Sign In
+      </v-btn>
+      <v-btn outlined color="white" @click.stop="open('Sign Up')">
+        Sign Up
       </v-btn>
     </div>
+
     <v-modal maxWidth="500">
       <template v-slot:content>
-        <SignIn v-if="isSignIn" />
-        <SignUp v-else />
+        <SignIn title="Sign In" v-if="modalName === 'Sign In'" />
+        <SignUp title="Sign Up" v-else-if="modalName === 'Sign Up'" />
+        <SignIn title="Mypage" v-else-if="modalName === 'Mypage'" />
       </template>
     </v-modal>
   </div>
@@ -25,10 +31,12 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import { Prop } from "vue-property-decorator";
+import { Mutation, Getter } from "vuex-class";
 
 import SignIn from "@/components/user/SignIn.vue";
 import SignUp from "@/components/user/SignUp.vue";
+
+import { SignedInUser } from "@/store/models/user";
 
 @Component({
   components: {
@@ -37,20 +45,42 @@ import SignUp from "@/components/user/SignUp.vue";
   }
 })
 export default class SignInBar extends Vue {
-  @Prop({ default: false })
-  private isLogged!: boolean;
+  private userIsSignedIn = false;
+  private userAvatarImage = require(`@/assets/images/avatar-url-default.png`);
+  private userName = "";
+  private modalName = "";
 
-  @Prop({ default: "" })
-  private userName!: string;
+  @Getter currentUser!: Function;
 
-  @Prop({ default: "@/assets/images/avatar-url-default.png" })
-  private userAvatarImage!: string;
+  @Mutation storeDataOf!: Function;
+  @Mutation switchModal!: Function;
 
-  private isSignIn = true;
+  created() {
+    if (sessionStorage.getItem("signedInUser")) {
+      const user = JSON.parse(sessionStorage.getItem("signedInUser") as string)
+        .user;
 
-  modalOpen(isSignIn: boolean) {
-    this.isSignIn = isSignIn;
-    this.$store.commit("SET_DIALOG", true);
+      this.userIsSignedIn = true;
+      this.userName = user.name;
+
+      this.storeDataOf(new SignedInUser(user));
+    }
+  }
+
+  signout() {
+    sessionStorage.clear();
+    location.reload();
+  }
+
+  open(modal: string) {
+    this.modalName = modal;
+    this.switchModal({ modalName: modal, isOn: true });
   }
 }
 </script>
+
+<style scoped>
+.user-name {
+  color: white;
+}
+</style>

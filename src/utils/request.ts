@@ -17,6 +17,7 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   response => {
+    if ("token" in response.data) delete response.data.token;
     return response;
   },
   error => {

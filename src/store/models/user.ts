@@ -1,5 +1,9 @@
 export class SignedInUser {
   user!: User;
+
+  constructor(user?: User) {
+    if (user) this.user = user;
+  }
 }
 
 export class User {

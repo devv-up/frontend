@@ -24,6 +24,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { Watch } from "vue-property-decorator";
 import { Getter, Action } from "vuex-class";
 
 import { Post } from "@/store/models/post";
@@ -33,7 +34,6 @@ import FooterComponent from "@/components/layout/FooterComponent.vue";
 import PostCardView from "@/components/main/PostCardView.vue";
 import PostGridList from "@/components/main/PostGridList.vue";
 import SidebarWrapper from "@/components/main/sidebar/SidebarWrapper.vue";
-import { Watch } from "vue-property-decorator";
 
 @Component({
   components: {

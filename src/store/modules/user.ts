@@ -1,13 +1,26 @@
-// import { Module, VuexModule, getModule } from "vuex-module-decorators";
-// import { Profile, UserState } from "user";
-// import store from "@/store";
+import { Module, VuexModule, Mutation, Action } from "vuex-module-decorators";
+import { signinWith } from "@/utils/api/user";
+import { SignedInUser } from "@/store/models/user";
 
-// @Module({ dynamic: true, store, name: "user" })
-// class User extends VuexModule implements UserState {
-//   public profile: Profile = {
-//     name: "rami",
-//     email: "rami@gmail.com",
-//     avatarImage: "https://randomuser.me/api/portraits/women/75.jpg"
-//   };
-// }
-// export const UserModule = getModule(User);
+@Module
+export default class UserModule extends VuexModule {
+  private signedInUser = new SignedInUser();
+
+  @Mutation
+  storeDataOf(user: SignedInUser) {
+    this.signedInUser = user;
+  }
+
+  @Action({ commit: "storeDataOf", rawError: true })
+  async signinWith(userData: Record<string, string>): Promise<SignedInUser> {
+    try {
+      return (await signinWith(userData)).data;
+    } catch (e) {
+      return Promise.reject(e);
+    }
+  }
+
+  get currentUser(): SignedInUser {
+    return this.signedInUser;
+  }
+}

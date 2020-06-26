@@ -9,25 +9,16 @@
         <v-icon>mdi-github</v-icon>
         깃허브 계정으로 회원가입
       </v-btn>
-      <v-divider></v-divider>
+      <v-divider />
       <p>이메일로 가입하기</p>
-      <v-text-field
-        hide-details
-        outlined
-        label="이메일 주소"
-        required
-      ></v-text-field>
-      <v-text-field hide-details outlined label="별명" required></v-text-field>
-      <v-text-field
-        hide-details
-        outlined
-        label="비밀번호"
-        required
-      ></v-text-field>
+      <v-text-field hide-details outlined label="이메일 주소" required />
+      <v-text-field hide-details outlined label="이름" required />
+      <v-text-field hide-details outlined label="비밀번호" required />
       <v-btn color="primary" class="mt-2" large>가입하기</v-btn>
     </div>
   </v-container>
 </template>
+
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
@@ -35,6 +26,7 @@ import Component from "vue-class-component";
 @Component
 export default class SignUp extends Vue {}
 </script>
+
 <style lang="scss" scoped>
 .container {
   padding: 0;
