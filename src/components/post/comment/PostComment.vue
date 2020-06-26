@@ -8,29 +8,15 @@
         </h3>
         <v-spacer />
         <v-btn class="ma-1" color="white">수정</v-btn>
-        <v-btn
-          class="ma-1 white--text"
-          color="#8d13d0"
-          @click="deletecomment(item.id)"
-          >삭제</v-btn
-        >
+        <v-btn class="ma-1 white--text" color="#8d13d0" @click="deletecomment(item.id)">삭제</v-btn>
       </v-row>
       <p name="content" v-if="item.id">{{ item.content }}</p>
     </span>
 
     <p class="font-weight-CONDENSED headline ma-2">댓글쓰기</p>
     <span align="center">
-      <v-textarea
-        name="input-7-1"
-        filled
-        label="댓글입력"
-        auto-grow
-        class="mt-8"
-        v-model="comment"
-      ></v-textarea>
-      <v-btn class="white--text" color="#8d13d0" @click="addcomment"
-        >댓글등록</v-btn
-      >
+      <v-textarea name="input-7-1" filled label="댓글입력" auto-grow class="mt-8" v-model="comment"></v-textarea>
+      <v-btn class="white--text" color="#8d13d0" @click="addcomment">댓글등록</v-btn>
     </span>
   </section>
 </template>
@@ -77,6 +63,7 @@ export default class WriteReply extends Vue {
   deletecomment(commentid: number) {
     this.commentDeleteAction(commentid).then(() => {
       alert("댓글이 삭제되었습니다.");
+
       this.detailAction();
     });
   }
