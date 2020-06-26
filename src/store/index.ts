@@ -10,10 +10,9 @@ import PostModule from "./modules/post";
 import CategoryModule from "./modules/category";
 import TagModule from "./modules/tag";
 import DetailModule from "./modules/detail";
-import AddCommentModule from "./modules/addComment";
-import DeleteCommentModule from "./modules/deleteComment";
 import UserModule from "./modules/user";
 import ModalModule from "./modules/modal";
+import CommentModule from "./modules/comment";
 
 Vue.use(Vuex);
 
@@ -31,9 +30,8 @@ export default new Vuex.Store<RootState>({
     CategoryModule,
     TagModule,
     DetailModule,
-    AddCommentModule,
-    DeleteCommentModule,
     UserModule,
-    ModalModule
+    ModalModule,
+    CommentModule
   }
 });

@@ -31,11 +31,14 @@ import { Getter, Action } from "vuex-class";
 export default class WriteReply extends Vue {
   //v-model 값 받아오기
   private comment = "";
+  private updateboolean = false;
+  private addboolean = true;
 
   @Getter private detailData!: PostId;
 
-  @Action private commentAction!: Function;
+  @Action private commentAddAction!: Function;
   @Action private commentDeleteAction!: Function;
+  @Action private commentUpdateAction!: Function;
   @Action private detailAction!: Function;
 
   //페이지 불러오자마자 바로 조회된 정보 가져오기
@@ -46,7 +49,7 @@ export default class WriteReply extends Vue {
   //버튼 클릭시 댓글등록 함수 실행
   addcomment() {
     if (this.comment !== "") {
-      this.commentAction({
+      this.commentAddAction({
         content: this.comment,
         post: this.detailData.id
       }).then(() => {
@@ -57,6 +60,36 @@ export default class WriteReply extends Vue {
     } else if (this.comment === "") {
       alert("댓글을 입력해주세요.");
     }
+  }
+
+  /*버튼 클릭시 댓글수정 함수 실행
+  함수 안에서 반복문을 통해 this.detailData.comments배열을 쭉 훑어주고
+  그 배열안에서 위에서 받아온 commentid를 찾아야 하므로 if문을 써서
+  this.detailData.comments.id랑 파라미터로 받은 comment.id랑 같은지 확인하고 같으면
+  item.id를 사용할수있는 템플릿단안에서 v-textarea와 수정,취소 버튼을 2개 만들어준다.
+  수정을 누르면 updatecomment함수로 이어지게 만들어주고 취소를 누르면 cancel함수로
+  가게끔 만들어준다.
+  v-textarea의 vmodel을 content로 삼고 파라미터로 받은 comment.id와 this.detailData.comments.id
+  가 같을때의 comment.id를 comment_id로 삼아서 둘을 같이 parameter로 this.commentUpdateAction()으로 보내준다.
+  */
+
+  update(commentid: number) {
+    console.log(typeof this.detailData.comments);
+    if (commentid === this.detailData.comments.id) {
+      this.addboolean = false;
+      this.updateboolean = true;
+    }
+  }
+
+  updatecomment(commentid: number) {
+    //this.commentUpdateAction();
+    console.log("댓글수정" + commentid);
+  }
+
+  cancel() {
+    this.updateboolean = false;
+    this.addboolean = true;
+    console.log("취소");
   }
 
   //버튼 클릭시 댓글삭제 함수 실행
