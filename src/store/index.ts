@@ -16,6 +16,11 @@ import ModalModule from "./modules/modal";
 Vue.use(Vuex);
 
 export interface RootState {
+  Post: Post;
+  Category: Category;
+  Tag: Tag;
+  User: User;
+  SignedInUser: SignedInUser;
 }
 
 export default new Vuex.Store<RootState>({
