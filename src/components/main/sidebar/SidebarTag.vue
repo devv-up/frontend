@@ -13,9 +13,8 @@
       :key="tag.title"
       :value="tag.title"
       label
+      >{{ tag.title }}</v-chip
     >
-      {{ tag.title }}
-    </v-chip>
   </v-chip-group>
 </template>
 

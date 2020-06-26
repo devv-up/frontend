@@ -1,15 +1,15 @@
 import { Module, VuexModule, Mutation, Action } from "vuex-module-decorators";
 import { apiAddComment } from "@/utils/api/addComment";
-import { AddComment } from "@/store/models/addComment";
+import { Comment } from "@/store/models/comment";
 
 @Module
 export default class AddCommentModule extends VuexModule {
   //State
-  private commentData: AddComment[] = [];
+  private commentData: Comment[] = [];
 
   //Mutation
   @Mutation
-  private commentMuta(commentmuta: AddComment[]) {
+  private commentMuta(commentmuta: Comment[]) {
     this.commentData = commentmuta;
   }
 
@@ -20,7 +20,7 @@ export default class AddCommentModule extends VuexModule {
   }
 
   //getters
-  get gettercomment(): AddComment[] {
+  get gettercomment(): Comment[] {
     return this.commentData;
   }
 }

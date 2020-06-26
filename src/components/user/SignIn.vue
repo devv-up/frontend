@@ -2,8 +2,7 @@
   <v-container>
     <div class="d-flex flex-column">
       <v-btn class="my-2" outlined color="#DB4437" large>
-        <v-icon>mdi-google</v-icon>
-        구글 계정으로 로그인
+        <v-icon>mdi-google</v-icon>구글 계정으로 로그인
       </v-btn>
       <v-btn class="my-2" outlined color="#211F1F" large>
         <v-icon>mdi-github</v-icon>
@@ -25,9 +24,10 @@
         required
         v-model="password"
       />
-      <v-btn text small color="grey darken-2" class="align-self-end">
-        비밀번호를 잊으셨나요?
-      </v-btn>
+      <v-btn text small color="grey darken-2" class="align-self-end"
+        >비밀번호를 잊으셨나요?</v-btn
+      >
+
       <v-btn color="primary" class="mt-2" large @click="signin">로그인</v-btn>
     </div>
   </v-container>
@@ -87,7 +87,6 @@ export default class SignIn extends Vue {
 <style lang="scss" scoped>
 .container {
   padding: 0;
-
   .v-divider {
     margin: 20px 0;
   }
