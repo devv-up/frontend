@@ -89,7 +89,6 @@ export default class PostComment extends Vue {
   */
 
   update(commentid: number) {
-    console.log(typeof this.detailData.comments[1]);
     if (commentid === this.detailData.comments[0].id) {
       this.addboolean = false;
       this.updateboolean = true;
