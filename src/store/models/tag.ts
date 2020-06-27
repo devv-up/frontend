@@ -1,4 +1,4 @@
 export class Tag {
-  id = 0;
-  title = '';
+	id = 0;
+	title = "";
 }

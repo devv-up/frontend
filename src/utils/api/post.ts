@@ -1,8 +1,8 @@
-import { http } from '@/utils/request';
-import { Post } from '@/store/models/post';
-import { Category } from '@/store/models/category';
-import { Tag } from '@/store/models/tag';
-import { PostId } from '@/store/models/detail';
+import { http } from "@/utils/request";
+import { Post } from "@/store/models/post";
+import { Category } from "@/store/models/category";
+import { Tag } from "@/store/models/tag";
+import { PostId } from "@/store/models/detail";
 
 /**
  * Get the list of posts
@@ -16,33 +16,33 @@ import { PostId } from '@/store/models/detail';
  * @param {string} tags tags=python,diango
  */
 export const fetchPosts = (params?: Record<string, string | number>) =>
-  http.request<Post[]>({
-    url: 'posts',
-    method: 'GET',
-    params,
-  });
+	http.request<Post[]>({
+		url: "posts",
+		method: "GET",
+		params
+	});
 
 /**
  * GET the list of categories
  */
 export const fetchCategories = () =>
-  http.request<Category[]>({
-    url: 'posts/categories',
-    method: 'GET',
-  });
+	http.request<Category[]>({
+		url: "posts/categories",
+		method: "GET"
+	});
 
 /**
  * GET the list of tags
  */
 export const fetchTags = () =>
-  http.request<Tag[]>({
-    url: 'posts/tags',
-    method: 'GET',
-  });
+	http.request<Tag[]>({
+		url: "posts/tags",
+		method: "GET"
+	});
 
 export const getPostId = (params: {}) =>
-  http.request<PostId>({
-    url: 'posts/1',
-    method: 'GET',
-    params,
-  });
+	http.request<PostId>({
+		url: "posts/1",
+		method: "GET",
+		params
+	});
