@@ -1,5 +1,5 @@
 <template>
-	<PostDetail></PostDetail>
+  <PostDetail></PostDetail>
 </template>
 
 <script lang="ts">
@@ -8,9 +8,9 @@ import Component from "vue-class-component";
 import PostDetail from "@/components/post/PostDetail.vue";
 
 @Component({
-	components: {
-		PostDetail
-	}
+  components: {
+    PostDetail
+  }
 })
 export default class MainDetail extends Vue {}
 </script>

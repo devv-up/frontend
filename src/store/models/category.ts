@@ -1,4 +1,4 @@
 export class Category {
-	id = 0;
-	title = "";
+  id = 0;
+  title = "";
 }

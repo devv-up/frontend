@@ -4,19 +4,19 @@ import { Category } from "@/store/models/category";
 
 @Module
 export default class CategoryModule extends VuexModule {
-	private categoryData: Category[] = [];
+  private categoryData: Category[] = [];
 
-	@Mutation
-	refreshCategories(categoryData: Category[]): void {
-		this.categoryData = categoryData;
-	}
+  @Mutation
+  refreshCategories(categoryData: Category[]): void {
+    this.categoryData = categoryData;
+  }
 
-	@Action({ commit: "refreshCategories" })
-	async fetchCategories(): Promise<Category[]> {
-		return (await fetchCategories()).data;
-	}
+  @Action({ commit: "refreshCategories" })
+  async fetchCategories(): Promise<Category[]> {
+    return (await fetchCategories()).data;
+  }
 
-	get categories(): Category[] {
-		return this.categoryData;
-	}
+  get categories(): Category[] {
+    return this.categoryData;
+  }
 }

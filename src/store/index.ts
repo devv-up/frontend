@@ -17,21 +17,21 @@ import CommentModule from "./modules/comment";
 Vue.use(Vuex);
 
 export interface RootState {
-	Post: Post;
-	Category: Category;
-	Tag: Tag;
-	User: User;
-	SignedInUser: SignedInUser;
+  Post: Post;
+  Category: Category;
+  Tag: Tag;
+  User: User;
+  SignedInUser: SignedInUser;
 }
 
 export default new Vuex.Store<RootState>({
-	modules: {
-		PostModule,
-		CategoryModule,
-		TagModule,
-		DetailModule,
-		UserModule,
-		ModalModule,
-		CommentModule
-	}
+  modules: {
+    PostModule,
+    CategoryModule,
+    TagModule,
+    DetailModule,
+    UserModule,
+    ModalModule,
+    CommentModule
+  }
 });
