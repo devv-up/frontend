@@ -55,7 +55,6 @@ export default class PostComment extends Vue {
         id: this.detailData.id,
       }).then(() => {
         alert('댓글이 등록되었습니다.');
-        console.log(this.detailData.comments);
         this.detailAction();
         this.comment = '';
       });
@@ -83,22 +82,15 @@ export default class PostComment extends Vue {
     }
   }
 
-  updatecomment(commentid: number) {
-    //this.commentUpdateAction();
-    console.log('댓글수정' + commentid);
-  }
-
   cancel() {
     this.updateboolean = false;
     this.addboolean = true;
-    console.log('취소');
   }
 
   //버튼 클릭시 댓글삭제 함수 실행
   deletecomment(commentid: number) {
     this.commentDeleteAction(commentid).then(() => {
       alert('댓글이 삭제되었습니다.');
-
       this.detailAction();
     });
   }

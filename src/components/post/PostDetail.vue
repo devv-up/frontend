@@ -66,7 +66,6 @@ export default class PostDetail extends Vue {
 
   async created() {
     await this.detailAction();
-    console.log(JSON.stringify(this.detailData.author.name));
     this.name = this.detailData.author.name;
   }
 }

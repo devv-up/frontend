@@ -9,7 +9,9 @@ export const apiAddComment = (params: Record<string, string | number>) => {
   http.request<Comment>({
     url: '/posts/comments',
     method: 'POST',
-    data: params
+    data: params,
+    withCredentials: true,
+    headers: { 'Access-Control-Allow-Credentials': true },
   });
 };
 
