@@ -11,7 +11,6 @@ export const apiAddComment = (params: Record<string, string | number>) => {
     method: "POST",
     data: params,
     withCredentials: true,
-    headers: { "Access-Control-Allow-Credentials": true }
   });
 };
 
@@ -19,13 +18,13 @@ export const apiUpdateComment = (params: Record<string, string | number>) => {
   http.request<Comment>({
     url: `/posts/comments/${params}`,
     method: "PUT",
-    data: params
+    data: params,
   });
 };
 
 export const apiDeleteComment = (params: Record<number, number | string>) => {
   http.request({
     url: `/posts/comments/${params}`,
-    method: "DELETE"
+    method: "DELETE",
   });
 };
