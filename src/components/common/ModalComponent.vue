@@ -8,7 +8,7 @@
   >
     <v-card>
       <v-card-title class="d-flex justify-space-between">
-        <h4 class="text--primary">{{ this.modal }}</h4>
+        <h2 class="text--primary">{{ this.modal }}</h2>
         <v-btn icon @click.stop="closeModal">
           <v-icon>mdi-close</v-icon>
         </v-btn>
@@ -30,11 +30,10 @@ import { Getter, Mutation } from "vuex-class";
 export default class ModalComponent extends Vue {
   @Prop()
   private maxWidth!: string;
-
   private title = "";
 
-  @Getter modal!: Function;
-  @Getter isModalOn!: Function;
+  @Getter modal!: string;
+  @Getter isModalOn!: boolean;
 
   @Mutation switchModal!: Function;
 

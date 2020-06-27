@@ -6,8 +6,9 @@
           <v-img :src="userAvatarImage" :alt="userName" />
         </v-avatar>
       </v-btn>
-      <span class="user-name mr-1"> {{ userName }} </span>
-      <v-chip outlined color="white" @click.stop="signout">Sign Out</v-chip>
+      <span class="user-name mr-1" @click="open('Mypage')">
+        {{ userName }}
+      </span>
     </div>
     <div v-else>
       <v-btn text color="white" @click.stop="open('Sign In')">
@@ -22,7 +23,7 @@
       <template v-slot:content>
         <SignIn title="Sign In" v-if="modalName === 'Sign In'" />
         <SignUp title="Sign Up" v-else-if="modalName === 'Sign Up'" />
-        <SignIn title="Mypage" v-else-if="modalName === 'Mypage'" />
+        <MypageComponent title="Mypage" v-else-if="modalName === 'Mypage'" />
       </template>
     </v-modal>
   </div>
@@ -35,13 +36,15 @@ import { Mutation, Getter } from "vuex-class";
 
 import SignIn from "@/components/user/SignIn.vue";
 import SignUp from "@/components/user/SignUp.vue";
+import MypageComponent from "@/components/user/MypageComponent.vue";
 
 import { SignedInUser } from "@/store/models/user";
 
 @Component({
   components: {
     SignIn,
-    SignUp
+    SignUp,
+    MypageComponent
   }
 })
 export default class SignInBar extends Vue {
@@ -50,7 +53,7 @@ export default class SignInBar extends Vue {
   private userName = "";
   private modalName = "";
 
-  @Getter currentUser!: Function;
+  @Getter currentUser!: SignedInUser;
 
   @Mutation storeDataOf!: Function;
   @Mutation switchModal!: Function;
@@ -67,11 +70,6 @@ export default class SignInBar extends Vue {
     }
   }
 
-  signout() {
-    sessionStorage.clear();
-    location.reload();
-  }
-
   open(modal: string) {
     this.modalName = modal;
     this.switchModal({ modalName: modal, isOn: true });
@@ -81,6 +79,7 @@ export default class SignInBar extends Vue {
 
 <style scoped>
 .user-name {
+  cursor: pointer;
   color: white;
 }
 </style>
