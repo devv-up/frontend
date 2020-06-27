@@ -5,5 +5,6 @@ export const signinWith = (data: Record<string, string | number>) =>
   http.request<SignedInUser>({
     url: "user/auth/login/",
     method: "POST",
-    data: data
+    data: data,
+    withCredentials: true
   });
