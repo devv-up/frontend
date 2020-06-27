@@ -1,50 +1,19 @@
+import { User } from './user';
+import { Category } from './category';
+import { Tag } from './tag';
+import { Comment } from './comment';
+
 export class PostId {
   id = 0;
-  title = "";
-  content = "";
-  location = "";
+  title = '';
+  content = '';
+  location = '';
   capacity = 0;
-  date = "";
-  timeOfDay = 0;
-  createdDate = "";
-  author!: Author;
+  date!: Date;
+  timeOfDay = -1;
+  createdDate!: Date;
+  author!: User;
   category!: Category;
-  tags!: Tag;
-  comments!: Comments;
-}
-
-export class Category {
-  id = 0;
-  isActive = false;
-  title = "";
-}
-
-export class Tag {
-  id = 0;
-  title = "";
-}
-
-export class Comments {
-  id = 0;
-  content = "";
-  createdDate = "";
-  parentComment = 0;
-  author!: Author;
-  isActive = false;
-}
-
-export class Author {
-  id = 0;
-  password = "";
-  lastLogin = "";
-  isSuperuser = false;
-  email = "";
-  name = "";
-  isActive = false;
-  isStaff = false;
-  createDate = "";
-  verification = false;
-  verificationKey = "";
-  groups = 0;
-  userPermissions = 0;
+  tags: Tag[] = [];
+  comments: Comment[] = [];
 }

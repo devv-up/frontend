@@ -1,6 +1,6 @@
-import { Module, VuexModule, Mutation, Action } from "vuex-module-decorators";
-import { fetchTags } from "@/utils/api/post";
-import { Tag } from "@/store/models/tag";
+import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
+import { fetchTags } from '@/utils/api/post';
+import { Tag } from '@/store/models/tag';
 
 @Module
 export default class TagModule extends VuexModule {
@@ -12,7 +12,7 @@ export default class TagModule extends VuexModule {
     this.tagData = tagData;
   }
 
-  @Action({ commit: "refreshTags" })
+  @Action({ commit: 'refreshTags' })
   async fetchTags(): Promise<Tag[]> {
     return (await fetchTags()).data;
   }

@@ -42,24 +42,24 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import WriteReply from "@/components/mainDetail/WriteReplyContent.vue";
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import WriteReply from '@/components/mainDetail/WriteReplyContent.vue';
 
 @Component({
   components: {
-    WriteReply
+    WriteReply,
   },
   props: {
     groupImage: {
       type: String,
-      default: "@/assets/images/seoul3.jpg"
+      default: '@/assets/images/seoul3.jpg',
     },
     hostImage: {
       type: String,
-      default: "@/assets/images/seoul2.jpg"
-    }
-  }
+      default: '@/assets/images/seoul2.jpg',
+    },
+  },
 })
 export default class MainDetailContent extends Vue {}
 </script>

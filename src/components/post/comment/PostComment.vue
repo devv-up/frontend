@@ -7,7 +7,7 @@
           <span class="ml-3">작성자: {{ detailData.author.name }}</span>
         </h3>
         <v-spacer />
-        <v-btn class="ma-1" color="white">수정</v-btn>
+        <v-btn class="ma-1" color="white" @click="update(item.id)">수정</v-btn>
         <v-btn class="ma-1 white--text" color="#8d13d0" @click="deletecomment(item.id)">삭제</v-btn>
       </v-row>
       <p name="content" v-if="item.id">{{ item.content }}</p>
@@ -22,19 +22,20 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import { PostId } from "@/store/models/detail";
-import { Getter, Action } from "vuex-class";
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import { PostId } from '@/store/models/detail';
+import { Getter, Action } from 'vuex-class';
 
 @Component
-export default class WriteReply extends Vue {
+export default class PostComment extends Vue {
   //v-model 값 받아오기
-  private comment = "";
+  private comment = '';
   private updateboolean = false;
   private addboolean = true;
 
   @Getter private detailData!: PostId;
+  @Getter private gettercomment!: Comment;
 
   @Action private commentAddAction!: Function;
   @Action private commentDeleteAction!: Function;
@@ -48,17 +49,18 @@ export default class WriteReply extends Vue {
 
   //버튼 클릭시 댓글등록 함수 실행
   addcomment() {
-    if (this.comment !== "") {
+    if (this.comment !== '') {
       this.commentAddAction({
         content: this.comment,
-        post: this.detailData.id
+        id: this.detailData.id,
       }).then(() => {
-        alert("댓글이 등록되었습니다.");
+        alert('댓글이 등록되었습니다.');
+        console.log(this.detailData.comments);
         this.detailAction();
-        this.comment = "";
+        this.comment = '';
       });
-    } else if (this.comment === "") {
-      alert("댓글을 입력해주세요.");
+    } else if (this.comment === '') {
+      alert('댓글을 입력해주세요.');
     }
   }
 
@@ -74,8 +76,8 @@ export default class WriteReply extends Vue {
   */
 
   update(commentid: number) {
-    console.log(typeof this.detailData.comments);
-    if (commentid === this.detailData.comments.id) {
+    console.log(typeof this.detailData.comments[1]);
+    if (commentid === this.detailData.comments[0].id) {
       this.addboolean = false;
       this.updateboolean = true;
     }
@@ -83,19 +85,19 @@ export default class WriteReply extends Vue {
 
   updatecomment(commentid: number) {
     //this.commentUpdateAction();
-    console.log("댓글수정" + commentid);
+    console.log('댓글수정' + commentid);
   }
 
   cancel() {
     this.updateboolean = false;
     this.addboolean = true;
-    console.log("취소");
+    console.log('취소');
   }
 
   //버튼 클릭시 댓글삭제 함수 실행
   deletecomment(commentid: number) {
     this.commentDeleteAction(commentid).then(() => {
-      alert("댓글이 삭제되었습니다.");
+      alert('댓글이 삭제되었습니다.');
 
       this.detailAction();
     });

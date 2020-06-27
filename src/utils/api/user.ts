@@ -1,10 +1,10 @@
-import { http } from "@/utils/request";
-import { SignedInUser } from "@/store/models/user";
+import { http } from '@/utils/request';
+import { SignedInUser } from '@/store/models/user';
 
 export const signinWith = (data: Record<string, string | number>) =>
   http.request<SignedInUser>({
-    url: "user/auth/login/",
-    method: "POST",
+    url: 'user/auth/login/',
+    method: 'POST',
     data: data,
-    withCredentials: true
+    withCredentials: true,
   });

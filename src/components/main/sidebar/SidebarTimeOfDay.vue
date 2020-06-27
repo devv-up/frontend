@@ -16,9 +16,9 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import { Getter } from "vuex-class";
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import { Getter } from 'vuex-class';
 
 @Component
 export default class SidebarTimeOfDay extends Vue {

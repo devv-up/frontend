@@ -1,8 +1,8 @@
-import { Module, VuexModule, Mutation } from "vuex-module-decorators";
+import { Module, VuexModule, Mutation } from 'vuex-module-decorators';
 
 @Module
 export default class ModalModule extends VuexModule {
-  private modalName = "";
+  private modalName = '';
   private isOn = false;
 
   @Mutation

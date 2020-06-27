@@ -2,7 +2,7 @@
   <v-app-bar
     :class="[
       isState ? appBarClassName.primary : appBarClassName.opacity,
-      'app-bar'
+      'app-bar',
     ]"
     app
     flat
@@ -14,16 +14,16 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import { Prop } from "vue-property-decorator";
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import { Prop } from 'vue-property-decorator';
 
-import AppBarSignIn from "@/components/layout/app-bar/AppBarSignIn.vue";
+import AppBarSignIn from '@/components/layout/app-bar/AppBarSignIn.vue';
 
 @Component({
   components: {
-    AppBarSignIn
-  }
+    AppBarSignIn,
+  },
 })
 export default class AppBar extends Vue {
   @Prop()
@@ -31,20 +31,20 @@ export default class AppBar extends Vue {
 
   private isState = true;
   private appBarClassName = {
-    opacity: "opacity",
-    primary: "primary"
+    opacity: 'opacity',
+    primary: 'primary',
   };
 
   mounted() {
     if (this.isScrolled) {
-      window.addEventListener("scroll", this.handleScroll);
+      window.addEventListener('scroll', this.handleScroll);
       this.isState = false;
     }
   }
 
   destroy() {
     if (this.isScrolled) {
-      window.removeEventListener("scroll", this.handleScroll);
+      window.removeEventListener('scroll', this.handleScroll);
     }
   }
 

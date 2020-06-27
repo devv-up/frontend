@@ -10,7 +10,16 @@ export class SignedInUser {
 
 export class User {
   id = 0;
-  email = "";
-  name = "";
-  password = "";
+  email = '';
+  name = '';
+  password = '';
+  last_login!: Date;
+  is_superuser = false;
+  is_active = false;
+  is_staff = false;
+  create_date!: Date;
+  verification = false;
+  verification_key = '';
+  groups = [];
+  user_permissions = [];
 }

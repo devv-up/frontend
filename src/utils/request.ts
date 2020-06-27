@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
 const instance = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
-  timeout: 5000
+  timeout: 5000,
 });
 
 instance.interceptors.request.use(
@@ -12,7 +12,7 @@ instance.interceptors.request.use(
   },
   error => {
     return Promise.reject(error);
-  }
+  },
 );
 
 instance.interceptors.response.use(
@@ -21,7 +21,7 @@ instance.interceptors.response.use(
   },
   error => {
     return Promise.reject(error);
-  }
+  },
 );
 
 export const http = instance;

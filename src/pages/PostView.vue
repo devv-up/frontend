@@ -3,14 +3,14 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import PostDetail from "@/components/post/PostDetail.vue";
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import PostDetail from '@/components/post/PostDetail.vue';
 
 @Component({
   components: {
-    PostDetail
-  }
+    PostDetail,
+  },
 })
 export default class MainDetail extends Vue {}
 </script>

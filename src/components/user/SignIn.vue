@@ -34,16 +34,16 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import { Getter, Action } from "vuex-class";
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import { Getter, Action } from 'vuex-class';
 
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
 @Component
 export default class SignIn extends Vue {
-  private email = "";
-  private password = "";
+  private email = '';
+  private password = '';
 
   @Getter currentUser!: Function;
   @Action signinWith!: Function;
@@ -52,14 +52,14 @@ export default class SignIn extends Vue {
     try {
       await this.signinWith({
         email: this.email,
-        password: this.password
+        password: this.password,
       });
-      sessionStorage.setItem("signedInUser", JSON.stringify(this.currentUser));
+      sessionStorage.setItem('signedInUser', JSON.stringify(this.currentUser));
       location.reload();
     } catch (e) {
       Swal.fire({
-        icon: "error",
-        text: this.getErrorMessage(e.response.data)
+        icon: 'error',
+        text: this.getErrorMessage(e.response.data),
       });
     }
   }
@@ -70,13 +70,13 @@ export default class SignIn extends Vue {
     }`;
 
     const errorMessageList: Record<string, string> = {
-      "password: This field may not be blank.":
-        "이메일과 비밀번호를 입력해주세요.",
+      'password: This field may not be blank.':
+        '이메일과 비밀번호를 입력해주세요.',
       'non_field_errors: Must include "email" and "password".':
-        "이메일과 비밀번호를 입력해주세요.",
-      "email: Enter a valid email address.": "이메일 형식이 잘못되었습니다.",
-      "non_field_errors: Unable to log in with provided credentials.":
-        "이메일과 비밀번호를 다시 확인해주세요."
+        '이메일과 비밀번호를 입력해주세요.',
+      'email: Enter a valid email address.': '이메일 형식이 잘못되었습니다.',
+      'non_field_errors: Unable to log in with provided credentials.':
+        '이메일과 비밀번호를 다시 확인해주세요.',
     };
 
     return errorMessageList[key];

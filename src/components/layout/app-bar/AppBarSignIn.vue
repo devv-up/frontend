@@ -29,26 +29,26 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import { Mutation, Getter } from "vuex-class";
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import { Mutation, Getter } from 'vuex-class';
 
-import SignIn from "@/components/user/SignIn.vue";
-import SignUp from "@/components/user/SignUp.vue";
+import SignIn from '@/components/user/SignIn.vue';
+import SignUp from '@/components/user/SignUp.vue';
 
-import { SignedInUser } from "@/store/models/user";
+import { SignedInUser } from '@/store/models/user';
 
 @Component({
   components: {
     SignIn,
-    SignUp
-  }
+    SignUp,
+  },
 })
 export default class SignInBar extends Vue {
   private userIsSignedIn = false;
   private userAvatarImage = require(`@/assets/images/avatar-url-default.png`);
-  private userName = "";
-  private modalName = "";
+  private userName = '';
+  private modalName = '';
 
   @Getter currentUser!: Function;
 
@@ -56,8 +56,8 @@ export default class SignInBar extends Vue {
   @Mutation switchModal!: Function;
 
   created() {
-    if (sessionStorage.getItem("signedInUser")) {
-      const user = JSON.parse(sessionStorage.getItem("signedInUser") as string)
+    if (sessionStorage.getItem('signedInUser')) {
+      const user = JSON.parse(sessionStorage.getItem('signedInUser') as string)
         .user;
 
       this.userIsSignedIn = true;

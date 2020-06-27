@@ -27,10 +27,10 @@
 </template>
 
 <script lang="tsx">
-import Vue from "vue";
-import Component from "vue-class-component";
-import { Prop } from "vue-property-decorator";
-import { Post } from "@/store/models/post";
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import { Prop } from 'vue-property-decorator';
+import { Post } from '@/store/models/post';
 
 @Component
 export default class PostCardView extends Vue {
@@ -39,20 +39,20 @@ export default class PostCardView extends Vue {
   private isActive = false;
 
   get likeColor() {
-    return this.item.isLiked ? "pink" : "";
+    return this.item.isLiked ? 'pink' : '';
   }
 
   get itemImage() {
     return this.item.images
       ? this.item.images[0]
-      : "https://cdn.vuetifyjs.com/images/cards/docks.jpg";
+      : 'https://cdn.vuetifyjs.com/images/cards/docks.jpg';
   }
 
   get itemTime() {
-    if (this.item.timeOfDay === 0) return "오전";
-    else if (this.item.timeOfDay === 1) return "오후";
-    else if (this.item.timeOfDay === 2) return "저녁";
-    else throw new Error("유효하지 않은 값입니다.");
+    if (this.item.timeOfDay === 0) return '오전';
+    else if (this.item.timeOfDay === 1) return '오후';
+    else if (this.item.timeOfDay === 2) return '저녁';
+    else throw new Error('유효하지 않은 값입니다.');
   }
 }
 </script>

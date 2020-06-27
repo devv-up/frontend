@@ -39,20 +39,20 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import { Mutation } from "vuex-class";
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import { Mutation } from 'vuex-class';
 
-import SidebarCategory from "@/components/main/sidebar/SidebarCategory.vue";
-import SidebarTag from "@/components/main/sidebar/SidebarTag.vue";
-import SidebarTimeOfDay from "@/components/main/sidebar/SidebarTimeOfDay.vue";
+import SidebarCategory from '@/components/main/sidebar/SidebarCategory.vue';
+import SidebarTag from '@/components/main/sidebar/SidebarTag.vue';
+import SidebarTimeOfDay from '@/components/main/sidebar/SidebarTimeOfDay.vue';
 
 @Component({
   components: {
     SidebarCategory,
     SidebarTag,
-    SidebarTimeOfDay
-  }
+    SidebarTimeOfDay,
+  },
 })
 export default class SidebarComponent extends Vue {
   private selectedDate: (string | (string | null)[])[] = [];
@@ -63,27 +63,27 @@ export default class SidebarComponent extends Vue {
   created() {
     this.selectedDate = [
       this.$route.query.startDate,
-      this.$route.query.endDate
+      this.$route.query.endDate,
     ];
   }
 
   changeDate() {
     this.$router.push({
-      path: "/",
+      path: '/',
       query: {
         ...this.$route.query,
-        ["startDate"]: this.selectedDate[0],
-        ["endDate"]: this.selectedDate[1]
-      }
+        ['startDate']: this.selectedDate[0],
+        ['endDate']: this.selectedDate[1],
+      },
     });
   }
 
   handleClear() {
-    if (this.$route.path == "/" && Object.keys(this.$route.query).length === 0)
+    if (this.$route.path == '/' && Object.keys(this.$route.query).length === 0)
       return;
     this.selectedDate = [];
     this.filterTagsWith(null);
-    this.$router.push({ path: "/" });
+    this.$router.push({ path: '/' });
   }
 }
 </script>

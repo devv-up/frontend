@@ -10,7 +10,7 @@
         <router-link
           :to="{
             path: '/',
-            query: { ...$route.query, category: category.title }
+            query: { ...$route.query, category: category.title },
           }"
           active-class="category__item__text--active"
           exact
@@ -24,11 +24,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import { Getter } from "vuex-class";
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import { Getter } from 'vuex-class';
 
-import { Category } from "@/store/models/category";
+import { Category } from '@/store/models/category';
 
 @Component
 export default class SidebarCategory extends Vue {

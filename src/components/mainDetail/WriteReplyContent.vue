@@ -33,20 +33,20 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
 @Component
 export default class WriteReply extends Vue {
   comment = [
     {
-      id: "good",
-      content: "good!!"
+      id: 'good',
+      content: 'good!!',
     },
     {
-      id: "call",
-      content: "call!!"
-    }
+      id: 'call',
+      content: 'call!!',
+    },
   ];
 }
 </script>

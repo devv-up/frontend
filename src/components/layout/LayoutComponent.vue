@@ -11,17 +11,17 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
-import AppBar from "@/components/layout/app-bar/AppBar.vue";
-import FooterComponent from "@/components/layout/FooterComponent.vue";
+import AppBar from '@/components/layout/app-bar/AppBar.vue';
+import FooterComponent from '@/components/layout/FooterComponent.vue';
 
 @Component({
   components: {
     AppBar,
-    FooterComponent
-  }
+    FooterComponent,
+  },
 })
 export default class BasicLayout extends Vue {}
 </script>

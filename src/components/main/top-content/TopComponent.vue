@@ -7,20 +7,20 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
-import TopSearchBar from "@/components/main/top-content/TopSearchBar.vue";
-import AppBar from "@/components/layout/app-bar/AppBar.vue";
+import TopSearchBar from '@/components/main/top-content/TopSearchBar.vue';
+import AppBar from '@/components/layout/app-bar/AppBar.vue';
 
 @Component({
   components: {
     TopSearchBar,
-    AppBar
-  }
+    AppBar,
+  },
 })
 export default class Header extends Vue {
-  private searchText = "";
+  private searchText = '';
 }
 </script>
 

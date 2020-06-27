@@ -21,17 +21,17 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import { Prop } from "vue-property-decorator";
-import { Getter, Mutation } from "vuex-class";
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import { Prop } from 'vue-property-decorator';
+import { Getter, Mutation } from 'vuex-class';
 
 @Component
 export default class ModalComponent extends Vue {
   @Prop()
   private maxWidth!: string;
 
-  private title = "";
+  private title = '';
 
   @Getter modal!: Function;
   @Getter isModalOn!: Function;

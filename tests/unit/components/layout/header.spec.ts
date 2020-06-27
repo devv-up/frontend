@@ -9,8 +9,8 @@
 // };
 // const store = new Vuex.Store({ mutations });
 
-describe("components/layout/header/index", () => {
-  it("", () => {
+describe('components/layout/header/index', () => {
+  it('', () => {
     expect(true).toBe(true);
   });
   // eslint-disable-next-line

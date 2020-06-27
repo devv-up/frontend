@@ -1,19 +1,20 @@
-import { Module, VuexModule, Mutation, Action } from "vuex-module-decorators";
-import { apiAddComment } from "@/utils/api/comment";
-import { apiDeleteComment } from "@/utils/api/comment";
-import { apiUpdateComment } from "@/utils/api/comment";
-import { AddComment } from "@/store/models/addComment";
+import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
+import { apiAddComment } from '@/utils/api/comment';
+import { apiDeleteComment } from '@/utils/api/comment';
+import { apiUpdateComment } from '@/utils/api/comment';
+import { Comment } from '@/store/models/Comment';
 
 @Module
 export default class CommentModule extends VuexModule {
   //State
-  private commentData: AddComment[] = [];
+  private commentData!: Record<string, string | number>;
   private commentUpdateData!: Record<string, string | number>;
 
   //Mutation
   //댓글등록 뮤테
   @Mutation
-  private commentAddMuta(mutacomment: AddComment[]) {
+  private commentAddMuta(mutacomment: Record<string, string | number>) {
+    console.log("Muta등록: " + mutacomment)
     this.commentData = mutacomment;
   }
   //댓글수정 뮤테
@@ -24,14 +25,15 @@ export default class CommentModule extends VuexModule {
 
   //Action
   //댓글등록 액션
-  @Action({ commit: "commentAddMuta" })
+  @Action({ commit: 'commentAddMuta' })
   async commentAddAction(actioncomment: Record<string, string | number>) {
+    console.log('action ' + JSON.stringify(actioncomment));
     return await apiAddComment(actioncomment);
   }
   //댓글수정 액션
-  @Action({ commit: "commentUpdateMuta" })
+  @Action({ commit: 'commentUpdateMuta' })
   async commentUpdateAction(actioncomment: Record<string, string | number>) {
-    console.log("응");
+    console.log('응');
     await apiUpdateComment(actioncomment);
   }
   //댓글삭제 액션
@@ -41,10 +43,10 @@ export default class CommentModule extends VuexModule {
   }
 
   //getters
-  get gettercomment(): AddComment[] {
+  get gettercomment(): Record<string, string | number> {
     return this.commentData;
   }
   get getterupdatecomment(): Record<string, string | number> {
-    return this.commentUpdateData
+    return this.commentUpdateData;
   }
 }

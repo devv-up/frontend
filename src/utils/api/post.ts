@@ -1,8 +1,8 @@
-import { http } from "@/utils/request";
-import { Post } from "@/store/models/post";
-import { Category } from "@/store/models/category";
-import { Tag } from "@/store/models/tag";
-import { PostId } from "@/store/models/detail";
+import { http } from '@/utils/request';
+import { Post } from '@/store/models/post';
+import { Category } from '@/store/models/category';
+import { Tag } from '@/store/models/tag';
+import { PostId } from '@/store/models/detail';
 
 /**
  * Get the list of posts
@@ -17,9 +17,9 @@ import { PostId } from "@/store/models/detail";
  */
 export const fetchPosts = (params?: Record<string, string | number>) =>
   http.request<Post[]>({
-    url: "posts",
-    method: "GET",
-    params
+    url: 'posts',
+    method: 'GET',
+    params,
   });
 
 /**
@@ -27,8 +27,8 @@ export const fetchPosts = (params?: Record<string, string | number>) =>
  */
 export const fetchCategories = () =>
   http.request<Category[]>({
-    url: "posts/categories",
-    method: "GET"
+    url: 'posts/categories',
+    method: 'GET',
   });
 
 /**
@@ -36,13 +36,13 @@ export const fetchCategories = () =>
  */
 export const fetchTags = () =>
   http.request<Tag[]>({
-    url: "posts/tags",
-    method: "GET"
+    url: 'posts/tags',
+    method: 'GET',
   });
 
 export const getPostId = (params: {}) =>
   http.request<PostId>({
-    url: "posts/1",
-    method: "GET",
-    params
+    url: 'posts/1',
+    method: 'GET',
+    params,
   });

@@ -35,15 +35,15 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
-import SidebarComponent from "@/components/main/sidebar/SidebarComponent.vue";
+import SidebarComponent from '@/components/main/sidebar/SidebarComponent.vue';
 
 @Component({
   components: {
-    SidebarComponent
-  }
+    SidebarComponent,
+  },
 })
 export default class SidebarWrapper extends Vue {
   private sheet = false;

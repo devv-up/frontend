@@ -10,16 +10,16 @@
 </template>
 
 <script lang="tsx">
-import Vue from "vue";
-import Component from "vue-class-component";
+import Vue from 'vue';
+import Component from 'vue-class-component';
 
-import { Links } from "layout";
+import { Links } from 'layout';
 
 @Component
 export default class Footer extends Vue {
   links: Links[] = [
-    { name: "소개", link: "/" },
-    { name: "고객센터", link: "/" }
+    { name: '소개', link: '/' },
+    { name: '고객센터', link: '/' },
   ];
 }
 </script>

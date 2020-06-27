@@ -29,18 +29,18 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import { Getter, Mutation, Action } from "vuex-class";
-import { Watch } from "vue-property-decorator";
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import { Getter, Mutation, Action } from 'vuex-class';
+import { Watch } from 'vue-property-decorator';
 
-import { Post } from "@/store/models/post";
+import { Post } from '@/store/models/post';
 
-import TopComponent from "@/components/main/top-content/TopComponent.vue";
-import FooterComponent from "@/components/layout/FooterComponent.vue";
-import PostCardView from "@/components/main/PostCardView.vue";
-import PostGridList from "@/components/main/PostGridList.vue";
-import SidebarWrapper from "@/components/main/sidebar/SidebarWrapper.vue";
+import TopComponent from '@/components/main/top-content/TopComponent.vue';
+import FooterComponent from '@/components/layout/FooterComponent.vue';
+import PostCardView from '@/components/main/PostCardView.vue';
+import PostGridList from '@/components/main/PostGridList.vue';
+import SidebarWrapper from '@/components/main/sidebar/SidebarWrapper.vue';
 
 @Component({
   components: {
@@ -48,8 +48,8 @@ import SidebarWrapper from "@/components/main/sidebar/SidebarWrapper.vue";
     SidebarWrapper,
     FooterComponent,
     PostCardView,
-    PostGridList
-  }
+    PostGridList,
+  },
 })
 export default class HomeView extends Vue {
   private routeQuery = {};
@@ -69,7 +69,7 @@ export default class HomeView extends Vue {
     await this.fetchTags();
   }
 
-  @Watch("$route")
+  @Watch('$route')
   path(to: Record<string, string | (string | null)[]>) {
     this.resetPage();
     this.routeQuery = to.query;

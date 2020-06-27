@@ -1,8 +1,8 @@
-import { User } from "./user";
+import { User } from './user';
 
 export class Comment {
   id = 0;
-  content = "";
+  content = '';
   createdDate!: Date;
   parentComment!: number;
   author!: User;

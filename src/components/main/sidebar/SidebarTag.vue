@@ -20,11 +20,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-import { Getter, Mutation } from "vuex-class";
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import { Getter, Mutation } from 'vuex-class';
 
-import { Tag } from "@/store/models/tag";
+import { Tag } from '@/store/models/tag';
 
 @Component
 export default class Tags extends Vue {
@@ -36,15 +36,15 @@ export default class Tags extends Vue {
 
   mounted() {
     const params = this.$route.query.tags;
-    if (params) this.filterTagsWith(params.toString().split(","));
+    if (params) this.filterTagsWith(params.toString().split(','));
   }
 
   handleChange(tagFilters: Array<string>) {
     this.filterTagsWith(tagFilters);
     const tags = tagFilters.length === 0 ? undefined : tagFilters.toString();
     this.$router.push({
-      path: "/",
-      query: { ...this.$route.query, tags: tags }
+      path: '/',
+      query: { ...this.$route.query, tags: tags },
     });
   }
 }

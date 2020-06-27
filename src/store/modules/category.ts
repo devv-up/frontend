@@ -1,6 +1,6 @@
-import { Module, VuexModule, Mutation, Action } from "vuex-module-decorators";
-import { fetchCategories } from "@/utils/api/post";
-import { Category } from "@/store/models/category";
+import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
+import { fetchCategories } from '@/utils/api/post';
+import { Category } from '@/store/models/category';
 
 @Module
 export default class CategoryModule extends VuexModule {
@@ -11,7 +11,7 @@ export default class CategoryModule extends VuexModule {
     this.categoryData = categoryData;
   }
 
-  @Action({ commit: "refreshCategories" })
+  @Action({ commit: 'refreshCategories' })
   async fetchCategories(): Promise<Category[]> {
     return (await fetchCategories()).data;
   }
