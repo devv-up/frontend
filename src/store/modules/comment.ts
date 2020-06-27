@@ -8,7 +8,7 @@ import { Comment } from "@/store/models/comment";
 export default class CommentModule extends VuexModule {
   //State
   private commentData!: Comment;
-  private commentUpdateData!: Record<string, string | number>;
+  private commentUpdateData!: Comment;
 
   //Mutation
   //댓글등록 뮤테
@@ -18,7 +18,7 @@ export default class CommentModule extends VuexModule {
   }
   //댓글수정 뮤테
   @Mutation
-  private commentUpdateMuta(mutacomment: Record<string, string | number>) {
+  private commentUpdateMuta(mutacomment: Comment) {
     this.commentUpdateData = mutacomment;
   }
 
@@ -26,11 +26,14 @@ export default class CommentModule extends VuexModule {
   //댓글등록 액션
   @Action({ commit: "commentAddMuta" })
   async commentAddAction(actioncomment: Record<string, string | number>) {
+    console.log("addaction " + actioncomment);
     return await apiAddComment(actioncomment);
   }
   //댓글수정 액션
   @Action({ commit: "commentUpdateMuta" })
   async commentUpdateAction(actioncomment: Record<string, string | number>) {
+    console.log("actioncontent" + actioncomment.content);
+    console.log("actioncommentid" + actioncomment.commentid);
     await apiUpdateComment(actioncomment);
   }
   //댓글삭제 액션
@@ -43,7 +46,7 @@ export default class CommentModule extends VuexModule {
   get gettercomment(): Comment {
     return this.commentData;
   }
-  get getterupdatecomment(): Record<string, string | number> {
+  get getterupdatecomment(): Comment {
     return this.commentUpdateData;
   }
 }

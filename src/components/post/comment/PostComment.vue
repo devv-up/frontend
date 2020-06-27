@@ -4,11 +4,18 @@
     <span v-for="item in detailData.comments" :key="item.id">
       <v-row v-if="item.id">
         <h3>
-          <span class="ml-3">작성자: {{ detailData.author.name }}</span>
+          <span class="ml-3">작성자: {{ item.author.name }}</span>
         </h3>
         <v-spacer />
-        <v-btn class="ma-1" color="white" @click="update(item.id)">수정</v-btn>
         <v-btn
+          v-if="addboolean"
+          class="ma-1"
+          color="white"
+          @click="update(item.id)"
+          >수정</v-btn
+        >
+        <v-btn
+          v-if="addboolean"
           class="ma-1 white--text"
           color="#8d13d0"
           @click="deletecomment(item.id)"
@@ -18,8 +25,25 @@
       <p name="content" v-if="item.id">{{ item.content }}</p>
     </span>
 
-    <p class="font-weight-CONDENSED headline ma-2">댓글쓰기</p>
-    <span align="center">
+    <span v-if="updateboolean">
+      <v-textarea
+        name="input-7-1"
+        filled
+        label="댓글수정"
+        auto-grow
+        class="mt-8"
+        v-model="comment"
+      ></v-textarea>
+      <v-btn class="ma-1" color="white" @click="updatecomment">수정</v-btn>
+      <v-btn class="ma-1 white--text" color="#8d13d0" @click="cancel"
+        >취소</v-btn
+      >
+    </span>
+
+    <p v-if="addboolean" class="font-weight-CONDENSED headline ma-2">
+      댓글쓰기
+    </p>
+    <span align="center" v-if="addboolean">
       <v-textarea
         name="input-7-1"
         filled
@@ -47,6 +71,7 @@ export default class PostComment extends Vue {
   private comment = "";
   private updateboolean = false;
   private addboolean = true;
+  private clickid = 0;
 
   @Getter private detailData!: PostId;
   @Getter private gettercomment!: Comment;
@@ -66,7 +91,7 @@ export default class PostComment extends Vue {
     if (this.comment !== "") {
       this.commentAddAction({
         content: this.comment,
-        id: this.detailData.id
+        post: this.detailData.id
       }).then(() => {
         alert("댓글이 등록되었습니다.");
         this.detailAction();
@@ -89,10 +114,25 @@ export default class PostComment extends Vue {
   */
 
   update(commentid: number) {
-    if (commentid === this.detailData.comments[0].id) {
-      this.addboolean = false;
-      this.updateboolean = true;
-    }
+    console.log("update " + commentid);
+    this.addboolean = false;
+    this.updateboolean = true;
+    this.clickid = commentid;
+  }
+
+  updatecomment() {
+    console.log(this.comment);
+    console.log("click " + this.clickid);
+    this.commentUpdateAction({
+      commentid: this.clickid,
+      content: this.comment
+    }).then(() => {
+      alert("댓글이 수정되었습니다.");
+      this.detailAction();
+      this.comment = "";
+      this.updateboolean = false;
+      this.addboolean = true;
+    });
   }
 
   cancel() {

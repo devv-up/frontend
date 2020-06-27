@@ -16,9 +16,9 @@ export const apiAddComment = (params: Record<string, string | number>) => {
 
 export const apiUpdateComment = (params: Record<string, string | number>) => {
   http.request<Comment>({
-    url: `/posts/comments/${params}`,
+    url: `/posts/comments/${params.commentid}`,
     method: "PUT",
-    data: params,
+    data: { content: params.content },
     withCredentials: true
   });
 };
