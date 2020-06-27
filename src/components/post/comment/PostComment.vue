@@ -114,15 +114,12 @@ export default class PostComment extends Vue {
   */
 
   update(commentid: number) {
-    console.log("update " + commentid);
     this.addboolean = false;
     this.updateboolean = true;
     this.clickid = commentid;
   }
 
   updatecomment() {
-    console.log(this.comment);
-    console.log("click " + this.clickid);
     this.commentUpdateAction({
       commentid: this.clickid,
       content: this.comment
