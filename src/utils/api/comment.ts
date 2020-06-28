@@ -5,21 +5,20 @@ import { Comment } from "@/store/models/comment";
  * Get the list of postsssss
  *
  */
-export const apiAddComment = (params: Record<string, string | number>) => {
+export const apiAddComment = (params?: Record<string, string | number>) => {
   http.request<Comment>({
-    url: "/posts/comments",
+    url: `/posts/comments?${sessionStorage.getItem("signedInUser")}`,
     method: "POST",
     data: params,
-    withCredentials: true,
-    headers: {
-      Authorization: `Bearer ${sessionStorage.getItem("signedInUser")}`
-    }
+    withCredentials: true
   });
 };
 
 export const apiUpdateComment = (params: Record<string, string | number>) => {
   http.request<Comment>({
-    url: `/posts/comments/${params.commentid}`,
+    url: `/posts/comments/${params.commentid}?${sessionStorage.getItem(
+      "signedInUser"
+    )}`,
     method: "PUT",
     data: { content: params.content },
     withCredentials: true
