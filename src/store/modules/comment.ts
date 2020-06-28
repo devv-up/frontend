@@ -26,14 +26,11 @@ export default class CommentModule extends VuexModule {
   //댓글등록 액션
   @Action({ commit: "commentAddMuta" })
   async commentAddAction(actioncomment: Record<string, string | number>) {
-    console.log("addaction " + actioncomment);
     return await apiAddComment(actioncomment);
   }
   //댓글수정 액션
   @Action({ commit: "commentUpdateMuta" })
   async commentUpdateAction(actioncomment: Record<string, string | number>) {
-    console.log("actioncontent" + actioncomment.content);
-    console.log("actioncommentid" + actioncomment.commentid);
     await apiUpdateComment(actioncomment);
   }
   //댓글삭제 액션

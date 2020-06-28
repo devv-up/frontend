@@ -10,7 +10,10 @@ export const apiAddComment = (params: Record<string, string | number>) => {
     url: "/posts/comments",
     method: "POST",
     data: params,
-    withCredentials: true
+    withCredentials: true,
+    headers: {
+      Authorization: `Bearer ${sessionStorage.getItem("signedInUser")}`
+    }
   });
 };
 
