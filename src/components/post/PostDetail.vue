@@ -1,6 +1,5 @@
 <template>
   <section class="d-flex flex-column">
-    <h2>{{ detailData }}</h2>
     <v-img src="@/assets/images/bill.jpg"></v-img>
     <v-row>
       <v-col cols="12" sm="9">

@@ -34,16 +34,16 @@
         class="mt-8"
         v-model="comment"
       ></v-textarea>
-      <v-btn class="ma-1" color="white" @click="updatecomment">수정</v-btn>
-      <v-btn class="ma-1 white--text" color="#8d13d0" @click="cancel"
-        >취소</v-btn
-      >
+      <v-row justify="center">
+        <v-btn class="ma-1" color="white" @click="updatecomment">수정</v-btn>
+        <v-btn class="ma-1 white--text" color="#8d13d0" @click="cancel"
+          >취소</v-btn
+        >
+      </v-row>
     </span>
 
-    <p v-if="addboolean" class="font-weight-CONDENSED headline ma-2">
-      댓글쓰기
-    </p>
-    <span align="center" v-if="addboolean">
+    <span v-if="addboolean">
+      <p class="font-weight-CONDENSED headline ma-2">댓글쓰기</p>
       <v-textarea
         name="input-7-1"
         filled
@@ -52,9 +52,11 @@
         class="mt-8"
         v-model="comment"
       ></v-textarea>
-      <v-btn class="white--text" color="#8d13d0" @click="addcomment"
-        >댓글등록</v-btn
-      >
+      <v-row justify="center" v-if="addboolean">
+        <v-btn class="white--text" color="#8d13d0" @click="addcomment"
+          >댓글등록</v-btn
+        >
+      </v-row>
     </span>
   </section>
 </template>
