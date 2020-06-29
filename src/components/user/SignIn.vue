@@ -16,6 +16,7 @@
         label="이메일을 입력하세요"
         required
         v-model="email"
+        @keyup.enter="signin"
       />
       <v-text-field
         type="password"
@@ -24,6 +25,7 @@
         label="비밀번호를 입력하세요"
         required
         v-model="password"
+        @keyup.enter="signin"
       />
       <v-btn text small color="grey darken-2" class="align-self-end">
         비밀번호를 잊으셨나요?
@@ -40,12 +42,15 @@ import { Getter, Action } from "vuex-class";
 
 import Swal from "sweetalert2";
 
+import { SignedInUser } from "@/store/models/user";
+import { ResponseMessage } from "@/utils/response-message";
+
 @Component
 export default class SignIn extends Vue {
   private email = "";
   private password = "";
 
-  @Getter currentUser!: Function;
+  @Getter currentUser!: SignedInUser;
   @Action signinWith!: Function;
 
   async signin() {
@@ -59,27 +64,9 @@ export default class SignIn extends Vue {
     } catch (e) {
       Swal.fire({
         icon: "error",
-        text: this.getErrorMessage(e.response.data)
+        html: ResponseMessage.getErrorFrom(e.response.data)
       });
     }
-  }
-
-  getErrorMessage(responseData: Record<string, (string | null)[]>): string {
-    const key = `${Object.keys(responseData)[0]}: ${
-      responseData[Object.keys(responseData)[0]][0]
-    }`;
-
-    const errorMessageList: Record<string, string> = {
-      "password: This field may not be blank.":
-        "이메일과 비밀번호를 입력해주세요.",
-      'non_field_errors: Must include "email" and "password".':
-        "이메일과 비밀번호를 입력해주세요.",
-      "email: Enter a valid email address.": "이메일 형식이 잘못되었습니다.",
-      "non_field_errors: Unable to log in with provided credentials.":
-        "이메일과 비밀번호를 다시 확인해주세요."
-    };
-
-    return errorMessageList[key];
   }
 }
 </script>
