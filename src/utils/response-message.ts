@@ -13,7 +13,7 @@ export class ResponseMessage {
       "이미 가입 되어있는 이메일입니다.",
     "password1: This password is too short. It must contain at least 8 characters.":
       "비밀번호는 최소 8자 이상이어야 합니다.",
-    "password1: This password is too common.": "너무 쉬운 비밀번호입니다.",
+    "password1: This password is too common.": "너무 흔한 비밀번호입니다.",
     "password1: This password is entirely numeric.":
       "비밀번호가 숫자로만 이루어져 있습니다."
   };
@@ -21,8 +21,8 @@ export class ResponseMessage {
   static getErrorFrom(responseData: Record<string, (string | null)[]>): string {
     const messages: Array<string> = [];
 
-    Object.keys(responseData).map(k => {
-      responseData[k].map(v => {
+    Object.keys(responseData).forEach(k => {
+      responseData[k].forEach(v => {
         messages.push(this.errorMessage[`${k}: ${v}`]);
       });
     });
