@@ -18,6 +18,7 @@
         v-model="email"
         label="이메일 주소"
         required
+        @keyup.enter="signup"
       />
       <v-text-field
         hide-details
@@ -25,6 +26,7 @@
         v-model="name"
         label="이름"
         required
+        @keyup.enter="signup"
       />
       <v-text-field
         type="password"
@@ -33,6 +35,7 @@
         v-model="password1"
         label="비밀번호"
         required
+        @keyup.enter="signup"
       />
       <v-text-field
         type="password"
@@ -41,6 +44,7 @@
         v-model="password2"
         label="비밀번호 확인"
         required
+        @keyup.enter="signup"
       />
       <v-btn color="primary" class="mt-2" large @click="signup">가입하기</v-btn>
     </div>

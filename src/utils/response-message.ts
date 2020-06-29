@@ -15,7 +15,11 @@ export class ResponseMessage {
       "비밀번호는 최소 8자 이상이어야 합니다.",
     "password1: This password is too common.": "너무 흔한 비밀번호입니다.",
     "password1: This password is entirely numeric.":
-      "비밀번호가 숫자로만 이루어져 있습니다."
+      "비밀번호가 숫자로만 이루어져 있습니다.",
+    "email: This field may not be blank.": "이메일을 입력해주세요",
+    "username: This field may not be blank.": "이름을 입력해주세요.",
+    "password1: This field may not be blank.": "비밀번호를 입력해주세요.",
+    "password2: This field may not be blank.": "비밀번호를 입력해주세요."
   };
 
   static getErrorFrom(responseData: Record<string, (string | null)[]>): string {

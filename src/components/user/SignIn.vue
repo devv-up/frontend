@@ -16,6 +16,7 @@
         label="이메일을 입력하세요"
         required
         v-model="email"
+        @keyup.enter="signin"
       />
       <v-text-field
         type="password"
@@ -24,6 +25,7 @@
         label="비밀번호를 입력하세요"
         required
         v-model="password"
+        @keyup.enter="signin"
       />
       <v-btn text small color="grey darken-2" class="align-self-end">
         비밀번호를 잊으셨나요?
