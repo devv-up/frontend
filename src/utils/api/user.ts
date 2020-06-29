@@ -8,3 +8,10 @@ export const signinWith = (data: Record<string, string | number>) =>
     data: data,
     withCredentials: true
   });
+
+export const signupWith = (data: Record<string, string | number>) =>
+  http.request({
+    url: "user/auth/registration/",
+    method: "POST",
+    data: data
+  });

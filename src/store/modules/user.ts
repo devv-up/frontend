@@ -1,10 +1,12 @@
 import { Module, VuexModule, Mutation, Action } from "vuex-module-decorators";
-import { signinWith } from "@/utils/api/user";
+import { signinWith, signupWith } from "@/utils/api/user";
 import { SignedInUser } from "@/store/models/user";
 
 @Module
 export default class UserModule extends VuexModule {
   private signedInUser = new SignedInUser();
+
+  private successData = {};
 
   @Mutation
   storeDataOf(user: SignedInUser) {
@@ -18,6 +20,24 @@ export default class UserModule extends VuexModule {
     } catch (e) {
       return Promise.reject(e);
     }
+  }
+
+  @Mutation
+  storeSuccessData(data: any) {
+    this.successData = data;
+  }
+
+  @Action({ rawError: true })
+  async signupWith(userData: Record<string, string>): Promise<any> {
+    try {
+      return (await signupWith(userData)).data;
+    } catch (e) {
+      return Promise.reject(e);
+    }
+  }
+
+  get success() {
+    return this.successData;
   }
 
   get currentUser(): SignedInUser {
