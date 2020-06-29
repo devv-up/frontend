@@ -23,12 +23,12 @@ export default class UserModule extends VuexModule {
   }
 
   @Mutation
-  storeSuccessData(data: any) {
+  storeSuccessData(data: object) {
     this.successData = data;
   }
 
   @Action({ rawError: true })
-  async signupWith(userData: Record<string, string>): Promise<any> {
+  async signupWith(userData: Record<string, string>): Promise<object> {
     try {
       return (await signupWith(userData)).data;
     } catch (e) {
