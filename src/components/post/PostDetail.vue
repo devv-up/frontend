@@ -1,6 +1,5 @@
 <template>
   <section class="d-flex flex-column">
-    <h2>{{ detailData }}</h2>
     <v-img src="@/assets/images/bill.jpg"></v-img>
     <v-row>
       <v-col cols="12" sm="9">
@@ -17,14 +16,14 @@
         <span class="justify-start" max-width="210">
           <v-row>
             <v-card-text class="font-weight-CONDENSED headline ml-1">
-              <span class="ml-1">{{ detailData.author.name }}</span>
+              <span class="ml-1">{{ this.name }}</span>
             </v-card-text>
 
             <v-col cols="12">
               <v-avatar size="100" tile class="ml-4">
                 <v-img src="@/assets/images/seoul2.jpg"></v-img>
               </v-avatar>
-              <p class="ml-6 mt-3">{{ detailData.author.name }}</p>
+              <p class="ml-6 mt-3">{{ this.name }}</p>
             </v-col>
 
             <v-card-text class="ml-2">
@@ -54,7 +53,9 @@ import PostComment from "@/components/post/comment/PostComment.vue";
     PostComment
   }
 })
-export default class MainDetailContent extends Vue {
+export default class PostDetail extends Vue {
+  private name = "";
+
   @Prop({ default: "@/assets/images/seoul3.jpg" }) private groupImage!: string;
   @Prop({ default: "@/assets/images/seoul2.jpg" }) private hostImage!: string;
 
@@ -64,6 +65,7 @@ export default class MainDetailContent extends Vue {
 
   async created() {
     await this.detailAction();
+    this.name = this.detailData.author.name;
   }
 }
 </script>
