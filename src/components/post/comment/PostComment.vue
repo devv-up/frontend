@@ -7,55 +7,30 @@
           <span class="ml-3">작성자: {{ item.author.name }}</span>
         </h3>
         <v-spacer />
-        <v-btn
-          v-if="addboolean"
-          class="ma-1"
-          color="white"
-          @click="update(item.id)"
-          >수정</v-btn
-        >
+        <v-btn v-if="addboolean" class="ma-1" color="white" @click="update(item.id)">수정</v-btn>
         <v-btn
           v-if="addboolean"
           class="ma-1 white--text"
           color="#8d13d0"
           @click="deletecomment(item.id)"
-          >삭제</v-btn
-        >
+        >삭제</v-btn>
       </v-row>
       <p name="content" v-if="item.id">{{ item.content }}</p>
     </span>
 
     <span v-if="updateboolean">
-      <v-textarea
-        name="input-7-1"
-        filled
-        label="댓글수정"
-        auto-grow
-        class="mt-8"
-        v-model="comment"
-      ></v-textarea>
+      <v-textarea name="input-7-1" filled label="댓글수정" auto-grow class="mt-8" v-model="comment"></v-textarea>
       <v-row justify="center">
         <v-btn class="ma-1" color="white" @click="updatecomment">수정</v-btn>
-        <v-btn class="ma-1 white--text" color="#8d13d0" @click="cancel"
-          >취소</v-btn
-        >
+        <v-btn class="ma-1 white--text" color="#8d13d0" @click="cancel">취소</v-btn>
       </v-row>
     </span>
 
     <span v-if="addboolean">
       <p class="font-weight-CONDENSED headline ma-2">댓글쓰기</p>
-      <v-textarea
-        name="input-7-1"
-        filled
-        label="댓글입력"
-        auto-grow
-        class="mt-8"
-        v-model="comment"
-      ></v-textarea>
+      <v-textarea name="input-7-1" filled label="댓글입력" auto-grow class="mt-8" v-model="comment"></v-textarea>
       <v-row justify="center" v-if="addboolean">
-        <v-btn class="white--text" color="#8d13d0" @click="addcomment"
-          >댓글등록</v-btn
-        >
+        <v-btn class="white--text" color="#8d13d0" @click="addcomment">댓글등록</v-btn>
       </v-row>
     </span>
   </section>
@@ -122,6 +97,9 @@ export default class PostComment extends Vue {
   }
 
   updatecomment() {
+    this.detailData.comments.sort((a, b) => {
+      return +b.createdDate - +a.createdDate;
+    });
     this.commentUpdateAction({
       commentid: this.clickid,
       content: this.comment
